@@ -111,6 +111,7 @@ theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
