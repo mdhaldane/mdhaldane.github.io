@@ -6,5 +6,5 @@ main:
     url: /index.html
   - title: "About"
     url: /about/
-  - work: "Work"
+  - title: "Work"
     url: /work/
