@@ -1,11 +1,11 @@
 ---
-layout: page
+layout: single
 title: About
 permalink: /about/
 ---
 
-![Me](/assets/DSC_0029.jpg){: .align-left width="400"}
-## ![SCMP](/assets/scmp.ico) South China Morning Post
+![Me](/assets/images/DSC_0029.jpg){: .align-left width="400"}
+## ![SCMP](/assets/images/scmp.ico) South China Morning Post
 ### Production Editor, Technology, Business
 
 Editor for SCMP Tech, covering a range of topics – such as 5G, artificial intelligence, blockchain and the trade war – and multinational companies, including Alibaba, Huawei, Tencent and Xiaomi.
