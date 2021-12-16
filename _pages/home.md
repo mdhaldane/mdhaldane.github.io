@@ -5,8 +5,9 @@ permalink: /
 header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/transmetropolitan.jpg
+  text_color: firebrick
 #  caption: some caption
-excerpt: "Business journalist writing about tech in China"
+excerpt: "Explaining Tech in China"
 # intro: 
 #   - excerpt: ''
 author_profile: true

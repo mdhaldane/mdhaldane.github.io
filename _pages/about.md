@@ -4,7 +4,12 @@ title: About
 permalink: /about/
 ---
 
-![Me](/assets/images/DSC_0029.jpg){: .align-left width="400"}
+## Sailor turned journalist
+
+![Me](/assets/images/DSC_0029.jpg){: width="400"}
+
+## What I do:
+
 ## ![SCMP](/assets/images/scmp.ico) South China Morning Post
 ### Production Editor, Technology, Business
 
@@ -12,7 +17,7 @@ Editor for SCMP Tech, covering a range of topics – such as 5G, artificial inte
 
 Work closely with reporters to develop, fact check, and copy edit stories, ensuring quick turnaround.  Write the Inside China Tech newsletter, explanatory articles and other timely articles as needed.
 
-## Previous work
+## What I've done:
 
 ### Global Sources (2015 – 2018)
 #### Content Officer (Shenzhen)
@@ -32,7 +37,9 @@ Multimedia B2B coverage of global technology trends and the Chinese supply chain
 - Breaking news
 
 ### U.S. Navy (2005 – 2009)
-#### Information Systems Technician (South Korea, Japan)
+#### Information Systems Technician
+- Commander Fleet Activities Chinhae (CFAC), South Korea
+- U.S. Navy Information Operations Command (NIOC) Misawa, Japan
 
 ## Education
 
