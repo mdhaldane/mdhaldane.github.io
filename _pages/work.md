@@ -13,7 +13,7 @@ My work can range from technical dives into topics like [blockchain and Bitcoin]
 
 Check out links to my work below. Not enough? Sign up for the [Inside China Tech newsletter](https://www.scmp.com/newsletters) and I'll catch you up on the latest China tech news every week.
 
-<h2>Table of Contents</h2>
+<h2>Contents</h2>
 - [Xiaomi](#xiaomi)
 - [Huawei](#huawei)
 - [Blockchain](#blockchain)

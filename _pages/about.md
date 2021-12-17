@@ -4,6 +4,12 @@ title: About
 permalink: /about/
 ---
 
+---
+
+| [**Background**](#sailor-turned-journalist) | | [**Current Position**](#what-i-do) | | [**Past Work**](#what-ive-done) | | [**Education**](#education) |
+
+---
+
 ## Sailor turned journalist
 
 ![Me](/assets/images/DSC_0029.jpg){: width="400"}
