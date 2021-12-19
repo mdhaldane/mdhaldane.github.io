@@ -32,6 +32,8 @@ feature_row:
     excerpt: "Working with data, learning R, and building websites in my spare time."
 ---
 
-{% include feature_row %}
+Matt Haldane is a tech journalist based in Hong Kong, where currently works as a business and technology editor at the South China Morning Post. Find out more below.
 
-Matt Haldane is a tech journalist based in Hong Kong. He’s currently an editor at the South China Morning Post, where he started in 2019. He previously wrote about tech trends in Shenzhen and has written for Reuters, USA Today, The Arizona Republic, The Phoenix Business, TechNode and Tech in Asia, among others.
+<div class="text-center text-small page__footer-follow"> <ul class="social-icons"> {% if site.data.ui-text[site.locale].follow_label %} <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li> {% endif %} {% if site.footer.links %} {% for link in site.footer.links %} {% if link.label and link.url %} <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true" style="{{link.style}}"></i> {{ link.label }}</a></li> {% endif %} {% endfor %} {% endif %}</ul> </div>
+
+{% include feature_row %}

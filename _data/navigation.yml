@@ -8,3 +8,5 @@ main:
     url: /about/
   - title: "Work"
     url: /work/
+  - title: "Blog"
+    url: /blog/

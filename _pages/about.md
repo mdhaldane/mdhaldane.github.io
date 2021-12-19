@@ -26,24 +26,23 @@ Work closely with reporters to develop, fact check, and copy edit stories, ensur
 ## What I've done:
 
 ### Global Sources (2015 – 2018)
-#### Content Officer (Shenzhen)
-
+**Content Officer (Shenzhen)**<br>
 Multimedia B2B coverage of global technology trends and the Chinese supply chain. Wrote and edited for magazines and online about new products and companies, established brands and startups alike. Produced video content and managed newsletters. Helped with bi-annual trade shows, inviting speakers and handling online coverage.
 
 
 ### Internships
 
-#### Thomson Reuters (Washington, D.C. – 2013)
-- Companies, commodities and energy
+**Thomson Reuters (Washington, D.C. – 2013)**<br>
+Companies, commodities and energy intern
 
-#### The Phoenix Business Journal (2012)
-- American City Business Journals internship
+**The Phoenix Business Journal (2012)**<br>
+American City Business Journals internship
 
-#### The Arizona Republic (Phoenix – 2011)
-- Breaking news
+**The Arizona Republic (Phoenix – 2011)**<br>
+Breaking news intern
 
 ### U.S. Navy (2005 – 2009)
-#### Information Systems Technician
+**Information Systems Technician**
 - Commander Fleet Activities Chinhae (CFAC), South Korea
 - U.S. Navy Information Operations Command (NIOC) Misawa, Japan
 
@@ -51,13 +50,12 @@ Multimedia B2B coverage of global technology trends and the Chinese supply chain
 
 ### Tsinghua University (2013 – 2015)
 
-#### Master of Arts, *Global Business Journalism*
+**Master of Arts, *Global Business Journalism***
 
 - **Global Trade Leader Scholarship** from the [Hinrich Foundation](https://www.hinrichfoundation.com)
-- Best thesis for examining the impact of English-language news media on the opening on of the Shanghai-Hong Kong Stock Connect
+- Awarded best thesis for examining the impact of English-language news media on the opening on of the Shanghai-Hong Kong Stock Connect
 
 ### Arizona State University (2010 – 2012)
 
-Bachelor of Science, *Economics*
-
-Bachelor of Arts, *Journalism*
+- Bachelor of Science, *Economics*
+- Bachelor of Arts, *Journalism*
