@@ -12,24 +12,24 @@ excerpt: "Tech in China"
 #   - excerpt: ''
 author_profile: true
 feature_row:
-  - image_path: /assets/images/writer.jpg
+  - image_path: /assets/images/who_is_matt.jpg
     alt: "Who am I?"
     title: "Who am I?"
-    excerpt: "Not the suit I wear to the office."
+    excerpt: "From tech to journalism to China."
     url: "/about/"
     btn_class: "btn--primary"
     btn_label: "About me"
-  - image_path: /assets/images/clips.jpg
+  - image_path: /assets/images/front_page.jpg
     alt: "Clips"
     title: "Clips"
-    excerpt: "Articles on tech and business."
+    excerpt: "A decade of covering tech and business."
     url: "/work/"
     btn_class: "btn--primary"
     btn_label: "See my work"
-  - image_path: /assets/images/tinkerer.jpg
+  - image_path: /assets/images/tinker.jpg
     alt: "Tinkerer"
     title: "Tinkerer"
-    excerpt: "Working with data, learning R, and building websites in my spare time."
+    excerpt: "Working with data and building websites in my spare time. <b>Coming soon</b>"
 ---
 
 Matt Haldane is a tech journalist based in Hong Kong, where currently works as a business and technology editor at the South China Morning Post. Find out more below.
