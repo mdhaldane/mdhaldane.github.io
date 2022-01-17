@@ -5,9 +5,9 @@ permalink: /work/
 group: navigation
 ---
 
-My work today focuses on technology in China for SCMP.com. But I have years of experience doing a wide range of business coverage for print and online publications.
+My work today focuses on technology in China, but I have years of experience doing a wide range of business coverage for print and online publications.
 
-[Print, you say?](https://www.notion.so/Print-you-say-2399764699e0473dbdee8f7bf9a831ea)
+[Look at some print clippings if you’d like.](/print/)
 
 My work can range from technical dives into topics like [blockchain and Bitcoin](#blockchain) and [censorship](#censorship) circumvention tools like [Shadowsocks](https://www.scmp.com/abacus/tech/article/3096044/google-using-tool-chinese-users-developed-bypass-great-firewall) to the latest developments of Big Tech companies like [Xiaomi](#xiaomi) and [Huawei](#huawei).
 

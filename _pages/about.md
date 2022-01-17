@@ -6,13 +6,21 @@ permalink: /about/
 
 ---
 
-| [**Background**](#sailor-turned-journalist) | | [**Current Position**](#what-i-do) | | [**Past Work**](#what-ive-done) | | [**Education**](#education) |
+| [**Background**](#from-tech-to-journalism) | | [**Current Position**](#what-i-do) | | [**Past Work**](#what-ive-done) | | [**Education**](#education) |
 
 ---
 
-## Sailor turned journalist
+## From tech to journalism
 
 ![Me](/assets/images/DSC_0029.jpg){: width="400"}
+
+When I first joined the navy out of high school, I was told I could pick any job I wanted. That turns out to not have been quite true. I wanted to be a journalist (a rating that still existed at the time), but I was told there wouldn’t be any openings for months. OK, fine. “Give me something handling computers then,” I said.
+
+Since I was the kind of kid who built his own desktop in high school, being an IT suited me fine. But I always knew I was going to circle back around to the journalism thing. It was just a matter of time.
+
+Spending time in Asia-Pacific made it clear that developments in the region were shaping the geopolitical landscape in the 21st century, so this became my area of focus after graduating with a bachelor’s in journalism and economics. I got a Global Trade Leader Scholarship from the Hinrich Foundation to get my master’s in Beijing, where my interest grew in local technology companies that were in the process of defining China’s online experience for the years to come.
+
+Technology in China continues to be my area of focus at the *South China Morning Post*. See my [work here](/work/). See my work history below.
 
 ## What I do:
 
@@ -23,7 +31,7 @@ Editor for SCMP Tech, covering a range of topics – such as 5G, artificial inte
 
 Work closely with reporters to develop, fact check, and copy edit stories, ensuring quick turnaround.  Write the Inside China Tech newsletter, explanatory articles and other timely articles as needed.
 
-## What I've done:
+## What I’ve done:
 
 ### Global Sources (2015 – 2018)
 **Content Officer (Shenzhen)**<br>
@@ -53,7 +61,8 @@ Breaking news intern
 **Master of Arts, *Global Business Journalism***
 
 - **Global Trade Leader Scholarship** from the [Hinrich Foundation](https://www.hinrichfoundation.com)
-- Awarded best thesis for examining the impact of English-language news media on the opening on of the Shanghai-Hong Kong Stock Connect
+- **Best Thesis:** *English financial media and the relationship to equity movements in China: A case study of the Shanghai-Hong Kong Stock Connect Program*
+  - A study examining the relationship between English financial news media and investment in Mainland China during the opening of the Shanghai-Hong Kong Stock Connect using coverage of the event over the course of 2014 in Reuters and Bloomberg News.
 
 ### Arizona State University (2010 – 2012)
 
