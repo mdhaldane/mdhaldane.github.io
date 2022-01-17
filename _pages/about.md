@@ -4,12 +4,6 @@ title: About
 permalink: /about/
 ---
 
----
-
-| [**Background**](#from-tech-to-journalism) | | [**Current Position**](#what-i-do) | | [**Past Work**](#what-ive-done) | | [**Education**](#education) |
-
----
-
 ## From tech to journalism
 
 ![Me](/assets/images/DSC_0029.jpg){: width="400"}
@@ -17,6 +11,8 @@ permalink: /about/
 I got my start in journalism in Arizona, after leaving the US Navy, where I worked as an IT for four years. My interests in technology and developments in Asia-Pacific led me to pursue a master’s in Beijing, where I watched the technological landscape evolve throughout the 2010s.
 
 Today, I write and edit technology news for the *South China Morning Post* in Hong Kong. [See my work here](/work/). See my work history below.
+
+| [**Current Position**](#what-i-do) | | [**Past Work**](#what-ive-done) | | [**Education**](#education) |
 
 ## What I do:
 
