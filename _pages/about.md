@@ -14,13 +14,9 @@ permalink: /about/
 
 ![Me](/assets/images/DSC_0029.jpg){: width="400"}
 
-When I first joined the navy out of high school, I was told I could pick any job I wanted. That turns out to not have been quite true. I wanted to be a journalist (a rating that still existed at the time), but I was told there wouldn’t be any openings for months. OK, fine. “Give me something handling computers then,” I said.
+I got my start in journalism in Arizona, after leaving the US Navy, where I worked as an IT for four years. My interests in technology and developments in Asia-Pacific led me to pursue a master’s in Beijing, where I watched the technological landscape evolve throughout the 2010s.
 
-Since I was the kind of kid who built his own desktop in high school, being an IT suited me fine. But I always knew I was going to circle back around to the journalism thing. It was just a matter of time.
-
-Spending time in Asia-Pacific made it clear that developments in the region were shaping the geopolitical landscape in the 21st century, so this became my area of focus after graduating with a bachelor’s in journalism and economics. I got a Global Trade Leader Scholarship from the Hinrich Foundation to get my master’s in Beijing, where my interest grew in local technology companies that were in the process of defining China’s online experience for the years to come.
-
-Technology in China continues to be my area of focus at the *South China Morning Post*. See my [work here](/work/). See my work history below.
+Today, I write and edit technology news for the *South China Morning Post* in Hong Kong. [See my work here](/work/). See my work history below.
 
 ## What I do:
 
