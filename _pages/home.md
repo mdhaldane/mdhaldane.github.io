@@ -29,7 +29,10 @@ feature_row:
   - image_path: /assets/images/tinker.jpg
     alt: "Tinkerer"
     title: "Tinkerer"
-    excerpt: "Working with data and building websites in my spare time. <b>Coming soon</b>"
+    excerpt: "Data analysis and websites."
+    url: "/projects/"
+    btn_class: "btn--primary"
+    btn_label: "Projects"
 ---
 
 Matt Haldane is a tech journalist based in Hong Kong, where currently works as a business and technology editor at the *South China Morning Post*.
