@@ -25,7 +25,6 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 - [Science](#science)
 - [Business](#business)
 - [Politics](#politics)
-- [Videos](#videos)
 
 ## Xiaomi
 
@@ -115,8 +114,3 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 - [U.S. Senator Paul calls for lawsuit over government surveillance](https://www.reuters.com/article/idUSL2N0EP1PI20130613) - Reuters
 - [U.S. aviation chief defends NextGen progress as funding cuts loom](https://www.reuters.com/article/us-nextgen-hearing/u-s-aviation-chief-defends-nextgen-progress-as-funding-cuts-loom-idUKL1N0FN1RP20130717) - Reuters
 - [How China's rise is straining the existing, albeit flawed, liberal world order](https://www.sawtee.org/publications/TI-Vol-14,-No-1-4,-2018.pdf) - [Trade Insight](https://www.sawtee.org/publications/trade-insight/) - South Asia Watch on Trade, Economics and Environment
-
-## Videos
-
-- [Armed and Educated](https://youtu.be/sU11AAgdlNw)
-- [Beijing haze blurs city charm](https://youtu.be/Xy3MQgkDKB0)
