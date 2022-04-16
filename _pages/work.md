@@ -44,6 +44,7 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Blockchain
 
+- [Web3 tech helps banned books on piracy site Library Genesis slip through the Great Firewall’s cracks, but for how long?](https://www.scmp.com/tech/tech-trends/article/3172431/web3-tech-helps-banned-books-piracy-site-library-genesis-slip)
 - [What blockchain is, how it works and how China will lead the world](https://www.scmp.com/tech/blockchain/article/3117745/what-blockchain-how-it-works-and-how-china-will-lead-world) - South China Morning Post
 - [China’s bitcoin crackdown: why is it happening and what’s next for the original cryptocurrency?](https://www.scmp.com/tech/big-tech/article/3141253/chinas-bitcoin-crackdown-why-it-happening-and-whats-next-original) - South China Morning Post
 - [Global Impact: China’s bitcoin mining crackdown wreaks havoc, but what does it mean for the future of the cryptocurrency?](https://www.scmp.com/economy/article/3138966/chinas-bitcoin-mining-crackdown-wreaks-havoc-what-does-it-mean-future) - South China Morning Post
