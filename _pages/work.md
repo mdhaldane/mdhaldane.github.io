@@ -50,7 +50,6 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 - [Xiaomi’s first OLED TV costs nearly US$2,000](https://www.scmp.com/abacus/tech/article/3091785/xiaomis-first-oled-tv-costs-nearly-us2000) - South China Morning Post
 - [Xiaomi introduces RAM drives to smartphones so gamers can load games like PUBG Mobile faster](https://www.scmp.com/abacus/games/article/3104347/xiaomi-introduces-ram-drives-smartphones-so-gamers-can-load-games-pubg) - South China Morning Post
 
-
 ## Huawei
 
 - [End of Meng Wanzhou saga leaves little upside for Huawei](https://www.scmp.com/economy/article/3151869/end-meng-wanzhou-saga-leaves-little-upside-huawei) - South China Morning Post

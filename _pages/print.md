@@ -6,6 +6,10 @@ permalink: /print/
 
 ## South China Morning Post
 
+<a href="/assets/images/print_clips/libgenclip.png">![](/assets/images/print_clips/web3books.png)</a>
+
+<a href="/assets/images/print_clips/mastodonclip.png">![](/assets/images/print_clips/mastodonclip.png)</a>
+
 <a href="/assets/images/print_clips/3937f8c8-d206-4899-97c5-de0530bbf38d.jpg">![](/assets/images/print_clips/3937f8c8-d206-4899-97c5-de0530bbf38d.jpg)</a>
 
 ## Trade Insights
