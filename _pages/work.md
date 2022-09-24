@@ -14,9 +14,10 @@ My work can range from technical dives into topics like [blockchain and Bitcoin]
 Check out links to my work below. Not enough? Sign up for the [Inside China Tech newsletter](https://www.scmp.com/newsletters) and I'll catch you up on the latest China tech news every week.
 
 <h2>Contents</h2>
+- [Web3](#web3)
+- [Interviews](#interviews)
 - [Xiaomi](#xiaomi)
 - [Huawei](#huawei)
-- [Blockchain](#blockchain)
 - [Censorship](#censorship)
 - [Entertainment](#entertainment)
 - [Drones](#drones)
@@ -25,6 +26,22 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 - [Science](#science)
 - [Business](#business)
 - [Politics](#politics)
+
+## Web3
+
+- [Chinese social media users are flocking to the decentralised Mastodon platform to find community amid crackdown at home](https://www.scmp.com/tech/tech-trends/article/3192843/chinese-social-media-users-are-flocking-decentralised-mastodon)
+- [Web3 tech helps banned books on piracy site Library Genesis slip through the Great Firewall’s cracks, but for how long?](https://www.scmp.com/tech/tech-trends/article/3172431/web3-tech-helps-banned-books-piracy-site-library-genesis-slip)
+- [What makes the e-CNY different from bitcoin? Central bank digital currencies share little with cryptocurrencies](https://www.scmp.com/tech/policy/article/3182195/what-makes-e-cny-different-bitcoin-central-bank-digital-currencies)
+- [Taiwan’s Digital Affairs ministry turns to Web3 to guard against mainland China cyberattacks following Pelosi’s visit](https://www.scmp.com/tech/tech-trends/article/3188434/taiwans-digital-affairs-ministry-turns-web3-guard-against-mainland)
+- [China back among top 10 crypto-using countries in Chainalysis report after crackdown, as Vietnam keeps top ranking](https://www.scmp.com/tech/tech-trends/article/3192473/china-back-among-top-10-crypto-using-countries-chainalysis-report)
+- [What blockchain is, how it works and how China will lead the world](https://www.scmp.com/tech/blockchain/article/3117745/what-blockchain-how-it-works-and-how-china-will-lead-world) - South China Morning Post
+- [China’s bitcoin crackdown: why is it happening and what’s next for the original cryptocurrency?](https://www.scmp.com/tech/big-tech/article/3141253/chinas-bitcoin-crackdown-why-it-happening-and-whats-next-original) - South China Morning Post
+- [Global Impact: China’s bitcoin mining crackdown wreaks havoc, but what does it mean for the future of the cryptocurrency?](https://www.scmp.com/economy/article/3138966/chinas-bitcoin-mining-crackdown-wreaks-havoc-what-does-it-mean-future) - South China Morning Post
+- [Hong Kong Bitcoin Exchange ANX Expands with New Mobile App](https://technode.com/2014/05/21/hong-kong-bitcoin-exchange-anx-moves-mobile-payments/) - TechNode
+
+## Interviews
+
+- [The Nothing Phone 1 is Carl Pei’s first move in trying to shake up the smartphone since leaving OnePlus. Will it work?](https://www.scmp.com/tech/big-tech/article/3184613/nothing-phone-1-carl-peis-first-move-trying-shake-smartphone-leaving)
 
 ## Xiaomi
 
@@ -40,14 +57,6 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 - [Will Huawei’s Harmony operating system end the global duopoly of Google’s Android and Apple’s iOS?](https://www.scmp.com/tech/big-tech/article/3136017/will-huaweis-harmony-operating-system-end-global-duopoly-googles) - South China Morning Post
 - [Trump wants Apple to build 5G for the US](https://www.scmp.com/abacus/news-bites/article/3039008/trump-wants-apple-build-5g-us) - South China Morning Post
 - [Wuhan coronavirus outbreak causes Huawei to postpone developer conference](https://www.scmp.com/abacus/news-bites/article/3047423/wuhan-coronavirus-outbreak-causes-huawei-postpone-developer) - South China Morning Post
-
-
-## Blockchain
-
-- [What blockchain is, how it works and how China will lead the world](https://www.scmp.com/tech/blockchain/article/3117745/what-blockchain-how-it-works-and-how-china-will-lead-world) - South China Morning Post
-- [China’s bitcoin crackdown: why is it happening and what’s next for the original cryptocurrency?](https://www.scmp.com/tech/big-tech/article/3141253/chinas-bitcoin-crackdown-why-it-happening-and-whats-next-original) - South China Morning Post
-- [Global Impact: China’s bitcoin mining crackdown wreaks havoc, but what does it mean for the future of the cryptocurrency?](https://www.scmp.com/economy/article/3138966/chinas-bitcoin-mining-crackdown-wreaks-havoc-what-does-it-mean-future) - South China Morning Post
-- [Hong Kong Bitcoin Exchange ANX Expands with New Mobile App](https://technode.com/2014/05/21/hong-kong-bitcoin-exchange-anx-moves-mobile-payments/) - TechNode
 
 ## Censorship
 
@@ -72,6 +81,7 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Other China Tech stories
 
+- [US-China chip war is overheating](https://www.scmp.com/economy/article/3189695/us-china-chip-war-overheating)
 - [Whiff of trade war won't sway Shenzhen's foreign entrepreneurs](https://technode.com/2018/11/29/trade-war-shenzhen-foreign-entrepreneurs/) - TechNode
 - [What Southeast Asia can learn from China e-wallets](https://www.techinasia.com/ewallets-china-southeast-asia-learn) - Tech in Asia
 - [Panasonic won’t open Chinese battery plant for Tesla](https://www.scmp.com/abacus/news-bites/article/3038968/panasonic-wont-open-chinese-battery-plant-tesla) - South China Morning Post
