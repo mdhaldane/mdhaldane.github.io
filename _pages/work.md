@@ -9,7 +9,7 @@ My work today focuses on technology in China, but I have years of experience doi
 
 [Look at some print clippings if you’d like.](/print/)
 
-My work can range from technical dives into topics like [blockchain and Bitcoin](#blockchain) and [censorship](#censorship) circumvention tools like [Shadowsocks](https://www.scmp.com/abacus/tech/article/3096044/google-using-tool-chinese-users-developed-bypass-great-firewall) to the latest developments of Big Tech companies like [Xiaomi](#xiaomi) and [Huawei](#huawei).
+My work can range from technical dives into topics like [blockchain and Bitcoin](#web3) and [censorship](#censorship) circumvention tools like [Shadowsocks](https://www.scmp.com/abacus/tech/article/3096044/google-using-tool-chinese-users-developed-bypass-great-firewall) to the latest developments of Big Tech companies like [Xiaomi](#xiaomi) and [Huawei](#huawei).
 
 Check out links to my work below. Not enough? Sign up for the [Inside China Tech newsletter](https://www.scmp.com/newsletters) and I'll catch you up on the latest China tech news every week.
 
