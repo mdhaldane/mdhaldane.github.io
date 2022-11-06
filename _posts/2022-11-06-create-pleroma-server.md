@@ -120,6 +120,8 @@ busybox unzip soapbox.zip -o -d /opt/pleroma/instance
 
 The theme should show up automatically by reloading your webpage. No need to restart the service.
 
+Finally, if you want your main page to point to your profile page, you can do this in settings. Once you're logged in to your server, click on "Soapbox config" in the right sidebar and turn on "Sinle user mode." Then put your @username in the "Main user handle" field.
+
 This was pretty much all I had to do to get things up and running. Of course, how long I leave it up and running is another question. After all, as [Moxie Marlinspike pointed out](https://moxie.org/2022/01/07/web3-first-impressions.html) when talking about the flaws of Web3, "People don’t want to run their own servers."
 
 But I guess that's why Mastodon.social exists.
