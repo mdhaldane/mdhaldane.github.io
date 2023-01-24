@@ -29,17 +29,17 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Web3
 
-- [Explainer | What is Web3? The term often confused with crypto, NFTs and the metaverse is getting popular](https://www.scmp.com/tech/tech-trends/article/3203600/what-web3-term-often-confused-crypto-nfts-and-metaverse-getting-popular)
-- [Explainer | What are virtual assets in Hong Kong and what do the city’s new rules mean for crypto trading?](https://www.scmp.com/tech/policy/article/3201697/what-are-virtual-assets-hong-kong-and-what-do-citys-new-rules-mean-crypto-trading)
-- [FTX’s lingering ties remind Hong Kong of the bullet it dodged and risks ahead to regain edge as Asia’s digital hub](https://www.scmp.com/tech/tech-trends/article/3201158/ftxs-lingering-ties-remind-hong-kong-bullet-it-dodged-risks-ahead-regain-edge-asias-digital-hub)
-- [FTX customers in mainland China make up 8 per cent of total, a court filing shows, defying Beijing’s crypto ban](https://www.scmp.com/tech/big-tech/article/3200730/ftx-customers-mainland-china-make-8-cent-total-court-filing-shows-defying-beijings-crypto-ban)
-- [Hong Kong exposure to FTX is ‘immaterial’, securities regulator says, as crypto firm’s collapse raises scrutiny](https://www.scmp.com/tech/big-tech/article/3199594/hong-kong-exposure-ftx-immaterial-securities-regulator-says-crypto-firms-collapse-raises-scrutiny)
-- [Head of China’s digital yuan addresses blockchain’s role in mBridge, pushing digital currencies beyond their borders](https://www.scmp.com/tech/policy/article/3198094/head-chinas-digital-yuan-addresses-blockchains-role-mbridge-pushing-digital-currencies-beyond-their)
-- [Chinese social media users are flocking to the decentralised Mastodon platform to find community amid crackdown at home](https://www.scmp.com/tech/tech-trends/article/3192843/chinese-social-media-users-are-flocking-decentralised-mastodon)
-- [Web3 tech helps banned books on piracy site Library Genesis slip through the Great Firewall’s cracks, but for how long?](https://www.scmp.com/tech/tech-trends/article/3172431/web3-tech-helps-banned-books-piracy-site-library-genesis-slip)
-- [What makes the e-CNY different from bitcoin? Central bank digital currencies share little with cryptocurrencies](https://www.scmp.com/tech/policy/article/3182195/what-makes-e-cny-different-bitcoin-central-bank-digital-currencies)
-- [Taiwan’s Digital Affairs ministry turns to Web3 to guard against mainland China cyberattacks following Pelosi’s visit](https://www.scmp.com/tech/tech-trends/article/3188434/taiwans-digital-affairs-ministry-turns-web3-guard-against-mainland)
-- [China back among top 10 crypto-using countries in Chainalysis report after crackdown, as Vietnam keeps top ranking](https://www.scmp.com/tech/tech-trends/article/3192473/china-back-among-top-10-crypto-using-countries-chainalysis-report)
+- [Explainer | What is Web3? The term often confused with crypto, NFTs and the metaverse is getting popular](https://www.scmp.com/tech/tech-trends/article/3203600/what-web3-term-often-confused-crypto-nfts-and-metaverse-getting-popular) - South China Morning Post
+- [Explainer | What are virtual assets in Hong Kong and what do the city’s new rules mean for crypto trading?](https://www.scmp.com/tech/policy/article/3201697/what-are-virtual-assets-hong-kong-and-what-do-citys-new-rules-mean-crypto-trading) - South China Morning Post
+- [FTX’s lingering ties remind Hong Kong of the bullet it dodged and risks ahead to regain edge as Asia’s digital hub](https://www.scmp.com/tech/tech-trends/article/3201158/ftxs-lingering-ties-remind-hong-kong-bullet-it-dodged-risks-ahead-regain-edge-asias-digital-hub) - South China Morning Post
+- [FTX customers in mainland China make up 8 per cent of total, a court filing shows, defying Beijing’s crypto ban](https://www.scmp.com/tech/big-tech/article/3200730/ftx-customers-mainland-china-make-8-cent-total-court-filing-shows-defying-beijings-crypto-ban) - South China Morning Post
+- [Hong Kong exposure to FTX is ‘immaterial’, securities regulator says, as crypto firm’s collapse raises scrutiny](https://www.scmp.com/tech/big-tech/article/3199594/hong-kong-exposure-ftx-immaterial-securities-regulator-says-crypto-firms-collapse-raises-scrutiny) - South China Morning Post
+- [Head of China’s digital yuan addresses blockchain’s role in mBridge, pushing digital currencies beyond their borders](https://www.scmp.com/tech/policy/article/3198094/head-chinas-digital-yuan-addresses-blockchains-role-mbridge-pushing-digital-currencies-beyond-their) - South China Morning Post
+- [Chinese social media users are flocking to the decentralised Mastodon platform to find community amid crackdown at home](https://www.scmp.com/tech/tech-trends/article/3192843/chinese-social-media-users-are-flocking-decentralised-mastodon) - South China Morning Post
+- [Web3 tech helps banned books on piracy site Library Genesis slip through the Great Firewall’s cracks, but for how long?](https://www.scmp.com/tech/tech-trends/article/3172431/web3-tech-helps-banned-books-piracy-site-library-genesis-slip) - South China Morning Post
+- [What makes the e-CNY different from bitcoin? Central bank digital currencies share little with cryptocurrencies](https://www.scmp.com/tech/policy/article/3182195/what-makes-e-cny-different-bitcoin-central-bank-digital-currencies) - South China Morning Post
+- [Taiwan’s Digital Affairs ministry turns to Web3 to guard against mainland China cyberattacks following Pelosi’s visit](https://www.scmp.com/tech/tech-trends/article/3188434/taiwans-digital-affairs-ministry-turns-web3-guard-against-mainland) - South China Morning Post
+- [China back among top 10 crypto-using countries in Chainalysis report after crackdown, as Vietnam keeps top ranking](https://www.scmp.com/tech/tech-trends/article/3192473/china-back-among-top-10-crypto-using-countries-chainalysis-report) - South China Morning Post
 - [What blockchain is, how it works and how China will lead the world](https://www.scmp.com/tech/blockchain/article/3117745/what-blockchain-how-it-works-and-how-china-will-lead-world) - South China Morning Post
 - [China’s bitcoin crackdown: why is it happening and what’s next for the original cryptocurrency?](https://www.scmp.com/tech/big-tech/article/3141253/chinas-bitcoin-crackdown-why-it-happening-and-whats-next-original) - South China Morning Post
 - [Global Impact: China’s bitcoin mining crackdown wreaks havoc, but what does it mean for the future of the cryptocurrency?](https://www.scmp.com/economy/article/3138966/chinas-bitcoin-mining-crackdown-wreaks-havoc-what-does-it-mean-future) - South China Morning Post
@@ -47,10 +47,10 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Gadgets
 
-- [CES 2023: IoT security concerns? No matter. Chinese smart home firms among big adopters of new standard](https://www.scmp.com/tech/big-tech/article/3206011/ces-2023-iot-security-concerns-no-matter-chinese-smart-home-firms-among-big-adopters-new-standard)
-- [CES 2023: number of Chinese companies at event less than half of pre-pandemic level as firms shy away from controversial tech](https://www.scmp.com/tech/tech-trends/article/3205947/ces-2023-number-chinese-companies-event-less-half-pre-pandemic-level-firms-shy-away-controversial)
-- [CES 2023: Chinese television makers seek to move upmarket in safe category, taking on the likes of Samsung and LG](https://www.scmp.com/tech/big-tech/article/3205919/ces-2023-chinese-television-makers-seek-move-upmarket-safe-category-taking-likes-samsung-and-lg)
-- [The Nothing Phone 1 is Carl Pei’s first move in trying to shake up the smartphone since leaving OnePlus. Will it work?](https://www.scmp.com/tech/big-tech/article/3184613/nothing-phone-1-carl-peis-first-move-trying-shake-smartphone-leaving)
+- [CES 2023: IoT security concerns? No matter. Chinese smart home firms among big adopters of new standard](https://www.scmp.com/tech/big-tech/article/3206011/ces-2023-iot-security-concerns-no-matter-chinese-smart-home-firms-among-big-adopters-new-standard) - South China Morning Post
+- [CES 2023: number of Chinese companies at event less than half of pre-pandemic level as firms shy away from controversial tech](https://www.scmp.com/tech/tech-trends/article/3205947/ces-2023-number-chinese-companies-event-less-half-pre-pandemic-level-firms-shy-away-controversial) - South China Morning Post
+- [CES 2023: Chinese television makers seek to move upmarket in safe category, taking on the likes of Samsung and LG](https://www.scmp.com/tech/big-tech/article/3205919/ces-2023-chinese-television-makers-seek-move-upmarket-safe-category-taking-likes-samsung-and-lg) - South China Morning Post
+- [The Nothing Phone 1 is Carl Pei’s first move in trying to shake up the smartphone since leaving OnePlus. Will it work?](https://www.scmp.com/tech/big-tech/article/3184613/nothing-phone-1-carl-peis-first-move-trying-shake-smartphone-leaving) - South China Morning Post
 
 ## Xiaomi
 
@@ -90,9 +90,9 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Other China Tech stories
 
-- [Analysis | TSMC sits out CES, but its role in everything from AMD and Nvidia chips to silicon speakers signals a bright 2023](https://www.scmp.com/tech/big-tech/article/3207389/tsmc-sits-out-ces-its-role-everything-amd-and-nvidia-chips-silicon-speakers-signals-bright-2023)
-- [Global Impact: Zero-Covid’s liabilities adding up after Foxconn factory disruptions hit iPhone shipments](https://www.scmp.com/economy/china-economy/article/3200349/global-impact-zero-covids-liabilities-adding-after-foxconn-factory-disruptions-hit-iphone-shipments)
-- [Global Impact: US-China tech war weighs on Xi Jinping’s legacy ahead of 20th party congress](https://www.scmp.com/economy/china-economy/article/3194689/global-impact-us-china-tech-war-weighs-xi-jinpings-legacy)
+- [Analysis | TSMC sits out CES, but its role in everything from AMD and Nvidia chips to silicon speakers signals a bright 2023](https://www.scmp.com/tech/big-tech/article/3207389/tsmc-sits-out-ces-its-role-everything-amd-and-nvidia-chips-silicon-speakers-signals-bright-2023) - South China Morning Post
+- [Global Impact: Zero-Covid’s liabilities adding up after Foxconn factory disruptions hit iPhone shipments](https://www.scmp.com/economy/china-economy/article/3200349/global-impact-zero-covids-liabilities-adding-after-foxconn-factory-disruptions-hit-iphone-shipments) - South China Morning Post
+- [Global Impact: US-China tech war weighs on Xi Jinping’s legacy ahead of 20th party congress](https://www.scmp.com/economy/china-economy/article/3194689/global-impact-us-china-tech-war-weighs-xi-jinpings-legacy) - South China Morning Post
 - [US-China chip war is overheating](https://www.scmp.com/economy/article/3189695/us-china-chip-war-overheating)
 - [Whiff of trade war won't sway Shenzhen's foreign entrepreneurs](https://technode.com/2018/11/29/trade-war-shenzhen-foreign-entrepreneurs/) - TechNode
 - [What Southeast Asia can learn from China e-wallets](https://www.techinasia.com/ewallets-china-southeast-asia-learn) - Tech in Asia
