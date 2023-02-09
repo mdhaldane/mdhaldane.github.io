@@ -90,7 +90,7 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Other China Tech stories
 
-- [Analysis | TSMC sits out CES, but its role in everything from AMD and Nvidia chips to silicon speakers signals a bright 2023](https://www.scmp.com/tech/big-tech/article/3207389/tsmc-sits-out-ces-its-role-everything-amd-and-nvidia-chips-silicon-speakers-signals-bright-2023) - South China Morning Post
+- [Analysis \| TSMC sits out CES, but its role in everything from AMD and Nvidia chips to silicon speakers signals a bright 2023](https://www.scmp.com/tech/big-tech/article/3207389/tsmc-sits-out-ces-its-role-everything-amd-and-nvidia-chips-silicon-speakers-signals-bright-2023) - South China Morning Post
 - [Global Impact: Zero-Covid’s liabilities adding up after Foxconn factory disruptions hit iPhone shipments](https://www.scmp.com/economy/china-economy/article/3200349/global-impact-zero-covids-liabilities-adding-after-foxconn-factory-disruptions-hit-iphone-shipments) - South China Morning Post
 - [Global Impact: US-China tech war weighs on Xi Jinping’s legacy ahead of 20th party congress](https://www.scmp.com/economy/china-economy/article/3194689/global-impact-us-china-tech-war-weighs-xi-jinpings-legacy) - South China Morning Post
 - [US-China chip war is overheating](https://www.scmp.com/economy/article/3189695/us-china-chip-war-overheating)
