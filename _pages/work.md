@@ -29,8 +29,8 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Web3
 
-- [Explainer | What is Web3? The term often confused with crypto, NFTs and the metaverse is getting popular](https://www.scmp.com/tech/tech-trends/article/3203600/what-web3-term-often-confused-crypto-nfts-and-metaverse-getting-popular) - South China Morning Post
-- [Explainer | What are virtual assets in Hong Kong and what do the city’s new rules mean for crypto trading?](https://www.scmp.com/tech/policy/article/3201697/what-are-virtual-assets-hong-kong-and-what-do-citys-new-rules-mean-crypto-trading) - South China Morning Post
+- [Explainer \| What is Web3? The term often confused with crypto, NFTs and the metaverse is getting popular](https://www.scmp.com/tech/tech-trends/article/3203600/what-web3-term-often-confused-crypto-nfts-and-metaverse-getting-popular) - South China Morning Post
+- [Explainer \| What are virtual assets in Hong Kong and what do the city’s new rules mean for crypto trading?](https://www.scmp.com/tech/policy/article/3201697/what-are-virtual-assets-hong-kong-and-what-do-citys-new-rules-mean-crypto-trading) - South China Morning Post
 - [FTX’s lingering ties remind Hong Kong of the bullet it dodged and risks ahead to regain edge as Asia’s digital hub](https://www.scmp.com/tech/tech-trends/article/3201158/ftxs-lingering-ties-remind-hong-kong-bullet-it-dodged-risks-ahead-regain-edge-asias-digital-hub) - South China Morning Post
 - [FTX customers in mainland China make up 8 per cent of total, a court filing shows, defying Beijing’s crypto ban](https://www.scmp.com/tech/big-tech/article/3200730/ftx-customers-mainland-china-make-8-cent-total-court-filing-shows-defying-beijings-crypto-ban) - South China Morning Post
 - [Hong Kong exposure to FTX is ‘immaterial’, securities regulator says, as crypto firm’s collapse raises scrutiny](https://www.scmp.com/tech/big-tech/article/3199594/hong-kong-exposure-ftx-immaterial-securities-regulator-says-crypto-firms-collapse-raises-scrutiny) - South China Morning Post
