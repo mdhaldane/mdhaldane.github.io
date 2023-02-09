@@ -105,6 +105,7 @@ tag_archive:
 
 include:
   - _pages
+  - .well-known
 
 # Build settings
 remote_theme: mmistakes/minimal-mistakes
