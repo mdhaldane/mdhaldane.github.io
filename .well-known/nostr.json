@@ -5,5 +5,19 @@
       "matt": "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379",
       "haldane": "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379",
       "mdhaldane": "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379"
+  },
+
+  "relays": {
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://relay.damus.io"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://relay.snort.social"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://rsslay.nostr.moe"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://nostrich.friendship.tw"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://offchain.pub"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://relay.nostr.ch"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://brb.io"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://eden.nostr.land"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://nostr.mom"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://nos.lol"],
+    "6e710f260d9dd44b3724c7fa59160637aa0ae1f8cf9521d89cf27a9ac0042379": ["wss://relay.taxi"]
   }
 }
