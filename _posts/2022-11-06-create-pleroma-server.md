@@ -2,7 +2,10 @@
 layout: post
 title:  "Create your own Twitter-like Pleroma server to follow Mastodon friends"
 date: 2022-11-06
+modified: 2023-02-12 17:30:00 +0800
 ---
+
+**Update:** I've deleted my Pleroma instance and forwarded the URL to my [Mastodon.social account](https://mastodon.social/@mdhaldane). I still think Pleroma is great for how lightweight it is, but it lacks some important features of Mastodon, such as full export of all your data, including posts. For those still interested in giving Pleroma a try, you can set up your own instance for free on Fly.io using [these instructions](https://sal.dev/fediverse/running-pleroma-on-fly-io/).
 
 Elon Musk has finally started rolling out the new [Twitter Blue plan that charges \$8 per month](https://www.scmp.com/news/world/united-states-canada/article/3198600/elon-musks-twitter-starts-rolling-out-new-paid-subscription) for the pleasure of the seeing a blue checkmark next to your name. But for just \$5 per month, you can set up a virtual private server (VPS) on [Vultr](https://www.vultr.com/?ref=7644827) or [DigitalOcean](https://m.do.co/c/bdabc930b7e7) and run your own Twitter-like feed on your own personal domain.
 
