@@ -54,9 +54,6 @@ author:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/matthaldane/"
-    - label: "Mastodon"
-      icon: "/assets/images/mastodon.ico"
-      url: "https://mastodon.social/@mdhaldane"
 
 footer:
   links:
