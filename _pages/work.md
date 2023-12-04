@@ -15,6 +15,8 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 <h2>Contents</h2>
 - [Web3](#web3)
+- [Semiconductors](#semiconductors)
+- [Artificial Intelligence](#artificial-intelligence)
 - [Gadgets](#gadgets)
 - [Xiaomi](#xiaomi)
 - [Huawei](#huawei)
@@ -29,6 +31,31 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Web3
 
+- [Binance guilty plea complicates Hong Kong affiliate’s crypto licence application](https://www.scmp.com/tech/tech-trends/article/3242629/binance-us-guilty-plea-complicates-hong-kong-affiliates-crypto-licence-application)
+- [OKX is first major crypto exchange to apply for Hong Kong licence](https://www.scmp.com/tech/article/3242316/crypto-giant-okx-applies-hong-kong-licence-becoming-first-major-exchange-file-under-citys-virtual)
+- [Bored Apes descend on Hong Kong amid NFT firm’s bet on Asia](https://www.scmp.com/tech/policy/article/3240535/bored-apes-owner-draws-2500-nft-enthusiasts-hong-kong-first-international-apefest-win-local-web3)
+- [Hong Kong FinTech Week refocuses city’s Web3 push on tokenisation and CBDCs](https://www.scmp.com/tech/policy/article/3240125/hong-kong-fintech-week-kicks-new-web3-focus-tokenisation-and-cross-border-payments)
+- [Hong Kong’s Animoca secures US$50 million from Saudi project in Web3 push](https://www.scmp.com/tech/tech-trends/article/3239861/hong-kongs-animoca-brands-secures-us50-million-saudi-state-project-promote-regional-web3-development)
+- [Forget crypto: Hong Kong Web3 events focus on what’s next for blockchain](https://www.scmp.com/tech/policy/article/3239581/hong-kong-web3-events-industry-players-look-past-recent-crypto-scandals-promote-blockchain)
+- [Exclusive | Binance behind Hong Kong crypto exchange seeking virtual asset licence: sources](https://www.scmp.com/tech/big-tech/article/3239020/binance-behind-hong-kong-crypto-exchange-hkvaex-which-seeking-licence-city-sources-say)
+- [BC Technology denies it is selling HK$1 billion OSL crypto exchange](https://www.scmp.com/tech/policy/article/3238276/bc-technology-denies-it-selling-osl-crypto-exchange-stock-plummets-amid-challenges-hong-kong)
+- [High costs cloud Hong Kong’s crypto hub dream](https://www.scmp.com/tech/policy/article/3237817/hong-kongs-crypto-hub-dream-mired-high-costs-other-barriers-one-year-jpex-one-stumbling-block)
+- [A decentralised ‘super app’ backed by Jack Dorsey sees rising interest in China](https://www.scmp.com/tech/tech-trends/article/3236382/decentralised-social-media-super-app-elon-musks-dreams-already-exists-growing-interest-china)
+- [Exclusive | Hong Kong crypto venture capital firm CMCC Global launches US$100 million fund](https://www.scmp.com/tech/tech-trends/article/3236786/hong-kong-crypto-venture-capital-firm-cmcc-global-launches-us100-million-fund-amid-industry-slump)
+- [Hong Kong crypto exchanges pursuing licences put under a spotlight by SFC](https://www.scmp.com/tech/tech-trends/article/3235867/sfc-puts-small-hong-kong-crypto-exchanges-under-glare-public-scrutiny-they-pursue-virtual-asset)
+- [Vulnerabilities threatening funds on exchanges like Binance, Coinbase revealed](https://www.scmp.com/tech/article/3230817/crypto-custody-firm-fireblocks-reveals-bitforge-vulnerabilities-threatened-funds-major-exchanges)
+- [Ripple focused on markets with clear rules as ambiguity remains in US after win](https://www.scmp.com/tech/tech-trends/article/3228489/crypto-firm-ripple-focused-markets-clear-rules-including-asia-after-partial-us-victory-allowing-xrp)
+- [Circle CEO says yuan-backed stablecoins could help yuan internationalisation](https://www.scmp.com/tech/tech-trends/article/3227171/head-crypto-firm-circle-accepts-ban-mainland-china-sees-role-yuan-backed-stablecoins)
+- [Blockchain-based securities are expanding Hong Kong’s Web3 footprint in finance](https://www.scmp.com/tech/tech-trends/article/3224400/blockchain-based-securities-are-emerging-hong-kong-further-expanding-distributed-ledgers-local)
+- [Binance, crypto market hit by US SEC charges amid tighter cryptocurrency regulations](https://www.scmp.com/tech/article/3223161/binance-cryptocurrency-market-take-costly-hit-us-sec-charges-licensing-requirements-tighten-globally)
+- [Why Hong Kong’s crypto rules are not as unique as some hoped](https://www.scmp.com/tech/policy/article/3222760/hong-kongs-crypto-rules-help-it-fit-more-stand-out-experts-say-thats-good)
+- [Hong Kong’s retail crypto rules: how they work, mainland China’s involvement](https://www.scmp.com/podcasts/inside-china/3222398/hong-kongs-retail-crypto-rules-how-they-work-mainland-chinas-involvement)
+- [US lawmakers slam SEC head over crypto crackdown, driving firms to China](https://www.scmp.com/tech/policy/article/3217599/amid-us-crypto-crackdown-lawmakers-slam-sec-chair-gensler-driving-firms-china-hong-kong-courts)
+- [Hong Kong reiterates cryptocurrency regulation commitment at city’s largest Web3 show](https://www.scmp.com/tech/tech-trends/article/3216836/hong-kong-officials-reiterate-commitment-crypto-defi-regulation-web3-festival)
+- [Maersk’s exit from blockchain-based logistics leaves the field open for China](https://www.scmp.com/tech/tech-trends/article/3216365/blockchain-based-logistics-looks-increasingly-chinese-after-exit-maersk-hong-kongs-gsbn-has-global)
+- [The Sandbox gears up for new growth amid fizzling metaverse hype](https://www.scmp.com/tech/big-tech/article/3215989/animocas-sandbox-metaverse-expands-hong-kong-educational-partnerships-it-looks-growth-amid-fizzling)
+- [Titanic exhibitor to mint ship relics as NFTs from Hong Kong’s Artifact Labs](https://www.scmp.com/tech/tech-trends/article/3211004/titanic-exhibitor-teams-hong-kong-nft-firm-artifact-labs-mint-relics-blockchain)
+- [Apple’s decision to pull Damus from China App Store was ‘expected’](https://www.scmp.com/tech/policy/article/3209265/apples-removal-damus-social-media-platform-china-app-store-was-expected-developers-amid-beijings)
 - [Explainer \| What is Web3? The term often confused with crypto, NFTs and the metaverse is getting popular](https://www.scmp.com/tech/tech-trends/article/3203600/what-web3-term-often-confused-crypto-nfts-and-metaverse-getting-popular) - South China Morning Post
 - [Explainer \| What are virtual assets in Hong Kong and what do the city’s new rules mean for crypto trading?](https://www.scmp.com/tech/policy/article/3201697/what-are-virtual-assets-hong-kong-and-what-do-citys-new-rules-mean-crypto-trading) - South China Morning Post
 - [FTX’s lingering ties remind Hong Kong of the bullet it dodged and risks ahead to regain edge as Asia’s digital hub](https://www.scmp.com/tech/tech-trends/article/3201158/ftxs-lingering-ties-remind-hong-kong-bullet-it-dodged-risks-ahead-regain-edge-asias-digital-hub) - South China Morning Post
@@ -45,8 +72,21 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 - [Global Impact: China’s bitcoin mining crackdown wreaks havoc, but what does it mean for the future of the cryptocurrency?](https://www.scmp.com/economy/article/3138966/chinas-bitcoin-mining-crackdown-wreaks-havoc-what-does-it-mean-future) - South China Morning Post
 - [Hong Kong Bitcoin Exchange ANX Expands with New Mobile App](https://technode.com/2014/05/21/hong-kong-bitcoin-exchange-anx-moves-mobile-payments/) - TechNode
 
+## Semiconductors
+
+- [Long before TSMC chip plant, Taiwan enjoyed strong support from Arizona](https://www.scmp.com/tech/big-tech/article/3225044/taiwan-arizona-ties-history-behind-tsmcs-decision-build-us12-billion-chip-plant-southwestern-us)
+- [How rising industrial policy gave Arizona the economic heft to land TSMC deal](https://www.scmp.com/tech/big-tech/article/3224273/tsmcs-us-plant-result-industrial-policy-meant-counter-china-giving-states-arizona-more-economic-heft)
+- [Global Impact Newsletter \| With Micron chip ban, China shows its hand](https://www.scmp.com/economy/article/3222936/global-impact-washingtons-chip-restrictions-grow-longer-day-why-china-adding-list)
+
+## Artificial Intelligence
+
+- [Microsoft touts booming enterprise AI demand in Hong Kong amid cloud push](https://www.scmp.com/tech/big-tech/article/3234530/microsoft-sees-booming-enterprise-ai-demand-hong-kong-amid-us-china-tech-war-threatens-cloud)
+- [Global Impact Newsletter \| China is pushing AI. The world is watching](https://www.scmp.com/economy/china-economy/article/3227849/global-impact-us-china-tensions-raise-ai-stakes-complicating-already-messy-tech-war)
+- [Global Impact Newsletter \| What will China’s ChatGPT look like?](https://www.scmp.com/economy/article/3216505/global-impact-chatgpt-spurs-ai-arms-race-china-slow-out-blocks)
+
 ## Gadgets
 
+- [Global Impact Newsletter \| US tech war has taken its toll, and now China has nowhere to hide](https://www.scmp.com/economy/article/3208033/global-impact-us-china-tech-wars-toll-made-visible-worlds-largest-electronics-show)
 - [CES 2023: IoT security concerns? No matter. Chinese smart home firms among big adopters of new standard](https://www.scmp.com/tech/big-tech/article/3206011/ces-2023-iot-security-concerns-no-matter-chinese-smart-home-firms-among-big-adopters-new-standard) - South China Morning Post
 - [CES 2023: number of Chinese companies at event less than half of pre-pandemic level as firms shy away from controversial tech](https://www.scmp.com/tech/tech-trends/article/3205947/ces-2023-number-chinese-companies-event-less-half-pre-pandemic-level-firms-shy-away-controversial) - South China Morning Post
 - [CES 2023: Chinese television makers seek to move upmarket in safe category, taking on the likes of Samsung and LG](https://www.scmp.com/tech/big-tech/article/3205919/ces-2023-chinese-television-makers-seek-move-upmarket-safe-category-taking-likes-samsung-and-lg) - South China Morning Post
