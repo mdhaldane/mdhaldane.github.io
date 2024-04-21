@@ -15,8 +15,9 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 <h2>Contents</h2>
 - [Web3](#web3)
-- [Semiconductors](#semiconductors)
 - [Artificial Intelligence](#artificial-intelligence)
+- [Semiconductors](#semiconductors)
+- [Events](#events)
 - [Gadgets](#gadgets)
 - [Xiaomi](#xiaomi)
 - [Huawei](#huawei)
@@ -31,6 +32,17 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Web3
 
+- [TON blockchain on Telegram teams with HashKey to help Asian users trade crypto](https://www.scmp.com/tech/blockchain/article/3258804/telegrams-blockchain-teams-hashkey-asia-ramp-services-exchange-toncoin-cryptocurrency-cash)
+- [Hong Kong’s Web3 Festival attracts smaller crowd but greater enthusiasm](https://www.scmp.com/tech/blockchain/article/3258108/web3-festival-attracts-smaller-crowd-greater-enthusiasm-hong-kong-after-record-bitcoin-price)
+- [Stablecoin giant Tether backs ‘unstoppable’ chat app to take on Big Tech](https://www.scmp.com/tech/blockchain/article/3257878/stablecoin-giant-tether-backing-unstoppable-chat-app-crypto-take-big-tech)
+- [Binance’s Hong Kong affiliate to shut down after ending crypto licence bid](https://www.scmp.com/tech/blockchain/article/3257595/binance-hong-kong-affiliate-hkvaex-shuts-down-operations-after-withdrawing-crypto-licence)
+- [Hong Kong’s Animoca Brands enters Saudi Arabia’s Web3 ground floor](https://www.scmp.com/tech/blockchain/article/3256371/hong-kongs-animoca-brands-gets-saudi-arabias-web3-ground-floor-early-investment-partnerships)
+- [Stablecoin sandbox launches in Hong Kong, but participants not guaranteed licence](https://www.scmp.com/tech/policy/article/3255129/stablecoin-sandbox-launches-hong-kong-companies-make-plans-cryptocurrencies-pegged-local-currency)
+- [Hong Kong’s 24 crypto license applicants after deadline exposes Singapore gap](https://www.scmp.com/tech/policy/article/3253817/hong-kongs-crypto-licensing-scheme-attracts-less-interest-singapore-24-applicants-day-after-deadline)
+- [Hong Kong proposes crypto reserve requirements aligned with global standards](https://www.scmp.com/tech/policy/article/3251420/hong-kong-among-first-propose-crypto-reserve-requirements-banks-aligned-new-international-standards)
+- [Hong Kong wants crypto investors to remain wary as exchanges rush for licence](https://www.scmp.com/tech/policy/article/3250996/sfc-reminds-crypto-investors-be-wary-unlicensed-platforms-final-month-apply-under-hong-kong-scheme)
+- [China’s back-door crypto traders look more important than ever to Binance’s future](https://www.scmp.com/tech/big-tech/article/3246047/chinas-crypto-craving-back-door-binance-traders-look-more-important-exchanges-future-wake-us)
+- [Blockchain-managed IDs arrive in China with new government-backed scheme](https://www.scmp.com/tech/policy/article/3245028/blockchain-managed-ids-arrive-china-new-government-backed-scheme-aiming-reduce-data-leaks)
 - [Binance guilty plea complicates Hong Kong affiliate’s crypto licence application](https://www.scmp.com/tech/tech-trends/article/3242629/binance-us-guilty-plea-complicates-hong-kong-affiliates-crypto-licence-application)
 - [OKX is first major crypto exchange to apply for Hong Kong licence](https://www.scmp.com/tech/article/3242316/crypto-giant-okx-applies-hong-kong-licence-becoming-first-major-exchange-file-under-citys-virtual)
 - [Bored Apes descend on Hong Kong amid NFT firm’s bet on Asia](https://www.scmp.com/tech/policy/article/3240535/bored-apes-owner-draws-2500-nft-enthusiasts-hong-kong-first-international-apefest-win-local-web3)
@@ -72,24 +84,43 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 - [Global Impact: China’s bitcoin mining crackdown wreaks havoc, but what does it mean for the future of the cryptocurrency?](https://www.scmp.com/economy/article/3138966/chinas-bitcoin-mining-crackdown-wreaks-havoc-what-does-it-mean-future) - South China Morning Post
 - [Hong Kong Bitcoin Exchange ANX Expands with New Mobile App](https://technode.com/2014/05/21/hong-kong-bitcoin-exchange-anx-moves-mobile-payments/) - TechNode
 
+## Artificial Intelligence
+
+- [Does Sora matter in the ever-moving AI race? Could it break down barriers?](https://www.scmp.com/economy/global-economy/article/3256557/global-impact-cut-high-end-chips-how-much-us-tech-war-hurting-chinas-ai-ambitions-sora-highlights)
+- [Hong Kong officials tout city’s AI credentials to woo tech executives at event](https://www.scmp.com/tech/policy/article/3253403/hong-kong-officials-tout-citys-ai-credentials-and-mainland-connector-role-woo-executives-tech-event)
+- [Is AI the killer app for smart glasses? This Singapore-based start-up thinks so](https://www.scmp.com/tech/tech-trends/article/3251424/generative-ai-could-be-smart-glasses-killer-app-and-hong-kong-founded-brilliant-labs-betting-big)
+- [Alibaba, TikTok woo US with AI and live-streaming e-commerce at CES](https://www.scmp.com/tech/big-tech/article/3248469/alibaba-tiktok-woo-us-ai-and-live-streaming-e-commerce-ces-trade-show-setting-tone-2024)
+- [Microsoft touts booming enterprise AI demand in Hong Kong amid cloud push](https://www.scmp.com/tech/big-tech/article/3234530/microsoft-sees-booming-enterprise-ai-demand-hong-kong-amid-us-china-tech-war-threatens-cloud)
+- [Global Impact Newsletter \| China is pushing AI. The world is watching](https://www.scmp.com/economy/china-economy/article/3227849/global-impact-us-china-tensions-raise-ai-stakes-complicating-already-messy-tech-war)
+- [Global Impact Newsletter \| What will China’s ChatGPT look like?](https://www.scmp.com/economy/article/3216505/global-impact-chatgpt-spurs-ai-arms-race-china-slow-out-blocks)
+
 ## Semiconductors
 
 - [Long before TSMC chip plant, Taiwan enjoyed strong support from Arizona](https://www.scmp.com/tech/big-tech/article/3225044/taiwan-arizona-ties-history-behind-tsmcs-decision-build-us12-billion-chip-plant-southwestern-us)
 - [How rising industrial policy gave Arizona the economic heft to land TSMC deal](https://www.scmp.com/tech/big-tech/article/3224273/tsmcs-us-plant-result-industrial-policy-meant-counter-china-giving-states-arizona-more-economic-heft)
 - [Global Impact Newsletter \| With Micron chip ban, China shows its hand](https://www.scmp.com/economy/article/3222936/global-impact-washingtons-chip-restrictions-grow-longer-day-why-china-adding-list)
 
-## Artificial Intelligence
+## Events
 
-- [Microsoft touts booming enterprise AI demand in Hong Kong amid cloud push](https://www.scmp.com/tech/big-tech/article/3234530/microsoft-sees-booming-enterprise-ai-demand-hong-kong-amid-us-china-tech-war-threatens-cloud)
-- [Global Impact Newsletter \| China is pushing AI. The world is watching](https://www.scmp.com/economy/china-economy/article/3227849/global-impact-us-china-tensions-raise-ai-stakes-complicating-already-messy-tech-war)
-- [Global Impact Newsletter \| What will China’s ChatGPT look like?](https://www.scmp.com/economy/article/3216505/global-impact-chatgpt-spurs-ai-arms-race-china-slow-out-blocks)
+**Leap**
+
+- [Hong Kong start-ups see potential in Saudi Arabia, but no immediate gains](https://www.scmp.com/tech/tech-trends/article/3254762/leap-2024-hong-kong-start-ups-and-investors-lay-groundwork-tap-future-saudi-arabia-growth)
+- [Hong Kong start-up hubs expand city’s collaboration with Saudi Arabia](https://www.scmp.com/tech/policy/article/3254205/hong-kong-start-hubs-expand-citys-collaboration-saudi-arabia-forge-closer-ties-year-after-john-lee)
+
+**CES**
+
+- [Hong Kong start-ups attract interest from Microsoft, Best Buy at CES 2024](https://www.scmp.com/tech/tech-trends/article/3248382/ces-2024-hong-kong-start-ups-attract-interest-microsoft-best-buy-amid-overseas-push)
+- [Realme unveils 12 Pro series smartphone in parallel event to CES](https://www.scmp.com/tech/big-tech/article/3248116/ces-2024-china-smartphone-brand-realme-unveils-new-handset-sidelines-trade-show-its-biggest-rivals)
+- [Chinese EV maker shows off flying car but admits urban use is far off](https://www.scmp.com/tech/big-tech/article/3247942/ces-2024-china-ev-maker-xpeng-accepts-pre-orders-flying-car-notes-urban-use-far)
+- [Hisense and TCL push AI in TVs, chase industry trends like smart cars](https://www.scmp.com/tech/big-tech/article/3247808/ces-2024-china-tv-makers-hisense-and-tcl-promote-ai-live-sports-us-show)
+- [Tech giants Alibaba, ByteDance lead China’s return to CES](https://www.scmp.com/tech/big-tech/article/3247657/ces-2024-chinese-tech-giants-alibaba-bytedance-lead-chinas-return-premier-consumer-electronics-show)
+- [CES 2023: IoT security concerns? No matter. Chinese smart home firms among big adopters of new standard](https://www.scmp.com/tech/big-tech/article/3206011/ces-2023-iot-security-concerns-no-matter-chinese-smart-home-firms-among-big-adopters-new-standard) - South China Morning Post
+- [CES 2023: number of Chinese companies at event less than half of pre-pandemic level as firms shy away from controversial tech](https://www.scmp.com/tech/tech-trends/article/3205947/ces-2023-number-chinese-companies-event-less-half-pre-pandemic-level-firms-shy-away-controversial) - South China Morning Post
+- [CES 2023: Chinese television makers seek to move upmarket in safe category, taking on the likes of Samsung and LG](https://www.scmp.com/tech/big-tech/article/3205919/ces-2023-chinese-television-makers-seek-move-upmarket-safe-category-taking-likes-samsung-and-lg) - South China Morning Post
 
 ## Gadgets
 
 - [Global Impact Newsletter \| US tech war has taken its toll, and now China has nowhere to hide](https://www.scmp.com/economy/article/3208033/global-impact-us-china-tech-wars-toll-made-visible-worlds-largest-electronics-show)
-- [CES 2023: IoT security concerns? No matter. Chinese smart home firms among big adopters of new standard](https://www.scmp.com/tech/big-tech/article/3206011/ces-2023-iot-security-concerns-no-matter-chinese-smart-home-firms-among-big-adopters-new-standard) - South China Morning Post
-- [CES 2023: number of Chinese companies at event less than half of pre-pandemic level as firms shy away from controversial tech](https://www.scmp.com/tech/tech-trends/article/3205947/ces-2023-number-chinese-companies-event-less-half-pre-pandemic-level-firms-shy-away-controversial) - South China Morning Post
-- [CES 2023: Chinese television makers seek to move upmarket in safe category, taking on the likes of Samsung and LG](https://www.scmp.com/tech/big-tech/article/3205919/ces-2023-chinese-television-makers-seek-move-upmarket-safe-category-taking-likes-samsung-and-lg) - South China Morning Post
 - [The Nothing Phone 1 is Carl Pei’s first move in trying to shake up the smartphone since leaving OnePlus. Will it work?](https://www.scmp.com/tech/big-tech/article/3184613/nothing-phone-1-carl-peis-first-move-trying-shake-smartphone-leaving) - South China Morning Post
 
 ## Xiaomi
@@ -116,6 +147,7 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Entertainment
 
+- [3 Body Problem piracy in China shows some American shows can still break through](https://www.scmp.com/tech/tech-trends/article/3256602/3-body-problem-piracy-spikes-china-reflecting-intense-interest-hollywood-films-struggle)
 - [Cord-cutting was already the norm in China when the coronavirus hit, as people turn to the likes of iQiyi, Tencent Video and Youku](https://www.scmp.com/abacus/culture/article/3097676/cord-cutting-was-already-norm-china-when-coronavirus-hit-people-turn) - South China Morning Post
 - [Piracy hurt Disney’s Mulan in China in 1999, and it appears to be happening again](https://www.scmp.com/abacus/culture/article/3101525/piracy-hurt-disneys-mulan-china-1999-and-it-appears-be-happening) - South China Morning Post
 - [PUBG Mobile is China's most profitable mobile game overseas for 2019](https://www.scmp.com/abacus/games/article/3047029/pubg-mobile-chinas-most-profitable-mobile-game-overseas-2019) - South China Morning Post
