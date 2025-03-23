@@ -35,7 +35,7 @@ feature_row:
     btn_label: "Projects"
 ---
 
-Matt Haldane is a tech journalist based in Hong Kong, where currently works as a business and technology editor at the *South China Morning Post*.
+Matt Haldane is a tech journalist based in Hong Kong, where he currently works as a business and technology editor at the *South China Morning Post*.
 
 <div class="text-center text-small page__footer-follow"> <ul class="social-icons"> {% if site.data.ui-text[site.locale].follow_label %} <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li> {% endif %} {% if site.footer.links %} {% for link in site.footer.links %} {% if link.label and link.url %} <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true" style="{{link.style}}"></i> {{ link.label }}</a></li> {% endif %} {% endfor %} {% endif %} <strong><a rel="me" href="https://www.mastodon.social/@mdhaldane"><img src="/assets/images/mastodon.ico" style="width:20px"> MASTODON</a>
 
