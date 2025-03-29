@@ -6,11 +6,13 @@ permalink: /about/
 
 ## From tech to journalism
 
-![Me](/assets/images/DSC_0029.jpg){: width="400"}
+![Me](/assets/images/mdh_ai.jpg){: width="400"}
 
-I got my start in journalism in Arizona, after leaving the US Navy, where I worked as an IT for four years. My interests in technology and developments in Asia-Pacific led me to pursue a master’s in Beijing, where I watched the technological landscape evolve throughout the 2010s.
+I am currently the Web3 editor at the _[South China Morning Post](https://www.scmp.com/author/matt-haldane)_. In addition to blockchain, my writing also focuses on artificial intelligence and other emerging technologies.
 
-Today, I write and edit technology news for the *South China Morning Post* in Hong Kong. [See my work here](/work/). See my work history below.
+I got my start in journalism in Arizona, after a four-year stint as an IT in the US Navy based in Asia-Pacific. Interested in the rapid developments in the region, I retuned after my undergrad to pursue a master’s in Beijing, in time to see the rapid development of China’s tech landscape throughout the 2010s.
+
+Check out [my current work here](/work/). See my work history below.
 
 | [**Current Position**](#what-i-do) | | [**Past Work**](#what-ive-done) | | [**Education**](#education) |
 
@@ -19,9 +21,9 @@ Today, I write and edit technology news for the *South China Morning Post* in Ho
 ## ![SCMP](/assets/images/scmp.ico) South China Morning Post
 ### Production Editor, Technology, Business
 
-Editor for SCMP Tech, covering a range of topics – such as 5G, artificial intelligence, blockchain and the trade war – and multinational companies, including Alibaba, Huawei, Tencent and Xiaomi.
+Web3 editor for SCMP Tech. Current focus is blockchain and AI. Past coverage includes semiconductors and Big Tech, including Alibaba, Huawei, Tencent and Xiaomi.
 
-Work closely with reporters to develop, fact check, and copy edit stories, ensuring quick turnaround.  Write the Inside China Tech newsletter, explanatory articles and other timely articles as needed.
+Work closely with reporters to develop, fact check, and edit stories. Write the Inside China Tech newsletter.
 
 ## What I’ve done:
 
@@ -60,3 +62,5 @@ Breaking news intern
 
 - Bachelor of Science, *Economics*
 - Bachelor of Arts, *Journalism*
+
+[See more on LinkedIn.](https://www.linkedin.com/in/matthaldane/)

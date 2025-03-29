@@ -57,15 +57,18 @@ author:
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/mdhaldane"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mdhaldane"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/matthaldane/"
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
+      url: "https://www.mastodon.social/@mdhaldane"
+    - label: "Bluesky"
+      icon: "fab fa-fw fa-bluesky"
+      url: "https://bsky.app/profile/matthaldane.com"
 
 defaults:
   # _posts
