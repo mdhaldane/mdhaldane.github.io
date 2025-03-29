@@ -54,21 +54,27 @@ author:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/matthaldane/"
-
-footer:
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/mdhaldane"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/matthaldane/"
     - label: "Mastodon"
       icon: "fab fa-fw fa-mastodon"
       url: "https://www.mastodon.social/@mdhaldane"
     - label: "Bluesky"
       icon: "fab fa-fw fa-bluesky"
       url: "https://bsky.app/profile/matthaldane.com"
+
+footer:
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/matthaldane/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/mdhaldane"
+    - label: "Bluesky"
+      icon: "fab fa-fw fa-bluesky"
+      url: "https://bsky.app/profile/matthaldane.com"
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
+      url: "https://www.mastodon.social/@mdhaldane"
 
 defaults:
   # _posts
