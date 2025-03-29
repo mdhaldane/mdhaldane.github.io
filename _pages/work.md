@@ -32,6 +32,22 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Web3
 
+- [Ethereum co-founder Gavin Wood says Web3 is on track as finance firms move in](https://www.scmp.com/tech/blockchain/article/3301576/ethereum-co-founder-gavin-wood-says-web3-track-finance-firms-move)
+- [Hong Kong's dollar peg seen as advantage amid stablecoin growth](https://www.scmp.com/tech/blockchain/article/3301577/stablecoins-grow-hong-kongs-us-dollar-peg-seen-advantage-despite-web3-challenges)
+- [Consensus Hong Kong: regulators seek 'global liquidity' in crypto amid Web3 push](https://www.scmp.com/tech/blockchain/article/3299322/consensus-hong-kong-regulators-seek-global-liquidity-crypto-roll-out-road-map)
+- [Consensus building: crypto conference arrives in Hong Kong amid Web3 changes](https://www.scmp.com/tech/blockchain/article/3298876/consensus-building-crypto-conference-arrives-hong-kong-test-city-and-coindesk)
+- [Decentralised kingdom: bitcoin's Trump bump and how China lost its crypto crown](https://www.scmp.com/tech/blockchain/article/3288731/bitcoin-was-once-dominated-china-trump-bump-shifting-momentum-us)
+- [Video | Watch Justin Sun eat the world's priciest banana](https://www.scmp.com/video/hong-kong/3288724/infamous-duct-taped-banana-eaten-crypto-entrepreneur-justin-sun)
+- [Video | Bitcoin surge stalls as crypto investors grow cautious](https://www.scmp.com/video/business/3288055/bitcoins-march-towards-historic-us100000-level-stalls-amid-crypto-investor-caution)
+- [Chainlink makes a case for blockchain-driven finance at SmartCon in Hong Kong](https://www.scmp.com/tech/blockchain/article/3284683/chainlink-makes-case-blockchain-driven-finance-its-first-hong-kong-event)
+- [Circle CEO envisions stablecoins playing greater role in trade settlements](https://www.scmp.com/tech/blockchain/article/3284350/circle-ceo-envisions-stablecoins-playing-greater-role-hong-kong-trade-settlements)
+- [Ant CEO Eric Jing touts tokenisation benefits for cross-border transactions](https://www.scmp.com/tech/blockchain/article/3284194/ant-ceo-eric-jing-touts-tokenisation-benefits-cross-border-transactions-fintech-week)
+- [FinTech Week highlights AI, Chinese companies as Web3 hype fades](https://www.scmp.com/tech/blockchain/article/3280680/ai-replaces-web3-hot-key-word-hong-kongs-fintech-week)
+- [Hong Kong virtual bank Mox starts bitcoin, ether ETF trading](https://www.scmp.com/tech/tech-trends/article/3273430/hong-kong-virtual-bank-mox-starts-bitcoin-ether-etf-trading-plans-direct-crypto-trading)
+- [11 crypto exchanges in Hong Kong 'deemed to be licensed', paving way for approvals](https://www.scmp.com/tech/blockchain/article/3265219/11-crypto-exchanges-hong-kong-deemed-be-licensed-paving-way-first-approvals-2022)
+- [Tether co-founder teases Hong Kong return as Chinese crypto firms pull out](https://www.scmp.com/tech/blockchain/article/3264679/tether-co-founder-brock-pierce-teases-possible-return-hong-kong-says-china-will-open)
+- [Elon Musk deepfake crypto scam highlights risks to Hong Kong](https://www.scmp.com/tech/tech-trends/article/3262919/elon-musk-deepfake-crypto-scam-highlights-risks-hong-kong-ai-related-fraud-rises)
+- [At Bitcoin Asia, crypto enthusiasts look to tap mainland market](https://www.scmp.com/tech/blockchain/article/3262235/bitcoin-asia-hong-kong-attracts-major-interest-mainland-attendees-look-top-market-where-crypto)
 - [TON blockchain on Telegram teams with HashKey to help Asian users trade crypto](https://www.scmp.com/tech/blockchain/article/3258804/telegrams-blockchain-teams-hashkey-asia-ramp-services-exchange-toncoin-cryptocurrency-cash)
 - [Hong Kong’s Web3 Festival attracts smaller crowd but greater enthusiasm](https://www.scmp.com/tech/blockchain/article/3258108/web3-festival-attracts-smaller-crowd-greater-enthusiasm-hong-kong-after-record-bitcoin-price)
 - [Stablecoin giant Tether backs ‘unstoppable’ chat app to take on Big Tech](https://www.scmp.com/tech/blockchain/article/3257878/stablecoin-giant-tether-backing-unstoppable-chat-app-crypto-take-big-tech)
@@ -86,6 +102,14 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Artificial Intelligence
 
+- [DeepSeek outage adds to growing pains amid political scrutiny](https://www.scmp.com/tech/tech-war/article/3296975/deepseek-outage-adds-growing-pains-amid-political-scrutiny-some-see-opportunity)
+- [OpenAI says DeepSeek stole its AI data, but how common is 'distillation'?](https://www.scmp.com/tech/big-tech/article/3296827/deepseeks-ai-distillation-theft-openai-seeks-answers-over-chinas-breakthrough)
+- [SenseTime CEO says infrastructure key to beating Chinese AI rival](https://www.scmp.com/tech/big-tech/article/3282795/sensetime-10-years-still-has-advantages-chinese-ai-challenges-mount-ceo-says)
+- [As Chinese AI and GPU demand heats up, a Hong Kong data centre turns to liquid cooling](https://www.scmp.com/tech/tech-trends/article/3278538/chinese-ai-and-gpu-demand-heats-hong-kong-data-centre-turns-liquid-cooling)
+- [Lazada leverages AI, logistics in competition with rivals like Temu](https://www.scmp.com/tech/big-tech/article/3278469/lazadas-youngest-executive-sees-ai-logistics-biggest-strengths-against-rivals-temu)
+- [Global Impact | China's falling behind in the AI race, but can a price war balance the scales?](https://www.scmp.com/economy/global-economy/article/3266096/china-risks-falling-behind-ai-race-can-cutthroat-price-war-balance-scales)
+- [Economist Paul Romer sees AI as hype, FDI real path to growth](https://www.scmp.com/tech/policy/article/3264731/nobel-laureate-paul-romer-sees-diminishing-returns-ai-fdi-still-killer-app-emerging-economies)
+- [Five demands: student activists are pushing governments on safe AI use by 2030](https://www.scmp.com/tech/policy/article/3263482/student-ai-activists-encode-justice-release-22-goals-2030-ahead-global-summit-seoul)
 - [Does Sora matter in the ever-moving AI race? Could it break down barriers?](https://www.scmp.com/economy/global-economy/article/3256557/global-impact-cut-high-end-chips-how-much-us-tech-war-hurting-chinas-ai-ambitions-sora-highlights)
 - [Hong Kong officials tout city’s AI credentials to woo tech executives at event](https://www.scmp.com/tech/policy/article/3253403/hong-kong-officials-tout-citys-ai-credentials-and-mainland-connector-role-woo-executives-tech-event)
 - [Is AI the killer app for smart glasses? This Singapore-based start-up thinks so](https://www.scmp.com/tech/tech-trends/article/3251424/generative-ai-could-be-smart-glasses-killer-app-and-hong-kong-founded-brilliant-labs-betting-big)
@@ -96,11 +120,19 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Semiconductors
 
+- [Global Impact | US-China tech takes a turn as TSMC chips found in Huawei's AI processors](https://www.scmp.com/economy/article/3284094/us-china-tech-takes-turn-tsmc-chips-found-huaweis-ai-processors)
 - [Long before TSMC chip plant, Taiwan enjoyed strong support from Arizona](https://www.scmp.com/tech/big-tech/article/3225044/taiwan-arizona-ties-history-behind-tsmcs-decision-build-us12-billion-chip-plant-southwestern-us)
 - [How rising industrial policy gave Arizona the economic heft to land TSMC deal](https://www.scmp.com/tech/big-tech/article/3224273/tsmcs-us-plant-result-industrial-policy-meant-counter-china-giving-states-arizona-more-economic-heft)
 - [Global Impact Newsletter \| With Micron chip ban, China shows its hand](https://www.scmp.com/economy/article/3222936/global-impact-washingtons-chip-restrictions-grow-longer-day-why-china-adding-list)
 
 ## Events
+
+- [Alibaba start-up competition: Hong Kong officials tout city as ideal launch pad](https://www.scmp.com/tech/big-tech/article/3283266/alibaba-start-competition-hong-kong-officials-tout-city-ideal-launch-pad)
+
+**Money20/20 Asia**
+
+- [Blockchain's US woes no problem for Money20/20 Asia, where excitement is high](https://www.scmp.com/tech/blockchain/article/3260528/blockchain-still-hot-topic-money20/20-asia-along-ai-even-interest-wanes-other-markets)
+- [Alternative finance firm Micro Connect pitches model to Southeast Asia at Money20/20](https://www.scmp.com/tech/tech-trends/article/3260224/charles-lis-micro-connect-pushes-unique-financing-model-southeast-asia)
 
 **Leap**
 
@@ -120,6 +152,8 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Gadgets
 
+- [Review | Seeing is believing: Chinese smart-glasses maker Even Realities bets on visuals](https://www.scmp.com/tech/tech-trends/article/3280965/chinese-smart-glasses-maker-even-realities-puts-displays-first-alternative-vision-meta)
+- [Hong Kong smart glasses start-up sets sights on Ray-Ban with AI-equipped frames](https://www.scmp.com/tech/tech-trends/article/3271125/military-displays-ai-smart-glasses-hong-kong-raised-entrepreneur-sets-sights-future)
 - [Global Impact Newsletter \| US tech war has taken its toll, and now China has nowhere to hide](https://www.scmp.com/economy/article/3208033/global-impact-us-china-tech-wars-toll-made-visible-worlds-largest-electronics-show)
 - [The Nothing Phone 1 is Carl Pei’s first move in trying to shake up the smartphone since leaving OnePlus. Will it work?](https://www.scmp.com/tech/big-tech/article/3184613/nothing-phone-1-carl-peis-first-move-trying-shake-smartphone-leaving) - South China Morning Post
 
@@ -147,6 +181,7 @@ Check out links to my work below. Not enough? Sign up for the [Inside China Tech
 
 ## Entertainment
 
+- [Global Impact | Can Black Myth: Wukong level up China's soft power?](https://www.scmp.com/economy/china-economy/article/3278643/chinas-video-game-achievement-may-be-anomaly-years-come-despite-black-myth-wukong)
 - [3 Body Problem piracy in China shows some American shows can still break through](https://www.scmp.com/tech/tech-trends/article/3256602/3-body-problem-piracy-spikes-china-reflecting-intense-interest-hollywood-films-struggle)
 - [Cord-cutting was already the norm in China when the coronavirus hit, as people turn to the likes of iQiyi, Tencent Video and Youku](https://www.scmp.com/abacus/culture/article/3097676/cord-cutting-was-already-norm-china-when-coronavirus-hit-people-turn) - South China Morning Post
 - [Piracy hurt Disney’s Mulan in China in 1999, and it appears to be happening again](https://www.scmp.com/abacus/culture/article/3101525/piracy-hurt-disneys-mulan-china-1999-and-it-appears-be-happening) - South China Morning Post

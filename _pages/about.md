@@ -10,7 +10,7 @@ permalink: /about/
 
 I am currently the Web3 editor at the _[South China Morning Post](https://www.scmp.com/author/matt-haldane)_. In addition to blockchain, my writing also focuses on artificial intelligence and other emerging technologies.
 
-I got my start in journalism in Arizona, after a four-year stint as an IT in the US Navy based in Asia-Pacific. Interested in the rapid developments in the region, I retuned after my undergrad to pursue a master’s in Beijing, in time to see the rapid development of China’s tech landscape throughout the 2010s.
+I got my start in journalism in Arizona, after a four-year stint as an IT in the US Navy based in Asia-Pacific. Interested in the rapid economic developments in the region, I retuned after my undergrad to pursue a master’s in Beijing, in time to see the China’s technological landscape transform throughout the 2010s.
 
 Check out [my current work here](/work/). See my work history below.
 
