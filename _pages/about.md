@@ -8,9 +8,9 @@ permalink: /about/
 
 ![Me](/assets/images/mdh_ai.jpg){: width="400"}
 
-I am currently the Web3 editor at the _[South China Morning Post](https://www.scmp.com/author/matt-haldane)_. In addition to blockchain, my writing also focuses on artificial intelligence and other emerging technologies.
+I am currently an editor with Bloomberg's crypto and digital payments team. I was previously the Web3 editor at the _[South China Morning Post](https://www.scmp.com/author/matt-haldane)_. In addition to blockchain, my writing has focused on artificial intelligence and other emerging technologies.
 
-I got my start in journalism in Arizona, after a four-year stint as an IT in the US Navy based in Asia-Pacific. Interested in the rapid economic developments in the region, I retuned after my undergrad to pursue a master’s in Beijing, in time to see the China’s technological landscape transform throughout the 2010s.
+I got my start in journalism in Arizona, after a four-year stint as an IT in the US Navy based in Asia-Pacific. Interested in the rapid economic developments in the region, I returned after my undergrad to pursue a master’s in Beijing, in time to see the China’s technological landscape transform throughout the 2010s.
 
 Check out [my current work here](/work/). See my work history below.
 
@@ -18,17 +18,21 @@ Check out [my current work here](/work/). See my work history below.
 
 ## What I do:
 
-## ![SCMP](/assets/images/scmp.ico) South China Morning Post
+## ![Bloomberg](/assets/images/bloomberg.ico) Bloomberg
+### APAC Crypto and digital payments editor
+
+Cover crypto markets and companies.
+
+## ![SCMP](/assets/images/scmp.ico) South China Morning Post (2019 – 2025)
 ### Production Editor, Technology, Business
 
-Web3 editor for SCMP Tech. Current focus is blockchain and AI. Past coverage includes semiconductors and Big Tech, including Alibaba, Huawei, Tencent and Xiaomi.
-
-Work closely with reporters to develop, fact check, and edit stories. Write the Inside China Tech newsletter.
+Web3 editor for SCMP Tech, focusing on blockchain and AI. Coverage also included semiconductors and Big Tech, including Alibaba, Huawei, Tencent and Xiaomi.
 
 ## What I’ve done:
 
-### Global Sources (2015 – 2018)
-**Content Officer (Shenzhen)**<br>
+### ![Global Sources](/assets/images/globalsources.ico) Global Sources (2015 – 2018)
+### Content Officer (Shenzhen)
+
 Multimedia B2B coverage of global technology trends and the Chinese supply chain. Wrote and edited for magazines and online about new products and companies, established brands and startups alike. Produced video content and managed newsletters. Helped with bi-annual trade shows, inviting speakers and handling online coverage.
 
 

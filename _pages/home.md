@@ -35,7 +35,7 @@ feature_row:
     btn_label: "Projects"
 ---
 
-Matt Haldane is a technology journalist based in Singapore. He is currenty a crypto and digital payments editor with Bloomberg.
+Matt Haldane is a technology journalist based in Singapore. He is currently a crypto and digital payments editor with Bloomberg.
 
 <div class="text-center text-small page__footer-follow"> <ul class="social-icons"> {% if site.data.ui-text[site.locale].follow_label %} <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li> {% endif %} {% if site.footer.links %} {% for link in site.footer.links %} {% if link.label and link.url %} <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer me"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true" style="{{link.style}}"></i> {{ link.label }}</a></li> {% endif %} {% endfor %} {% endif %}
 
