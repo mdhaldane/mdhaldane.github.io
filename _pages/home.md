@@ -1,13 +1,13 @@
 ---
 layout: splash
-title: Matt Haldane
+title: ""
 permalink: /
 header:
-  overlay_color: "#5e616c"
-  overlay_image: /assets/images/transmetropolitan.jpg
-  text_color: firebrick
+  overlay_color: "#101015"
+  overlay_image: /assets/images/singapore_sprawl.png
+  text_color: "#D4C5B0"
 #  caption: some caption
-excerpt: "Tech in China"
+excerpt: ""
 # intro: 
 #   - excerpt: ''
 author_profile: true

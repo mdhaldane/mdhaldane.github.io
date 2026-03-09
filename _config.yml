@@ -27,6 +27,7 @@ url: "https://www.matthaldane.com" # the base hostname & protocol for your site,
 twitter_username: mdhaldane
 github_username:  mdhaldane
 search: true
+minimal_mistakes_skin: custom
 
 # Site Author
 author:

@@ -23,4 +23,79 @@
         color: {{page.header.text_color}} !important;
       }
     {% endif %}
+
+    /* IBM 2260 Terminal Theme Overrides */
+    body {
+      background-color: #101015 !important;
+      color: #E8E3D3 !important;
+      font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace !important;
+      text-shadow: 0 0 2px #E8E3D3;
+    }
+
+    .masthead, .site-footer, .page__content, .sidebar {
+      background-color: #101015 !important;
+      color: #E8E3D3 !important;
+      font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace !important;
+    }
+
+    h1, h2, h3, h4, h5, h6, .site-title, .archive__subtitle, .archive__item-title, .archive__item-title a {
+      color: #D4C5B0 !important;
+      font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace !important;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .page__meta, .page__taxonomy, .page__date {
+      color: #D4C5B0 !important;
+      opacity: 0.8;
+      font-size: 0.8em;
+    }
+
+    a {
+      color: #D4C5B0 !important;
+      text-decoration: underline !important;
+    }
+
+    a:hover {
+      color: #E8E3D3 !important;
+    }
+
+    .btn--primary {
+      background-color: #D4C5B0 !important;
+      color: #101015 !important;
+      border: 1px solid #D4C5B0 !important;
+      border-radius: 0 !important;
+    }
+
+    .masthead {
+      border-bottom: 1px solid #D4C5B0 !important;
+    }
+
+    .site-footer {
+      border-top: 1px solid #D4C5B0 !important;
+    }
+
+    /* Hide any text/overlays on the hero image */
+    .page__hero--overlay .wrapper {
+      display: none !important;
+    }
+    
+    .page__hero--overlay {
+      min-height: 600px; /* Increased height to show more of the sprawl */
+      background-position: top center !important; /* Prioritize the top of the image */
+    }
+
+    /* Terminal effect */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
   </style>

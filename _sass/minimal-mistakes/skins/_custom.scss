@@ -1,0 +1,97 @@
+/*
+   Custom "IBM 2260" Terminal Skin
+   ========================================================================== */
+
+/* Colors */
+$background-color: #101015;
+$text-color: #E8E3D3;
+$muted-text-color: mix(#fff, $text-color, 30%);
+$primary-color: #D4C5B0;
+$border-color: mix(#000, $background-color, 20%);
+$footer-background-color: mix(#000, $background-color, 30%);
+$link-color: $primary-color;
+$link-color-hover: mix(#fff, $link-color, 25%);
+$masthead-link-color: $text-color;
+$masthead-link-color-hover: $primary-color;
+$navicon-link-color-hover: $primary-color;
+
+/* Typography */
+$global-font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+$header-font-family: $global-font-family;
+$caption-font-family: $global-font-family;
+
+/* Code blocks */
+$code-background-color: mix(#000, $background-color, 30%);
+
+/* Buttons */
+$btn-primary-color: $primary-color;
+$btn-primary-bg: $background-color;
+$btn-default-color: $text-color;
+$btn-default-bg: $background-color;
+
+/* Form elements */
+$form-background-color: $background-color;
+$form-text-color: $text-color;
+
+/* Table elements */
+$table-background-color: $background-color;
+$table-text-color: $text-color;
+
+/* Sidebar */
+$sidebar-text-color: $text-color;
+$sidebar-link-color: $primary-color;
+
+/* Header */
+$masthead-background-color: $background-color;
+$masthead-link-color: $text-color;
+
+/* Force overrides with !important where necessary if theme is stubborn */
+body {
+  background-color: $background-color !important;
+  color: $text-color !important;
+  font-family: $global-font-family !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $primary-color !important;
+  font-family: $header-font-family !important;
+}
+
+a {
+  color: $link-color !important;
+  &:hover {
+    color: $link-color-hover !important;
+  }
+}
+
+p, li, span, div {
+  font-family: $global-font-family !important;
+}
+
+.page__content {
+  color: $text-color !important;
+}
+
+.sidebar {
+  color: $sidebar-text-color !important;
+}
+
+.site-footer {
+  background-color: $footer-background-color !important;
+  color: $text-color !important;
+}
+
+.site-title {
+  color: $primary-color !important;
+  font-family: $header-font-family !important;
+}
+
+.masthead {
+  background-color: $masthead-background-color !important;
+  border-bottom: 1px solid $border-color !important;
+}
+
+.masthead__menu-item a {
+    color: $masthead-link-color !important;
+    font-family: $global-font-family !important;
+}
