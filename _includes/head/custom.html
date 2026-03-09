@@ -10,6 +10,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&display=swap" rel="stylesheet">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -28,19 +29,19 @@
     body {
       background-color: #101015 !important;
       color: #E8E3D3 !important;
-      font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace !important;
+      font-family: 'IBM Plex Mono', monospace !important;
       text-shadow: 0 0 2px #E8E3D3;
     }
 
     .masthead, .site-footer, .page__content, .sidebar {
       background-color: #101015 !important;
       color: #E8E3D3 !important;
-      font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace !important;
+      font-family: 'IBM Plex Mono', monospace !important;
     }
 
     h1, h2, h3, h4, h5, h6, .site-title, .archive__subtitle, .archive__item-title, .archive__item-title a {
       color: #D4C5B0 !important;
-      font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace !important;
+      font-family: 'IBM Plex Mono', monospace !important;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -73,6 +74,20 @@
 
     .site-footer {
       border-top: 1px solid #D4C5B0 !important;
+    }
+
+    .masthead__menu-item a {
+        color: #E8E3D3 !important;
+        font-family: 'IBM Plex Mono', monospace !important;
+    }
+
+    .masthead__menu-item a::before, 
+    .sidebar .nav__list-item a::before,
+    .archive__item-title a::before {
+      content: "> ";
+      color: #D4C5B0 !important;
+      margin-right: 5px;
+      font-weight: bold;
     }
 
     /* Hide any text/overlays on the hero image */
