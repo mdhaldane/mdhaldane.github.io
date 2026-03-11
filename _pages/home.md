@@ -12,21 +12,21 @@ excerpt: ""
 #   - excerpt: ''
 author_profile: true
 feature_row:
-  - image_path: /assets/images/who_is_matt.jpg
+  - icon: "fas fa-terminal"
     alt: "Who am I?"
     title: "Who am I?"
     excerpt: "From tech to journalism to China."
     url: "/about/"
     btn_class: "btn--primary"
     btn_label: "About me"
-  - image_path: /assets/images/front_page.jpg
+  - icon: "fas fa-newspaper"
     alt: "Clips"
     title: "Clips"
     excerpt: "A decade of covering tech and business."
     url: "/work/"
     btn_class: "btn--primary"
     btn_label: "See my work"
-  - image_path: /assets/images/tinker.jpg
+  - icon: "fas fa-microchip"
     alt: "Tinkerer"
     title: "Tinkerer"
     excerpt: "Data analysis and websites."
