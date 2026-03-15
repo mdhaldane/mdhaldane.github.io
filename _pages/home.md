@@ -15,28 +15,24 @@ feature_row:
   - icon: "fas fa-terminal"
     alt: "Who am I?"
     title: "Who am I?"
-    excerpt: "From tech to journalism to China."
+    excerpt: "Tech -> Journalism"
     url: "/about/"
     btn_class: "btn--primary"
     btn_label: "About me"
   - icon: "fas fa-newspaper"
     alt: "Clips"
     title: "Clips"
-    excerpt: "A decade of covering tech and business."
+    excerpt: "See my work"
     url: "/work/"
     btn_class: "btn--primary"
-    btn_label: "See my work"
+    btn_label: "Read Me"
   - icon: "fas fa-microchip"
     alt: "Tinkerer"
     title: "Tinkerer"
-    excerpt: "Data analysis and websites."
+    excerpt: "Stats and side quests"
     url: "/projects/"
     btn_class: "btn--primary"
     btn_label: "Projects"
 ---
-
-Matt Haldane is a technology journalist based in Singapore. He is currently a crypto and digital payments editor with Bloomberg.
-
-<div class="text-center text-small page__footer-follow"> <ul class="social-icons"> {% if site.data.ui-text[site.locale].follow_label %} <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li> {% endif %} {% if site.footer.links %} {% for link in site.footer.links %} {% if link.label and link.url %} <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer me"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true" style="{{link.style}}"></i> {{ link.label }}</a></li> {% endif %} {% endfor %} {% endif %}
 
 {% include feature_row %}
