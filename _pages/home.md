@@ -4,7 +4,7 @@ title: ""
 permalink: /
 header:
   overlay_color: "#101015"
-  overlay_image: /assets/images/singapore_sprawl.png
+  overlay_image: /assets/images/singapore_sprawl2.png
   text_color: "#D4C5B0"
 #  caption: some caption
 excerpt: ""
