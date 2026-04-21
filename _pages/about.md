@@ -2,6 +2,7 @@
 layout: single
 title: About
 permalink: /about/
+author_profile: false
 ---
 
 ## From tech to journalism
