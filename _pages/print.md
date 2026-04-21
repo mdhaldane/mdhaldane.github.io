@@ -2,6 +2,7 @@
 layout: single
 title: Print clips
 permalink: /print/
+author_profile: false
 ---
 
 ## South China Morning Post
