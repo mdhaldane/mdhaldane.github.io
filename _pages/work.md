@@ -4,7 +4,7 @@ title: Work
 permalink: /work/
 author_profile: false
 group: navigation
-feature_row:
+feature_row_web3:
   - image_path: /assets/images/print_clips/libgenclip.png
     alt: "Web3 vs. The Great Firewall"
     title: "Web3 vs. The Great Firewall"
@@ -26,12 +26,45 @@ feature_row:
     url: "https://www.scmp.com/tech/blockchain/article/3288731/bitcoin-was-once-dominated-china-trump-bump-shifting-momentum-us"
     btn_label: "Read Online"
     btn_class: "btn--primary"
+gallery:
+  - url: /assets/images/print_clips/3937f8c8-d206-4899-97c5-de0530bbf38d.jpg
+    image_path: /assets/images/print_clips/3937f8c8-d206-4899-97c5-de0530bbf38d.jpg
+    alt: "Streaming now the norm on mainland – SCMP"
+  - url: /assets/images/print_clips/mastodonclip.png
+    image_path: /assets/images/print_clips/mastodonclip.png
+    alt: "Users flock to Mastodon platform to evade crackdown – SCMP"
+  - url: /assets/images/print_clips/9c1ee12c-3344-4982-9d85-687447157aee.png
+    image_path: /assets/images/print_clips/9c1ee12c-3344-4982-9d85-687447157aee.png
+    alt: "'Super App' Eyes Unity Of Social Platforms – SCMP"
+  - url: /assets/images/print_clips/1afccf7f08c948b08bf32299da930afb.png
+    image_path: /assets/images/print_clips/1afccf7f08c948b08bf32299da930afb.png
+    alt: "In search of a new Global Town Square – The Correspondent"
+  - url: /assets/images/print_clips/mediatek.jpg
+    image_path: /assets/images/print_clips/mediatek.jpg
+    alt: "MediaTek seeks place in global wearables market – Global Sources"
+  - url: /assets/images/print_clips/67922583_10157048711895845_103644557354205184_n.jpeg
+    image_path: /assets/images/print_clips/67922583_10157048711895845_103644557354205184_n.jpeg
+    alt: "How China’s rise is straining the existing, albeit flawed, liberal world order – Trade Insight"
+  - url: /assets/images/print_clips/Screen_Shot_2021-06-13_at_2.23.36_PM.png
+    image_path: /assets/images/print_clips/Screen_Shot_2021-06-13_at_2.23.36_PM.png
+    alt: "Raytheon develops MathAlive' exhibit to encourage learning – Phoenix Business Journal"
+  - url: /assets/images/print_clips/Screen_Shot_2021-06-13_at_2.01.32_PM.png
+    image_path: /assets/images/print_clips/Screen_Shot_2021-06-13_at_2.01.32_PM.png
+    alt: "Comic shops stay optimistic about future – East Valley Tribune Archive"
 ---
 
 My work focuses on the intersection of technology, finance, and policy in China and beyond. I specialize in deep dives into emerging tech like blockchain and AI, as well as the geopolitical tensions shaping the global tech landscape.
 
-### Profiles: ![Bloomberg](/assets/images/bloomberg.ico){: width="30"} [Bloomberg](https://www.bloomberg.com/authors/AXyLY3I-ufo/matt-haldane) | ![SCMP](/assets/images/scmp.ico){: width="25"} [South China Morning Post](https://www.scmp.com/author/matt-haldane)
+### Full Portfolios
+[<i class="fas fa-fw fa-link"></i> Bloomberg](https://www.bloomberg.com/authors/AXyLY3I-ufo/matt-haldane){: .btn .btn--primary} 
+[<i class="fas fa-fw fa-link"></i> South China Morning Post](https://www.scmp.com/author/matt-haldane){: .btn .btn--primary}
 
 ---
 
-{% include feature_row %}
+## Web3 & Digital Assets
+{% include feature_row id="feature_row_web3" %}
+
+---
+
+## From the Archives
+{% include gallery %}
