@@ -28,6 +28,7 @@ twitter_username: mdhaldane
 github_username:  mdhaldane
 search: true
 minimal_mistakes_skin: custom
+teaser: /assets/images/singapore_sprawl2.png
 
 # Site Author
 author:
@@ -35,7 +36,7 @@ author:
   avatar   : "/assets/images/mdhbbg.jpg"
   bio      : "Business and tech journalist"
   location : "Hong Kong"
-  email    : 
+  email    : mhaldane7@bloomberg.net
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"

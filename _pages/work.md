@@ -60,8 +60,8 @@ gallery:
 My work focuses on the intersection of technology, finance, and policy in China and beyond. I specialize in deep dives into emerging tech like blockchain and AI, as well as the geopolitical tensions shaping the global tech landscape.
 
 ### Full Portfolios
-[<i class="fas fa-fw fa-link"></i> Bloomberg](https://www.bloomberg.com/authors/AXyLY3I-ufo/matt-haldane){: .btn .btn--primary} 
-[<i class="fas fa-fw fa-link"></i> South China Morning Post](https://www.scmp.com/author/matt-haldane){: .btn .btn--primary}
+[<i class="fas fa-fw fa-link"></i> Bloomberg](https://www.bloomberg.com/authors/AXyLY3I-ufo/matt-haldane){: .btn .btn--primary target="_blank"} 
+[<i class="fas fa-fw fa-link"></i> South China Morning Post](https://www.scmp.com/author/matt-haldane){: .btn .btn--primary target="_blank"}
 
 ---
 

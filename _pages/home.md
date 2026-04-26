@@ -29,7 +29,7 @@ feature_row:
   - icon: "fas fa-microchip"
     alt: "Tinkerer"
     title: "Tinkerer"
-    excerpt: "Stats and side quests"
+    excerpt: "Side quests"
     url: "/projects/"
     btn_class: "btn--primary"
     btn_label: "Projects"

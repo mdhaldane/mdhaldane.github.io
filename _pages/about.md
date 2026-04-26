@@ -5,7 +5,7 @@ permalink: /about/
 author_profile: false
 ---
 
-![Me](/assets/images/mdh_ai.jpg){: width="400" .align-left} I am an editor with [Bloomberg](https://www.bloomberg.com/authors/AXyLY3I-ufo/matt-haldane)'s crypto and digital payments team. My work sits at the intersection of emerging technology and its impact on global society — from the complexities of blockchain and AI to the geopolitical tensions of the semiconductor industry.
+![Me](/assets/images/mdh_ai.jpg){: width="400" .align-left} I am an editor with [Bloomberg](https://www.bloomberg.com/authors/AXyLY3I-ufo/matt-haldane){:target="_blank"}'s crypto and digital payments team. My work sits at the intersection of emerging technology and its impact on global society — from the complexities of blockchain and AI to the geopolitical tensions of the semiconductor industry.
 
 ### From Systems to Stories
 
@@ -28,4 +28,4 @@ My daily work is focused on digital finance, but I also have a deep interest in:
 - **Global Sources:** Content officer (2015 – 2018)
 - **Education:** MA in Global Business Journalism (Tsinghua University), BA in journalism and BS in economics (Arizona State University)
 
-**[Connect with me on LinkedIn.](https://www.linkedin.com/in/matthaldane/)**
+**[Connect with me on LinkedIn.](https://www.linkedin.com/in/matthaldane/){:target="_blank"}**
