@@ -34,8 +34,12 @@ gallery:
     image_path: /assets/images/print_clips/mastodonclip.png
     alt: "Users flock to Mastodon platform to evade crackdown – SCMP"
   - url: /assets/images/print_clips/9c1ee12c-3344-4982-9d85-687447157aee.png
-    image_path: /assets/images/print_clips/9c1ee12c-3344-4982-9d85-687447157aee.png
+    image_path: /assets/images/print_clips/9c1ee12c-3344-4982-9d85-687447157aee-920.png
     alt: "'Super App' Eyes Unity Of Social Platforms – SCMP"
+    image_style: "max-height: 500;"
+  - url: /assets/images/print_clips/81010972-ad9c-4d20-b01e-519471bbf148.png
+    image_path: /assets/images/print_clips/81010972-ad9c-4d20-b01e-519471bbf148.png
+    alt: "Scientist Offers New Vision For 'Parenting' A.I. – SCMP"
   - url: /assets/images/print_clips/1afccf7f08c948b08bf32299da930afb.png
     image_path: /assets/images/print_clips/1afccf7f08c948b08bf32299da930afb.png
     alt: "In search of a new Global Town Square – The Correspondent"
