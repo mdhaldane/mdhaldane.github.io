@@ -3,6 +3,7 @@ layout: single
 title: Bellabeat Case Study – Google Data Analytics Professional Certificate
 date: 2022-03-25
 permalink: /google-analytics-certificate/
+author_profile: false
 ---
 
 ## Introduction
