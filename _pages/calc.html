@@ -629,7 +629,7 @@ author_profile: false
         } else {
           calcLines.push(`[${orgLine}]`);
           if (res !== undefined && typeof res !== 'function') {
-            calcResults.push(math.format(res, { precision: 14 }));
+            calcResults.push(math.format(res, { precision: 14, lowerExp: -14, upperExp: 14 }));
           }
         }
       } catch (err) {
