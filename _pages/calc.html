@@ -1,0 +1,772 @@
+---
+layout: single
+title: Org-Mode Web Calc
+permalink: /calc/
+author_profile: false
+---
+<style>
+    /* matthaldane.com (Minimal Mistakes Theme) Color Tokens */
+    :root {
+      --card-bg: #181820;
+      --text-main: #e8e3d3;
+      --text-muted: #9a968d;
+      --accent-color: #d4c5b0;
+      --accent-hover: #e8e3d3;
+      --border-color: #272732;
+      --org-header-color: #7a93a5;
+      --org-result-color: #8fb49a;
+      --org-error-color: #d97878;
+      --code-bg: #0d0d12;
+      --font-mono: 'JetBrains Mono', 'Source Code Pro', Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+
+    .page-header-calc {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-header-calc h1 {
+      margin: 0;
+    }
+
+    .page-header-calc p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0;
+    }
+
+    /* General Panel Structure */
+    .calc-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+
+    .calc-card__bar {
+      background-color: #14141a;
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.6rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    .calc-card__dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .calc-card .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #333340;
+    }
+
+    .calc-card .dot--red { background-color: #e05f65; }
+    .calc-card .dot--yellow { background-color: #f1cf8a; }
+    .calc-card .dot--green { background-color: #78a47e; }
+
+    /* Top Panel: Multiline Plain Text Editor */
+    .editor-body {
+      background-color: var(--code-bg);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .editor-textarea {
+      width: 100%;
+      min-height: 150px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      resize: vertical;
+      caret-color: var(--accent-color);
+    }
+
+    .editor-textarea::placeholder {
+      color: #4a4a58;
+    }
+
+    .editor-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      background-color: #14141a;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    .editor-hint {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .action-btn {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .action-btn:hover {
+      background-color: #232330;
+      border-color: var(--accent-color);
+      color: #ffffff;
+    }
+
+    .action-btn--primary {
+      background-color: #2a343d;
+      border-color: var(--org-header-color);
+      color: #ffffff;
+    }
+
+    .action-btn--primary:hover {
+      background-color: #384654;
+    }
+
+    .clear-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .clear-btn:hover {
+      color: var(--org-error-color);
+      border-color: var(--org-error-color);
+      background-color: rgba(217, 120, 120, 0.08);
+    }
+
+    /* Bottom Panel: Output Display Panel */
+    .results-body {
+      padding: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      background-color: var(--code-bg);
+      min-height: 300px;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .empty-state {
+      color: #4a4a58;
+      font-style: italic;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    /* Org Block Item with Copy Actions */
+    .org-block {
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+      position: relative;
+      background-color: rgba(20, 20, 26, 0.5);
+      border: 1px solid rgba(39, 39, 50, 0.6);
+      border-radius: 5px;
+      padding: 0.85rem 1rem;
+      transition: border-color 0.2s ease;
+      text-align: left;
+    }
+
+    .org-block:hover {
+      border-color: var(--border-color);
+    }
+
+    .org-block__actions {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .copy-btn {
+      background-color: rgba(24, 24, 32, 0.8);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent-color);
+      background-color: var(--card-bg);
+    }
+
+    .copy-btn--secondary {
+      background: transparent;
+      color: var(--text-muted);
+    }
+    .copy-btn--secondary:hover {
+      background: #1e1e24;
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .plain-text-export {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      resize: none;
+      outline: none;
+      padding: 0;
+    }
+
+    .copy-btn.copied {
+      color: var(--org-result-color);
+      border-color: var(--org-result-color);
+    }
+
+    .org-src-head {
+      color: var(--org-header-color);
+      font-weight: 500;
+    }
+
+    .org-src-input {
+      color: var(--text-main);
+      padding-left: 1.25rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .org-src-end {
+      color: var(--org-header-color);
+      font-weight: 500;
+    }
+
+    .org-results-tag {
+      color: var(--org-header-color);
+      font-weight: 500;
+    }
+
+    .org-result-val {
+      color: var(--org-result-color);
+      padding-left: 1.25rem;
+      font-weight: 600;
+      white-space: pre-wrap;
+    }
+
+    .org-result-val.error {
+      color: var(--org-error-color);
+    }
+
+    /* Quick Helper / Cheat Sheet */
+    .cheat-sheet {
+      padding: 0.85rem 1rem;
+      background-color: rgba(24, 24, 32, 0.6);
+      border: 1px dashed var(--border-color);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .cheat-sheet code {
+      font-family: var(--font-mono);
+      background-color: #14141c;
+      color: var(--accent-color);
+      padding: 2px 6px;
+      border-radius: 3px;
+      border: 1px solid #272735;
+    }
+</style>
+
+<div class="page-header-calc">
+  <div>
+    <p>Scientific calculator with multiline plain-text input with support for LaTeX and infix notation. Results are outputted in org-mode format for easy reproducibility.</p>
+  </div>
+  <button id="clear-btn" class="clear-btn" title="Clear localStorage & session history">
+    <i class="fas fa-trash-alt"></i> Clear History
+  </button>
+</div>
+
+<!-- Top Panel: Multiline Plain Text Input Panel -->
+<div class="calc-card">
+  <div class="calc-card__bar">
+    <div class="calc-card__dots">
+      <span class="dot dot--red"></span>
+      <span class="dot dot--yellow"></span>
+      <span class="dot dot--green"></span>
+    </div>
+    <div>*input-buffer*</div>
+    <div>LaTeX / Math.js</div>
+  </div>
+  
+  <div class="editor-body">
+    <textarea 
+      id="editor-textarea" 
+      class="editor-textarea" 
+      placeholder="Enter formula or multiple equations (one per line)...&#10;e.g.&#10;\frac{100}{4} + 15&#10;a = 10&#10;b = 20&#10;a * b + \sin(\pi/2)"
+      spellcheck="false"
+      autofocus
+    ></textarea>
+  </div>
+
+  <div class="editor-toolbar">
+    <div class="editor-hint">
+      <i class="fas fa-keyboard"></i> Press <code>Ctrl + Enter</code> (or <code>Cmd + Enter</code>) to Evaluate
+    </div>
+    <button id="eval-btn" class="action-btn action-btn--primary">
+      <i class="fas fa-play"></i> Evaluate Expressions
+    </button>
+  </div>
+</div>
+
+<!-- Bottom Panel: Results & History Display -->
+<div class="calc-card">
+  <div class="calc-card__bar">
+    <div class="calc-card__dots">
+      <span class="dot dot--red"></span>
+      <span class="dot dot--yellow"></span>
+      <span class="dot dot--green"></span>
+    </div>
+    <div>*results-buffer*</div>
+    <div class="calc-card__actions">
+      <button id="toggle-text-btn" class="copy-btn copy-btn--secondary" title="Toggle plain text view">
+        <i class="fas fa-file-alt"></i> View Plain Text
+      </button>
+      <button id="copy-all-btn" class="copy-btn" title="Copy all org-mode blocks for Org document export">
+        <i class="fas fa-copy"></i> Copy All
+      </button>
+    </div>
+  </div>
+
+  <div class="results-body" id="results-body">
+    <textarea id="plain-text-export" class="plain-text-export" style="display: none;" readonly></textarea>
+    <div id="history-container">
+      <div class="empty-state">No evaluations yet. Type formulas above and press Evaluate.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Syntax & LaTeX Cheatsheet -->
+<div class="cheat-sheet">
+  <span><strong>Supported LaTeX Formatting:</strong></span>
+  <span><code>\frac{a}{b}</code></span>
+  <span><code>\cdot</code></span>
+  <span><code>\times</code></span>
+  <span><code>\sqrt{x}</code></span>
+  <span><code>\sin</code>, <code>\cos</code>, <code>\tan</code></span>
+  <span><code>\pi</code>, <code>e</code></span>
+  <span><code>a = 5</code> (variables)</span>
+  <span><code>2^3</code></span>
+</div>
+
+<script src="/assets/js/math.min.js"></script>
+
+<script>
+  // Storage Key
+  const STORAGE_KEY = 'org_mode_calc_history';
+
+  // DOM Elements
+  const editorTextarea = document.getElementById('editor-textarea');
+  const evalBtn = document.getElementById('eval-btn');
+  const resultsBody = document.getElementById('results-body');
+  const historyContainer = document.getElementById('history-container');
+  const plainTextExport = document.getElementById('plain-text-export');
+  const clearBtn = document.getElementById('clear-btn');
+  const copyAllBtn = document.getElementById('copy-all-btn');
+  const toggleTextBtn = document.getElementById('toggle-text-btn');
+
+  // LaTeX Preprocessor Regex Rules
+  function preprocessLaTeX(expr) {
+    if (!expr) return '';
+    let clean = expr;
+
+    // Replace \frac{numerator}{denominator} with ((numerator)/(denominator))
+    let prev;
+    do {
+      prev = clean;
+      clean = clean.replace(/\\frac\s*\{([^{}]+)\}\s*\{([^{}]+)\}/g, '(($1)/($2))');
+    } while (clean !== prev);
+
+    // Replace \sqrt{x} with sqrt(x)
+    clean = clean.replace(/\\sqrt\s*\{([^{}]+)\}/g, 'sqrt($1)');
+
+    // Symbols and operations
+    clean = clean.replace(/\\cdot/g, '*')
+                 .replace(/\\times/g, '*')
+                 .replace(/\\div/g, '/')
+                 .replace(/\\pm/g, '+');
+
+    // Functions: \sin, \cos, \tan, \log, \ln, \exp
+    clean = clean.replace(/\\(sin|cos|tan|atan|asin|acos|log|ln|exp|sqrt|abs)/g, '$1');
+
+    // Constants
+    clean = clean.replace(/\\pi/g, 'pi')
+                 .replace(/\\tau/g, 'tau')
+                 .replace(/\\e/g, 'e');
+
+    // Degrees to radians helper if specified as e.g. \deg or deg
+    clean = clean.replace(/\\deg/g, 'deg');
+
+    return clean.trim();
+  }
+
+  // Generate plain Org-Mode block text for clipboard export
+  function buildOrgText(userInput, resultVal, varHeaders = '') {
+    return \`#+BEGIN_SRC calc\${varHeaders}\\n\${userInput}\\n#+END_SRC\\n#+RESULTS:\\n\${resultVal}\`;
+  }
+
+  // Format single result item into HTML DOM Org Block
+  function renderOrgBlock(userInput, resultVal, varHeaders = '', isError = false) {
+    const block = document.createElement('div');
+    block.className = 'org-block';
+
+    // Copy Button for individual block
+    const actionsDiv = document.createElement('div');
+    actionsDiv.className = 'org-block__actions';
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-btn';
+    copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Org';
+    copyBtn.addEventListener('click', () => {
+      const fullOrgText = buildOrgText(userInput, resultVal, varHeaders);
+      navigator.clipboard.writeText(fullOrgText).then(() => {
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Org';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+    
+    actionsDiv.appendChild(copyBtn);
+
+    const srcHead = document.createElement('div');
+    srcHead.className = 'org-src-head';
+    srcHead.textContent = \`#+BEGIN_SRC calc\${varHeaders}\`;
+
+    const srcInput = document.createElement('div');
+    srcInput.className = 'org-src-input';
+    srcInput.textContent = userInput;
+
+    const srcEnd = document.createElement('div');
+    srcEnd.className = 'org-src-end';
+    srcEnd.textContent = '#+END_SRC';
+
+    const resultsTag = document.createElement('div');
+    resultsTag.className = 'org-results-tag';
+    resultsTag.textContent = '#+RESULTS:';
+
+    const resultValDiv = document.createElement('div');
+    resultValDiv.className = \`org-result-val \${isError ? 'error' : ''}\`;
+    resultValDiv.textContent = resultVal;
+
+    block.appendChild(actionsDiv);
+    block.appendChild(srcHead);
+    block.appendChild(srcInput);
+    block.appendChild(srcEnd);
+    block.appendChild(resultsTag);
+    block.appendChild(resultValDiv);
+
+    return block;
+  }
+
+  // Load history from localStorage (newest first)
+  function loadHistory() {
+    historyContainer.innerHTML = '';
+    const rawData = localStorage.getItem(STORAGE_KEY);
+    if (!rawData) {
+      historyContainer.innerHTML = '<div class="empty-state">No evaluations yet. Type formulas above and press Evaluate.</div>';
+      return;
+    }
+
+    try {
+      const historyArray = JSON.parse(rawData);
+      if (Array.isArray(historyArray) && historyArray.length > 0) {
+        // Render in reverse array order so index 0 (newest in array when unshifted) or unshifted items appear first
+        historyArray.forEach(item => {
+          const block = renderOrgBlock(item.input, item.result, item.varHeaders || '', item.isError);
+          historyContainer.appendChild(block);
+        });
+      } else {
+        historyContainer.innerHTML = '<div class="empty-state">No evaluations yet. Type formulas above and press Evaluate.</div>';
+      }
+    } catch (err) {
+      console.error('Failed to parse history from localStorage', err);
+      historyContainer.innerHTML = '<div class="empty-state">No evaluations yet. Type formulas above and press Evaluate.</div>';
+    }
+    scrollToTop();
+  }
+
+  // Save history item to localStorage (newest first at front of array)
+  function saveHistoryItem(userInput, resultVal, varHeaders = '', isError = false) {
+    let historyArray = [];
+    const rawData = localStorage.getItem(STORAGE_KEY);
+    if (rawData) {
+      try {
+        historyArray = JSON.parse(rawData);
+      } catch (e) {
+        historyArray = [];
+      }
+    }
+    // Store newest items at the beginning of array
+    historyArray.unshift({ input: userInput, result: resultVal, varHeaders: varHeaders, isError: isError });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(historyArray));
+  }
+
+  // Scroll results panel to top
+  function scrollToTop() {
+    resultsBody.scrollTop = 0;
+  }
+
+  // Convert input into valid Emacs Calc mode syntax
+  function toOrgCalcSyntax(rawInput) {
+    if (!rawInput) return '';
+    return rawInput.split('\\n').map(line => {
+      let trimmed = line.trim();
+      if (!trimmed) return '';
+      
+      // Emacs calc uses ':=' for variable assignment (e.g. shares := 66880886077)
+      // Convert single '=' assignments to ':=' if not already ':='
+      if (trimmed.includes('=') && !trimmed.includes(':=') && !trimmed.includes('==') && !trimmed.includes('<=') && !trimmed.includes('>=')) {
+        const parts = trimmed.split('=');
+        if (parts.length === 2 && /^[a-zA-Z_][a-zA-Z0-9_]*$/.test(parts[0].trim())) {
+          trimmed = \`\${parts[0].trim()} := \${parts[1].trim()}\`;
+        }
+      }
+      return trimmed;
+    }).filter(Boolean).join('\\n');
+  }
+
+  // Evaluate input expression (supports multiline statements and variables)
+  function handleEvaluate() {
+    const rawInput = editorTextarea.value.trim();
+    if (!rawInput) return;
+
+    // Remove empty state placeholder if present
+    const emptyState = historyContainer.querySelector('.empty-state');
+    if (emptyState) {
+      emptyState.remove();
+    }
+
+    const lines = rawInput.split('\\n').map(l => l.trim()).filter(Boolean);
+    if (lines.length === 0) return;
+
+    const parser = math.parser();
+    let varHeaders = '';
+    const varAssignments = [];
+    const calcLines = [];
+    const calcResults = [];
+    let isError = false;
+
+    lines.forEach(line => {
+      try {
+        const preprocessed = preprocessLaTeX(line);
+        const orgLine = toOrgCalcSyntax(preprocessed);
+        
+        let evalLine = preprocessed;
+        if (evalLine.includes(':=')) evalLine = evalLine.replace(':=', '=');
+        const res = parser.evaluate(evalLine);
+        
+        if (orgLine.includes(':=')) {
+          // Emacs Babel :var name=value format
+          const parts = orgLine.split(':=');
+          if (parts.length === 2) {
+            const vName = parts[0].trim();
+            const vVal = parts[1].trim();
+            varAssignments.push(\`:var \${vName}=\${vVal}\`);
+          }
+        } else {
+          calcLines.push(\`[\${orgLine}]\`);
+          if (res !== undefined && typeof res !== 'function') {
+            calcResults.push(math.format(res, { precision: 14 }));
+          }
+        }
+      } catch (err) {
+        isError = true;
+        // Fallback to raw line if preprocessing or syntax errors out before orgLine is defined
+        const fallbackOrgLine = toOrgCalcSyntax(line);
+        if (!fallbackOrgLine.includes(':=')) {
+          calcLines.push(\`[\${fallbackOrgLine}]\`);
+          calcResults.push(\`Error: \${err.message || err}\`);
+        }
+      }
+    });
+
+    if (varAssignments.length > 0) {
+      varHeaders = ' ' + varAssignments.join(' ');
+    }
+
+    let formattedInput = '';
+    if (calcLines.length > 0) {
+      if (calcLines.length === 1) {
+        // Unbox single calculation
+        formattedInput = calcLines[0].slice(1, -1);
+      } else {
+        // Matrix vector for multiple calculations on a SINGLE line
+        formattedInput = '[' + calcLines.join(', ') + ']';
+      }
+    }
+
+    let formattedResult = '';
+    if (calcResults.length === 1) {
+      formattedResult = \`: \${calcResults[0]}\`;
+    } else if (calcResults.length > 1) {
+      // Output Emacs calc matrix table format
+      formattedResult = calcResults.map(res => \`| \${res} |\`).join('\\n');
+    } else {
+      formattedResult = ': done';
+    }
+
+    // Render single block containing the valid Calc syntax and results
+    const orgBlock = renderOrgBlock(formattedInput, formattedResult, varHeaders, isError);
+    historyContainer.prepend(orgBlock);
+
+    // Persist
+    saveHistoryItem(formattedInput, formattedResult, varHeaders, isError);
+
+    // Scroll results to top
+    scrollToTop();
+  }
+
+  // Toggle Plain Text View
+  let isPlainText = false;
+  if (toggleTextBtn) {
+      toggleTextBtn.addEventListener('click', () => {
+        isPlainText = !isPlainText;
+        
+        if (isPlainText) {
+          toggleTextBtn.innerHTML = '<i class="fas fa-list"></i> View Blocks';
+          historyContainer.style.display = 'none';
+          plainTextExport.style.display = 'block';
+          
+          // Build full document text
+          const rawData = localStorage.getItem(STORAGE_KEY);
+          if (rawData) {
+            try {
+              const historyArray = JSON.parse(rawData);
+              if (Array.isArray(historyArray) && historyArray.length > 0) {
+                const fullDocument = historyArray.map(item => buildOrgText(item.input, item.result, item.varHeaders || '')).join('\\n\\n');
+                plainTextExport.value = fullDocument;
+              } else {
+                plainTextExport.value = 'No evaluations yet.';
+              }
+            } catch (e) {
+              plainTextExport.value = 'Error loading history.';
+            }
+          } else {
+            plainTextExport.value = 'No evaluations yet.';
+          }
+        } else {
+          toggleTextBtn.innerHTML = '<i class="fas fa-file-alt"></i> View Plain Text';
+          plainTextExport.style.display = 'none';
+          historyContainer.style.display = 'block';
+        }
+      });
+  }
+
+  // Copy All Org Blocks to Clipboard
+  if (copyAllBtn) {
+      copyAllBtn.addEventListener('click', () => {
+        const rawData = localStorage.getItem(STORAGE_KEY);
+        if (!rawData) return;
+        try {
+          const historyArray = JSON.parse(rawData);
+          if (Array.isArray(historyArray) && historyArray.length > 0) {
+            const fullDocument = historyArray.map(item => buildOrgText(item.input, item.result, item.varHeaders || '')).join('\\n\\n');
+            navigator.clipboard.writeText(fullDocument).then(() => {
+              copyAllBtn.innerHTML = '<i class="fas fa-check"></i> Copied All!';
+              copyAllBtn.classList.add('copied');
+              setTimeout(() => {
+                copyAllBtn.innerHTML = '<i class="fas fa-copy"></i> Copy All Org Blocks';
+                copyAllBtn.classList.remove('copied');
+              }, 2000);
+            });
+          }
+        } catch (e) {
+          console.error('Failed to copy all org blocks', e);
+        }
+      });
+  }
+
+  // Event Listeners
+  if (evalBtn) {
+    evalBtn.addEventListener('click', handleEvaluate);
+  }
+
+  if (editorTextarea) {
+      editorTextarea.addEventListener('keydown', (e) => {
+        // Ctrl+Enter or Cmd+Enter to evaluate multiline input
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+          e.preventDefault();
+          handleEvaluate();
+        }
+      });
+  }
+
+  if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        localStorage.removeItem(STORAGE_KEY);
+        historyContainer.innerHTML = '<div class="empty-state">No evaluations yet. Type formulas above and press Evaluate.</div>';
+        editorTextarea.focus();
+      });
+  }
+
+  // Initialize on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    loadHistory();
+    if (editorTextarea) {
+        editorTextarea.focus();
+    }
+  });
+</script>
