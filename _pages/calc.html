@@ -409,7 +409,7 @@ author_profile: false
   <span><code>2^3</code></span>
 </div>
 
-<script src="/assets/js/math.min.js"></script>
+<script src="{{ '/assets/js/math.min.js' | relative_url }}"></script>
 
 <script>
   // Storage Key
@@ -462,7 +462,7 @@ author_profile: false
 
   // Generate plain Org-Mode block text for clipboard export
   function buildOrgText(userInput, resultVal, varHeaders = '') {
-    return \`#+BEGIN_SRC calc\${varHeaders}\\n\${userInput}\\n#+END_SRC\\n#+RESULTS:\\n\${resultVal}\`;
+    return `#+BEGIN_SRC calc${varHeaders}\n${userInput}\n#+END_SRC\n#+RESULTS:\n${resultVal}`;
   }
 
   // Format single result item into HTML DOM Org Block
@@ -493,7 +493,7 @@ author_profile: false
 
     const srcHead = document.createElement('div');
     srcHead.className = 'org-src-head';
-    srcHead.textContent = \`#+BEGIN_SRC calc\${varHeaders}\`;
+    srcHead.textContent = `#+BEGIN_SRC calc${varHeaders}`;
 
     const srcInput = document.createElement('div');
     srcInput.className = 'org-src-input';
@@ -508,7 +508,7 @@ author_profile: false
     resultsTag.textContent = '#+RESULTS:';
 
     const resultValDiv = document.createElement('div');
-    resultValDiv.className = \`org-result-val \${isError ? 'error' : ''}\`;
+    resultValDiv.className = `org-result-val ${isError ? 'error' : ''}`;
     resultValDiv.textContent = resultVal;
 
     block.appendChild(actionsDiv);
@@ -572,7 +572,7 @@ author_profile: false
   // Convert input into valid Emacs Calc mode syntax
   function toOrgCalcSyntax(rawInput) {
     if (!rawInput) return '';
-    return rawInput.split('\\n').map(line => {
+    return rawInput.split('\n').map(line => {
       let trimmed = line.trim();
       if (!trimmed) return '';
       
@@ -581,11 +581,11 @@ author_profile: false
       if (trimmed.includes('=') && !trimmed.includes(':=') && !trimmed.includes('==') && !trimmed.includes('<=') && !trimmed.includes('>=')) {
         const parts = trimmed.split('=');
         if (parts.length === 2 && /^[a-zA-Z_][a-zA-Z0-9_]*$/.test(parts[0].trim())) {
-          trimmed = \`\${parts[0].trim()} := \${parts[1].trim()}\`;
+          trimmed = `${parts[0].trim()} := ${parts[1].trim()}`;
         }
       }
       return trimmed;
-    }).filter(Boolean).join('\\n');
+    }).filter(Boolean).join('\n');
   }
 
   // Evaluate input expression (supports multiline statements and variables)
@@ -599,7 +599,7 @@ author_profile: false
       emptyState.remove();
     }
 
-    const lines = rawInput.split('\\n').map(l => l.trim()).filter(Boolean);
+    const lines = rawInput.split('\n').map(l => l.trim()).filter(Boolean);
     if (lines.length === 0) return;
 
     const parser = math.parser();
@@ -624,10 +624,10 @@ author_profile: false
           if (parts.length === 2) {
             const vName = parts[0].trim();
             const vVal = parts[1].trim();
-            varAssignments.push(\`:var \${vName}=\${vVal}\`);
+            varAssignments.push(`:var ${vName}=${vVal}`);
           }
         } else {
-          calcLines.push(\`[\${orgLine}]\`);
+          calcLines.push(`[${orgLine}]`);
           if (res !== undefined && typeof res !== 'function') {
             calcResults.push(math.format(res, { precision: 14 }));
           }
@@ -637,8 +637,8 @@ author_profile: false
         // Fallback to raw line if preprocessing or syntax errors out before orgLine is defined
         const fallbackOrgLine = toOrgCalcSyntax(line);
         if (!fallbackOrgLine.includes(':=')) {
-          calcLines.push(\`[\${fallbackOrgLine}]\`);
-          calcResults.push(\`Error: \${err.message || err}\`);
+          calcLines.push(`[${fallbackOrgLine}]`);
+          calcResults.push(`Error: ${err.message || err}`);
         }
       }
     });
@@ -660,10 +660,10 @@ author_profile: false
 
     let formattedResult = '';
     if (calcResults.length === 1) {
-      formattedResult = \`: \${calcResults[0]}\`;
+      formattedResult = `: ${calcResults[0]}`;
     } else if (calcResults.length > 1) {
       // Output Emacs calc matrix table format
-      formattedResult = calcResults.map(res => \`| \${res} |\`).join('\\n');
+      formattedResult = calcResults.map(res => `| ${res} |`).join('\n');
     } else {
       formattedResult = ': done';
     }
@@ -696,7 +696,7 @@ author_profile: false
             try {
               const historyArray = JSON.parse(rawData);
               if (Array.isArray(historyArray) && historyArray.length > 0) {
-                const fullDocument = historyArray.map(item => buildOrgText(item.input, item.result, item.varHeaders || '')).join('\\n\\n');
+                const fullDocument = historyArray.map(item => buildOrgText(item.input, item.result, item.varHeaders || '')).join('\n\n');
                 plainTextExport.value = fullDocument;
               } else {
                 plainTextExport.value = 'No evaluations yet.';
@@ -723,7 +723,7 @@ author_profile: false
         try {
           const historyArray = JSON.parse(rawData);
           if (Array.isArray(historyArray) && historyArray.length > 0) {
-            const fullDocument = historyArray.map(item => buildOrgText(item.input, item.result, item.varHeaders || '')).join('\\n\\n');
+            const fullDocument = historyArray.map(item => buildOrgText(item.input, item.result, item.varHeaders || '')).join('\n\n');
             navigator.clipboard.writeText(fullDocument).then(() => {
               copyAllBtn.innerHTML = '<i class="fas fa-check"></i> Copied All!';
               copyAllBtn.classList.add('copied');
