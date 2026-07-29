@@ -1,0 +1,860 @@
+---
+layout: single
+title: Markdown Editor
+permalink: /editor/
+author_profile: false
+---
+
+<!-- Include EasyMDE & Turndown via CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+<script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/turndown/dist/turndown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/turndown-plugin-gfm/dist/turndown-plugin-gfm.js"></script>
+
+<style>
+    /* Design Tokens aligned with Minimal Mistakes & Calc page aesthetics */
+    :root {
+      --card-bg: #181820;
+      --text-main: #e8e3d3;
+      --text-muted: #9a968d;
+      --accent-color: #d4c5b0;
+      --accent-hover: #e8e3d3;
+      --border-color: #272732;
+      --code-bg: #0d0d12;
+      --font-mono: 'JetBrains Mono', 'Source Code Pro', Menlo, Monaco, Consolas, "Courier New", monospace;
+      --header-blue: #7a93a5;
+      --success-green: #8fb49a;
+      --danger-red: #d97878;
+    }
+
+    .page-header-editor {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-header-editor p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0;
+    }
+
+    /* Terminal Card Structure */
+    .editor-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+
+    .editor-card__bar {
+      background-color: #14141a;
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.6rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    .editor-card__title {
+      font-weight: 500;
+    }
+
+    .editor-card__side-right {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Compact Icon Buttons (Joplin-style) */
+    .icon-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      background-color: #14141a;
+    }
+
+    .icon-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .icon-btn:hover {
+      background-color: #232330;
+      border-color: var(--border-color);
+      color: #ffffff;
+    }
+
+    .icon-btn.active {
+      background-color: #2a343d;
+      border-color: var(--header-blue);
+      color: #ffffff;
+    }
+
+    .icon-btn.copied {
+      color: var(--success-green);
+      border-color: var(--success-green);
+    }
+
+    .icon-btn--danger:hover {
+      color: var(--danger-red) !important;
+      border-color: var(--danger-red) !important;
+      background-color: rgba(217, 120, 120, 0.15) !important;
+    }
+
+    .toolbar-divider {
+      width: 1px;
+      height: 20px;
+      background-color: var(--border-color);
+      margin: 0 0.25rem;
+    }
+
+    /* Table Picker Dropdown (Joplin style) */
+    .table-picker-dropdown {
+      position: absolute;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 0.75rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      z-index: 9999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .table-picker-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 18px);
+      grid-template-rows: repeat(6, 18px);
+      gap: 3px;
+    }
+
+    .table-picker-cell {
+      width: 18px;
+      height: 18px;
+      border: 1px solid var(--border-color);
+      background-color: #14141a;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .table-picker-cell.highlighted {
+      background-color: #384654;
+      border-color: var(--header-blue);
+    }
+
+    .table-picker-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* CodeMirror Overrides for IBM 2260 Terminal / Dark Aesthetics */
+    .EasyMDEContainer {
+      background-color: var(--code-bg);
+      border: none;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .EasyMDEContainer .editor-toolbar {
+      background-color: #14141a;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+      opacity: 1;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .EasyMDEContainer .editor-toolbar button {
+      color: var(--text-muted) !important;
+      border: 1px solid transparent;
+      border-radius: 3px;
+    }
+
+    .EasyMDEContainer .editor-toolbar button:hover,
+    .EasyMDEContainer .editor-toolbar button.active {
+      background-color: #232330 !important;
+      border-color: var(--border-color) !important;
+      color: var(--text-main) !important;
+    }
+
+    .EasyMDEContainer .editor-toolbar i.separator {
+      border-left: 1px solid var(--border-color);
+    }
+
+    .EasyMDEContainer .CodeMirror {
+      background-color: var(--code-bg);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: none;
+      min-height: 450px;
+      padding: 1rem;
+    }
+
+    .EasyMDEContainer .CodeMirror-cursor {
+      border-left: 2px solid var(--accent-color);
+    }
+
+    .EasyMDEContainer .CodeMirror-selected {
+      background-color: #2b3b4d !important;
+    }
+
+    .EasyMDEContainer .editor-preview,
+    .EasyMDEContainer .editor-preview-side {
+      background-color: var(--code-bg);
+      color: var(--text-main);
+      padding: 1.5rem;
+      border-color: var(--border-color);
+    }
+
+    /* Rich Text WYSIWYG Mode Container */
+    #wysiwyg-editor {
+      min-height: 450px;
+      padding: 1.5rem;
+      color: var(--text-main);
+      background-color: var(--code-bg);
+      outline: none;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      overflow-y: auto;
+    }
+
+    #wysiwyg-editor[contenteditable="true"]:empty:before {
+      content: attr(placeholder);
+      color: #4a4a58;
+      font-style: italic;
+    }
+
+    #wysiwyg-editor h1, #wysiwyg-editor h2, #wysiwyg-editor h3 {
+      color: var(--header-blue);
+      margin-top: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    #wysiwyg-editor code {
+      font-family: var(--font-mono);
+      background-color: #14141c;
+      color: var(--accent-color);
+      padding: 2px 6px;
+      border-radius: 3px;
+      border: 1px solid #272735;
+    }
+
+    #wysiwyg-editor blockquote {
+      border-left: 3px solid var(--header-blue);
+      margin-left: 0;
+      padding-left: 1rem;
+      color: var(--text-muted);
+    }
+
+    #wysiwyg-editor a {
+      color: var(--accent-color);
+    }
+
+    #wysiwyg-editor table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+      border: 1px solid var(--border-color);
+    }
+
+    #wysiwyg-editor th,
+    #wysiwyg-editor td {
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+    }
+
+    #wysiwyg-editor th {
+      background-color: #14141a;
+      color: var(--header-blue);
+      font-weight: 600;
+    }
+
+    /* Mode indicator badge */
+    .mode-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      background: #1e1e28;
+      color: var(--header-blue);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 768px) {
+      .page-header-editor {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .editor-card__bar {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      
+      .editor-card__title {
+        grid-column: 1;
+      }
+
+      .editor-card__side-right {
+        justify-self: start;
+        flex-wrap: wrap;
+      }
+    }
+</style>
+
+<div class="page-header-editor">
+  <div>
+    <p>A Markdown and rich text editor inspired by Joplin. Easily preview and copy rich text to your clipboard.</p>
+  </div>
+</div>
+
+<div class="editor-card">
+  <div class="editor-card__bar">
+    <div class="editor-card__side-right" style="width: 100%; justify-content: space-between;">
+      <span id="mode-badge" class="mode-badge">MODE: EDIT</span>
+      
+      <!-- Joplin-style Compact Icon Toolbar -->
+      <div class="icon-btn-group">
+        <button id="view-edit-btn" class="icon-btn active" title="Markdown Editor View">
+          <i class="fab fa-markdown"></i>
+        </button>
+        <button id="view-preview-btn" class="icon-btn" title="Markdown Preview View">
+          <i class="fas fa-eye"></i>
+        </button>
+        <button id="view-wysiwyg-btn" class="icon-btn" title="Rich Text (WYSIWYG) View">
+          <i class="fas fa-pen-nib"></i>
+        </button>
+
+        <div class="toolbar-divider"></div>
+
+        <button id="copy-rich-btn" class="icon-btn" title="Copy Rich Text (Formatted HTML + Markdown)">
+          <i class="fas fa-paste"></i>
+        </button>
+        <button id="copy-md-btn" class="icon-btn" title="Copy Raw Markdown">
+          <i class="fas fa-copy"></i>
+        </button>
+
+        <div class="toolbar-divider"></div>
+
+        <button id="clear-btn" class="icon-btn icon-btn--danger" title="Clear Content">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="editor-container">
+    <!-- Markdown CodeMirror Editor -->
+    <div id="markdown-container">
+      <textarea id="markdown-editor" placeholder="Type Markdown here..."></textarea>
+    </div>
+
+    <!-- Rich Text WYSIWYG ContentEditable Area -->
+    <div id="wysiwyg-container" style="display: none;">
+      <div id="wysiwyg-editor" contenteditable="true" placeholder="Type or paste Rich Text here..."></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const STORAGE_KEY = 'joplin_editor_content';
+    // Modes: 'edit' | 'preview' | 'wysiwyg'
+    let currentMode = 'edit';
+
+    // Default initial sample text if storage empty
+    const defaultContent = `# Joplin Markdown Editor
+
+Welcome to your personal **Joplin-style** editor.
+
+### Features:
+- **Compact Icon Toolbar**: Clean Joplin-style icon layout.
+- **3 View Modes**: Markdown Source, Preview, and Rich Text (WYSIWYG).
+- **Copy Rich Text**: One-click copy formatted text directly into Joplin, Word, or emails.
+- **Auto-Save**: Automatically saves work locally in your browser.
+
+> *Use the icon buttons above to switch views or copy rich text!*
+`;
+
+    // DOM Elements
+    const viewEditBtn = document.getElementById('view-edit-btn');
+    const viewPreviewBtn = document.getElementById('view-preview-btn');
+    const viewWysiwygBtn = document.getElementById('view-wysiwyg-btn');
+    const copyRichBtn = document.getElementById('copy-rich-btn');
+    const copyMDBtn = document.getElementById('copy-md-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const modeBadge = document.getElementById('mode-badge');
+    const markdownContainer = document.getElementById('markdown-container');
+    const wysiwygContainer = document.getElementById('wysiwyg-container');
+    const wysiwygEditor = document.getElementById('wysiwyg-editor');
+    const textarea = document.getElementById('markdown-editor');
+
+    // Initialize EasyMDE CodeMirror Editor
+    const easyMDE = new EasyMDE({
+      element: textarea,
+      initialValue: localStorage.getItem(STORAGE_KEY) || defaultContent,
+      spellChecker: false,
+      autosave: {
+        enabled: false
+      },
+      status: ["lines", "words", "cursor"],
+      toolbar: [
+        "bold", "italic", "heading", "|",
+        "quote", "unordered-list", "ordered-list", "|",
+        "link", "image", 
+        {
+          name: "table",
+          action: function drawTableCustom(editor) {
+            let pickerContainer = document.getElementById('table-picker-dropdown');
+            if (!pickerContainer) {
+              pickerContainer = document.createElement('div');
+              pickerContainer.id = 'table-picker-dropdown';
+              pickerContainer.className = 'table-picker-dropdown';
+
+              const grid = document.createElement('div');
+              grid.className = 'table-picker-grid';
+
+              const label = document.createElement('div');
+              label.className = 'table-picker-label';
+              label.textContent = '1 x 1';
+
+              const MAX_ROWS = 6;
+              const MAX_COLS = 6;
+
+              for (let r = 1; r <= MAX_ROWS; r++) {
+                for (let c = 1; c <= MAX_COLS; c++) {
+                  const cell = document.createElement('div');
+                  cell.className = 'table-picker-cell';
+                  cell.dataset.row = r;
+                  cell.dataset.col = c;
+
+                  cell.addEventListener('mouseenter', () => {
+                    const selRow = parseInt(cell.dataset.row, 10);
+                    const selCol = parseInt(cell.dataset.col, 10);
+                    label.textContent = `${selCol} x ${selRow}`;
+                    grid.querySelectorAll('.table-picker-cell').forEach(cEl => {
+                      const cRow = parseInt(cEl.dataset.row, 10);
+                      const cCol = parseInt(cEl.dataset.col, 10);
+                      if (cRow <= selRow && cCol <= selCol) {
+                        cEl.classList.add('highlighted');
+                      } else {
+                        cEl.classList.remove('highlighted');
+                      }
+                    });
+                  });
+
+                  cell.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const rows = parseInt(cell.dataset.row, 10);
+                    const cols = parseInt(cell.dataset.col, 10);
+
+                    let tableMD = "\n";
+                    let header = "|";
+                    let divider = "|";
+                    for (let colIdx = 1; colIdx <= cols; colIdx++) {
+                      header += ` Header ${colIdx} |`;
+                      divider += "----------|";
+                    }
+                    tableMD += header + "\n" + divider + "\n";
+
+                    for (let rowIdx = 1; rowIdx <= rows; rowIdx++) {
+                      let rowStr = "|";
+                      for (let colIdx = 1; colIdx <= cols; colIdx++) {
+                        rowStr += ` Cell ${rowIdx}.${colIdx} |`;
+                      }
+                      tableMD += rowStr + "\n";
+                    }
+                    tableMD += "\n";
+
+                    if (currentMode === 'wysiwyg') {
+                      const md = getMarkdownFromHTML(wysiwygEditor.innerHTML) + tableMD;
+                      wysiwygEditor.innerHTML = getHTMLFromMarkdown(md);
+                    } else {
+                      editor.codemirror.replaceSelection(tableMD);
+                    }
+
+                    pickerContainer.style.display = 'none';
+                  });
+
+                  grid.appendChild(cell);
+                }
+              }
+
+              pickerContainer.appendChild(grid);
+              pickerContainer.appendChild(label);
+              document.body.appendChild(pickerContainer);
+
+              document.addEventListener('click', (evt) => {
+                const btnEl = document.querySelector('.EasyMDEContainer .fa-table') || document.querySelector('.EasyMDEContainer button.table');
+                if (!pickerContainer.contains(evt.target) && (!btnEl || !btnEl.contains(evt.target))) {
+                  pickerContainer.style.display = 'none';
+                }
+              });
+            }
+
+            if (pickerContainer.style.display === 'flex') {
+              pickerContainer.style.display = 'none';
+            } else {
+              const btnEl = document.querySelector('.EasyMDEContainer button.table') || document.querySelector('.EasyMDEContainer .fa-table') || document.querySelector('.EasyMDEContainer .fa-table')?.parentElement;
+              if (btnEl) {
+                const rect = btnEl.getBoundingClientRect();
+                pickerContainer.style.top = `${rect.bottom + window.scrollY + 4}px`;
+                pickerContainer.style.left = `${rect.left + window.scrollX}px`;
+              }
+              pickerContainer.style.display = 'flex';
+            }
+          },
+          className: "fa fa-table table",
+          title: "Insert Table (Select grid dimensions)"
+        },
+        "code"
+      ]
+    });
+
+    // Initialize Turndown (HTML -> Markdown) with GFM plugin
+    const turndownService = new TurndownService({
+      headingStyle: 'atx',
+      codeBlockStyle: 'fenced'
+    });
+    if (window.turndownPluginGfm) {
+      turndownService.use(window.turndownPluginGfm.gfm);
+    }
+
+    // Save to localStorage on change
+    easyMDE.codemirror.on('change', () => {
+      if (currentMode === 'edit') {
+        localStorage.setItem(STORAGE_KEY, easyMDE.value());
+      }
+    });
+
+    // Rich Text (WYSIWYG) Formatting Helper & Shortcut Handler
+    function formatWysiwyg(command, value = null) {
+      document.execCommand(command, false, value);
+      wysiwygEditor.focus();
+    }
+
+    wysiwygEditor.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        const key = e.key.toLowerCase();
+        if (key === 'b') {
+          e.preventDefault();
+          formatWysiwyg('bold');
+        } else if (key === 'i') {
+          e.preventDefault();
+          formatWysiwyg('italic');
+        }
+      }
+
+      if (e.key === 'Enter') {
+        const selection = window.getSelection();
+        if (!selection.rangeCount) return;
+        const range = selection.getRangeAt(0);
+        let bq = range.startContainer;
+        while (bq && bq !== wysiwygEditor && bq.nodeName !== 'BLOCKQUOTE') {
+          bq = bq.parentNode;
+        }
+
+        if (bq && bq.nodeName === 'BLOCKQUOTE') {
+          let currentBlock = range.startContainer;
+          if (currentBlock.nodeType === Node.TEXT_NODE) {
+            currentBlock = currentBlock.parentNode;
+          }
+
+          const textContent = currentBlock.textContent.replace(/[\u200B\s]/g, '');
+          if (textContent === '' || currentBlock === bq && bq.textContent.trim() === '') {
+            e.preventDefault();
+            
+            if (currentBlock !== bq) {
+              currentBlock.remove();
+            }
+
+            const p = document.createElement('p');
+            p.innerHTML = '<br>';
+            if (bq.nextSibling) {
+              bq.parentNode.insertBefore(p, bq.nextSibling);
+            } else {
+              bq.parentNode.appendChild(p);
+            }
+
+            const newRange = document.createRange();
+            newRange.setStart(p, 0);
+            newRange.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+          }
+        }
+      }
+    });
+
+    // Intercept toolbar buttons in Rich Text mode so all formatting actions apply cleanly
+    document.addEventListener('mousedown', (e) => {
+      if (currentMode !== 'wysiwyg') return;
+      const target = e.target;
+      const btn = target.closest('.EasyMDEContainer button') || target.closest('.EasyMDEContainer a');
+      if (!btn) return;
+
+      // Prevent button click from taking focus away from WYSIWYG selection
+      e.preventDefault();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (currentMode !== 'wysiwyg') return;
+      const target = e.target;
+      const btn = target.closest('.EasyMDEContainer button') || target.closest('.EasyMDEContainer a');
+      if (!btn) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (btn.classList.contains('bold') || btn.querySelector('.fa-bold') || target.classList.contains('fa-bold')) {
+        formatWysiwyg('bold');
+      } else if (btn.classList.contains('italic') || btn.querySelector('.fa-italic') || target.classList.contains('fa-italic')) {
+        formatWysiwyg('italic');
+      } else if (btn.classList.contains('heading') || btn.querySelector('.fa-header') || btn.querySelector('.fa-heading') || target.classList.contains('fa-header') || target.classList.contains('fa-heading')) {
+        formatWysiwyg('formatBlock', '<h3>');
+      } else if (btn.classList.contains('quote') || btn.querySelector('.fa-quote-left') || target.classList.contains('fa-quote-left')) {
+        const selection = window.getSelection();
+        if (!selection.rangeCount) return;
+        const range = selection.getRangeAt(0);
+        let bq = range.startContainer;
+        while (bq && bq !== wysiwygEditor && bq.nodeName !== 'BLOCKQUOTE') {
+          bq = bq.parentNode;
+        }
+
+        if (bq && bq.nodeName === 'BLOCKQUOTE') {
+          // Find target child line inside blockquote
+          let targetLine = range.startContainer;
+          while (targetLine && targetLine.parentNode !== bq && targetLine !== bq) {
+            targetLine = targetLine.parentNode;
+          }
+
+          if (targetLine && targetLine !== bq) {
+            // Split blockquote into pre-nodes, converted paragraph, post-nodes
+            const beforeBq = document.createElement('blockquote');
+            const afterBq = document.createElement('blockquote');
+            const p = document.createElement('p');
+
+            let current = bq.firstChild;
+            let phase = 'before';
+
+            while (current) {
+              const next = current.nextSibling;
+              if (current === targetLine) {
+                phase = 'after';
+                if (current.nodeType === Node.ELEMENT_NODE && (current.nodeName === 'P' || current.nodeName === 'DIV')) {
+                  p.innerHTML = current.innerHTML;
+                } else {
+                  p.appendChild(current);
+                }
+              } else if (phase === 'before') {
+                beforeBq.appendChild(current);
+              } else {
+                afterBq.appendChild(current);
+              }
+              current = next;
+            }
+
+            const parent = bq.parentNode;
+            if (beforeBq.hasChildNodes()) {
+              parent.insertBefore(beforeBq, bq);
+            }
+            parent.insertBefore(p, bq);
+            if (afterBq.hasChildNodes()) {
+              parent.insertBefore(afterBq, bq);
+            }
+            parent.removeChild(bq);
+
+            // Restore caret inside converted paragraph
+            const newRange = document.createRange();
+            newRange.selectNodeContents(p);
+            newRange.collapse(false);
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+            wysiwygEditor.focus();
+          } else {
+            document.execCommand('formatBlock', false, '<p>');
+            wysiwygEditor.focus();
+          }
+        } else {
+          formatWysiwyg('formatBlock', '<blockquote>');
+        }
+      } else if (btn.classList.contains('unordered-list') || btn.querySelector('.fa-list-ul') || target.classList.contains('fa-list-ul')) {
+        formatWysiwyg('insertUnorderedList');
+      } else if (btn.classList.contains('ordered-list') || btn.querySelector('.fa-list-ol') || target.classList.contains('fa-list-ol')) {
+        formatWysiwyg('insertOrderedList');
+      } else if (btn.classList.contains('link') || btn.querySelector('.fa-link') || target.classList.contains('fa-link')) {
+        const url = prompt('Enter link URL:', 'https://');
+        if (url) formatWysiwyg('createLink', url);
+      }
+    }, true);
+
+    function getHTMLFromMarkdown(mdText) {
+      if (window.marked) {
+        return window.marked.parse(mdText);
+      }
+      return mdText;
+    }
+
+    function getMarkdownFromHTML(htmlText) {
+      return turndownService.turndown(htmlText);
+    }
+
+    // View Switching logic
+    function setMode(newMode) {
+      // Sync content from active mode before switching
+      if (currentMode === 'wysiwyg') {
+        const md = getMarkdownFromHTML(wysiwygEditor.innerHTML);
+        easyMDE.value(md);
+        localStorage.setItem(STORAGE_KEY, md);
+      }
+
+      currentMode = newMode;
+
+      // Update button active state icons
+      [viewEditBtn, viewPreviewBtn, viewWysiwygBtn].forEach(b => b.classList.remove('active'));
+
+      const codeMirrorEl = markdownContainer.querySelector('.CodeMirror');
+
+      if (newMode === 'edit') {
+        viewEditBtn.classList.add('active');
+        modeBadge.textContent = 'MODE: EDIT';
+
+        if (easyMDE.isPreviewActive()) {
+          easyMDE.togglePreview();
+        }
+
+        wysiwygContainer.style.display = 'none';
+        markdownContainer.style.display = 'block';
+        if (codeMirrorEl) codeMirrorEl.style.display = 'block';
+      } 
+      else if (newMode === 'preview') {
+        viewPreviewBtn.classList.add('active');
+        modeBadge.textContent = 'MODE: PREVIEW';
+
+        wysiwygContainer.style.display = 'none';
+        markdownContainer.style.display = 'block';
+        if (codeMirrorEl) codeMirrorEl.style.display = 'block';
+
+        if (!easyMDE.isPreviewActive()) {
+          easyMDE.togglePreview();
+        }
+      } 
+      else if (newMode === 'wysiwyg') {
+        viewWysiwygBtn.classList.add('active');
+        modeBadge.textContent = 'MODE: RICH TEXT';
+
+        if (easyMDE.isPreviewActive()) {
+          easyMDE.togglePreview();
+        }
+
+        const currentMD = easyMDE.value();
+        wysiwygEditor.innerHTML = getHTMLFromMarkdown(currentMD);
+
+        // Keep toolbar visible, hide CodeMirror text area, show WYSIWYG container below toolbar
+        markdownContainer.style.display = 'block';
+        if (codeMirrorEl) codeMirrorEl.style.display = 'none';
+        wysiwygContainer.style.display = 'block';
+      }
+    }
+
+    viewEditBtn.addEventListener('click', () => setMode('edit'));
+    viewPreviewBtn.addEventListener('click', () => setMode('preview'));
+    viewWysiwygBtn.addEventListener('click', () => setMode('wysiwyg'));
+
+    // Copy Rich Text
+    copyRichBtn.addEventListener('click', () => {
+      let mdText = currentMode === 'wysiwyg' ? getMarkdownFromHTML(wysiwygEditor.innerHTML) : easyMDE.value();
+      let htmlText = currentMode === 'wysiwyg' ? wysiwygEditor.innerHTML : getHTMLFromMarkdown(mdText);
+
+      if (navigator.clipboard && window.ClipboardItem) {
+        const htmlBlob = new Blob([htmlText], { type: 'text/html' });
+        const textBlob = new Blob([mdText], { type: 'text/plain' });
+        const clipboardItem = new ClipboardItem({
+          'text/html': htmlBlob,
+          'text/plain': textBlob
+        });
+
+        navigator.clipboard.write([clipboardItem]).then(() => {
+          showCopiedIcon(copyRichBtn);
+        }).catch(err => {
+          console.error('Clipboard copy failed:', err);
+        });
+      } else {
+        const listener = function(e) {
+          e.clipboardData.setData('text/html', htmlText);
+          e.clipboardData.setData('text/plain', mdText);
+          e.preventDefault();
+        };
+        document.addEventListener('copy', listener);
+        document.execCommand('copy');
+        document.removeEventListener('copy', listener);
+        showCopiedIcon(copyRichBtn);
+      }
+    });
+
+    // Copy Raw Markdown
+    copyMDBtn.addEventListener('click', () => {
+      let mdText = currentMode === 'wysiwyg' ? getMarkdownFromHTML(wysiwygEditor.innerHTML) : easyMDE.value();
+      navigator.clipboard.writeText(mdText).then(() => {
+        showCopiedIcon(copyMDBtn);
+      });
+    });
+
+    // Clear Content without prompt
+    clearBtn.addEventListener('click', () => {
+      easyMDE.value('');
+      wysiwygEditor.innerHTML = '';
+      localStorage.removeItem(STORAGE_KEY);
+    });
+
+    function showCopiedIcon(btn) {
+      btn.classList.add('copied');
+      const icon = btn.querySelector('i');
+      const prevClass = icon.className;
+      icon.className = 'fas fa-check';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        icon.className = prevClass;
+      }, 2000);
+    }
+  })();
+</script>
