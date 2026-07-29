@@ -69,10 +69,6 @@ author_profile: false
       color: var(--text-muted);
     }
 
-    .editor-card__title {
-      font-weight: 500;
-    }
-
     .editor-card__side-right {
       display: flex;
       align-items: center;
@@ -285,6 +281,11 @@ author_profile: false
       color: var(--accent-color);
     }
 
+    #wysiwyg-editor img {
+      max-width: 100%;
+      height: auto;
+    }
+
     #wysiwyg-editor table {
       border-collapse: collapse;
       width: 100%;
@@ -325,16 +326,15 @@ author_profile: false
       }
 
       .editor-card__bar {
-        grid-template-columns: 1fr;
         gap: 0.5rem;
-      }
-      
-      .editor-card__title {
-        grid-column: 1;
       }
 
       .editor-card__side-right {
-        justify-self: start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .icon-btn-group {
         flex-wrap: wrap;
       }
     }
@@ -508,6 +508,14 @@ Welcome to your personal **Joplin-style** editor.
                     if (currentMode === 'wysiwyg') {
                       const md = getMarkdownFromHTML(wysiwygEditor.innerHTML) + tableMD;
                       wysiwygEditor.innerHTML = getHTMLFromMarkdown(md);
+                      // Move caret to the end of the rebuilt content
+                      const sel = window.getSelection();
+                      const endRange = document.createRange();
+                      endRange.selectNodeContents(wysiwygEditor);
+                      endRange.collapse(false);
+                      sel.removeAllRanges();
+                      sel.addRange(endRange);
+                      wysiwygEditor.focus();
                     } else {
                       editor.codemirror.replaceSelection(tableMD);
                     }
@@ -524,8 +532,25 @@ Welcome to your personal **Joplin-style** editor.
               document.body.appendChild(pickerContainer);
 
               document.addEventListener('click', (evt) => {
-                const btnEl = document.querySelector('.EasyMDEContainer .fa-table') || document.querySelector('.EasyMDEContainer button.table');
+                const btnEl = getTableToolbarButton();
                 if (!pickerContainer.contains(evt.target) && (!btnEl || !btnEl.contains(evt.target))) {
+                  pickerContainer.style.display = 'none';
+                }
+              });
+
+              // Keep the dropdown anchored on scroll/resize, close on Escape
+              const repositionTablePicker = () => {
+                if (pickerContainer.style.display !== 'flex') return;
+                const btn = getTableToolbarButton();
+                if (!btn) { pickerContainer.style.display = 'none'; return; }
+                const rect = btn.getBoundingClientRect();
+                pickerContainer.style.top = `${rect.bottom + window.scrollY + 4}px`;
+                pickerContainer.style.left = `${rect.left + window.scrollX}px`;
+              };
+              window.addEventListener('scroll', repositionTablePicker, true);
+              window.addEventListener('resize', repositionTablePicker);
+              document.addEventListener('keydown', (evt) => {
+                if (evt.key === 'Escape' && pickerContainer.style.display === 'flex') {
                   pickerContainer.style.display = 'none';
                 }
               });
@@ -534,7 +559,7 @@ Welcome to your personal **Joplin-style** editor.
             if (pickerContainer.style.display === 'flex') {
               pickerContainer.style.display = 'none';
             } else {
-              const btnEl = document.querySelector('.EasyMDEContainer button.table') || document.querySelector('.EasyMDEContainer .fa-table') || document.querySelector('.EasyMDEContainer .fa-table')?.parentElement;
+              const btnEl = getTableToolbarButton();
               if (btnEl) {
                 const rect = btnEl.getBoundingClientRect();
                 pickerContainer.style.top = `${rect.bottom + window.scrollY + 4}px`;
@@ -563,6 +588,26 @@ Welcome to your personal **Joplin-style** editor.
     easyMDE.codemirror.on('change', () => {
       if (currentMode === 'edit') {
         localStorage.setItem(STORAGE_KEY, easyMDE.value());
+      }
+    });
+
+    // Persist WYSIWYG edits (debounced) so changes survive even without a mode switch.
+    // The CodeMirror change handler above only fires in Edit mode, so Rich Text edits
+    // would otherwise be lost if the tab is closed before switching views.
+    let wysiwygSaveTimer = null;
+    function scheduleWysiwygSave() {
+      clearTimeout(wysiwygSaveTimer);
+      wysiwygSaveTimer = setTimeout(() => {
+        if (currentMode === 'wysiwyg') {
+          localStorage.setItem(STORAGE_KEY, getMarkdownFromHTML(wysiwygEditor.innerHTML));
+        }
+      }, 800);
+    }
+    wysiwygEditor.addEventListener('input', scheduleWysiwygSave);
+    window.addEventListener('beforeunload', () => {
+      if (currentMode === 'wysiwyg') {
+        clearTimeout(wysiwygSaveTimer);
+        localStorage.setItem(STORAGE_KEY, getMarkdownFromHTML(wysiwygEditor.innerHTML));
       }
     });
 
@@ -600,7 +645,7 @@ Welcome to your personal **Joplin-style** editor.
           }
 
           const textContent = currentBlock.textContent.replace(/[\u200B\s]/g, '');
-          if (textContent === '' || currentBlock === bq && bq.textContent.trim() === '') {
+          if (textContent === '' || (currentBlock === bq && bq.textContent.trim() === '')) {
             e.preventDefault();
             
             if (currentBlock !== bq) {
@@ -641,6 +686,12 @@ Welcome to your personal **Joplin-style** editor.
       const target = e.target;
       const btn = target.closest('.EasyMDEContainer button') || target.closest('.EasyMDEContainer a');
       if (!btn) return;
+
+      // Let the table button fall through to EasyMDE's custom action, which opens the
+      // grid picker and already knows how to insert into the WYSIWYG area.
+      if (btn.querySelector('.fa-table') || target.classList.contains('fa-table')) {
+        return;
+      }
 
       e.preventDefault();
       e.stopPropagation();
@@ -724,8 +775,45 @@ Welcome to your personal **Joplin-style** editor.
       } else if (btn.classList.contains('link') || btn.querySelector('.fa-link') || target.classList.contains('fa-link')) {
         const url = prompt('Enter link URL:', 'https://');
         if (url) formatWysiwyg('createLink', url);
+      } else if (btn.querySelector('.fa-picture-o') || btn.querySelector('.fa-image') || target.classList.contains('fa-picture-o') || target.classList.contains('fa-image')) {
+        const url = prompt('Enter image URL:', 'https://');
+        if (url) formatWysiwyg('insertImage', url);
+      } else if (btn.querySelector('.fa-code') || target.classList.contains('fa-code')) {
+        wrapSelectionInline('code');
       }
     }, true);
+
+    // Resolve the EasyMDE "Insert Table" toolbar button (the icon lives inside <button>)
+    function getTableToolbarButton() {
+      const icon = document.querySelector('.EasyMDEContainer .fa-table');
+      return icon ? (icon.closest('button') || icon) : null;
+    }
+
+    // Wrap the current WYSIWYG selection in an inline element (e.g. <code>)
+    function wrapSelectionInline(tagName) {
+      const sel = window.getSelection();
+      if (!sel || !sel.rangeCount) { wysiwygEditor.focus(); return; }
+      const range = sel.getRangeAt(0);
+      const el = document.createElement(tagName);
+      try {
+        if (range.collapsed) {
+          range.insertNode(el);
+          const caret = document.createRange();
+          caret.selectNodeContents(el);
+          caret.collapse(true);
+          sel.removeAllRanges();
+          sel.addRange(caret);
+        } else {
+          range.surroundContents(el);
+        }
+      } catch (err) {
+        // Fallback for selections that cross element boundaries
+        const fragment = range.extractContents();
+        el.appendChild(fragment);
+        range.insertNode(el);
+      }
+      wysiwygEditor.focus();
+    }
 
     function getHTMLFromMarkdown(mdText) {
       if (window.marked) {
@@ -753,6 +841,7 @@ Welcome to your personal **Joplin-style** editor.
       [viewEditBtn, viewPreviewBtn, viewWysiwygBtn].forEach(b => b.classList.remove('active'));
 
       const codeMirrorEl = markdownContainer.querySelector('.CodeMirror');
+      const statusBarEl = markdownContainer.querySelector('.editor-statusbar');
 
       if (newMode === 'edit') {
         viewEditBtn.classList.add('active');
@@ -765,6 +854,7 @@ Welcome to your personal **Joplin-style** editor.
         wysiwygContainer.style.display = 'none';
         markdownContainer.style.display = 'block';
         if (codeMirrorEl) codeMirrorEl.style.display = 'block';
+        if (statusBarEl) statusBarEl.style.display = '';
       } 
       else if (newMode === 'preview') {
         viewPreviewBtn.classList.add('active');
@@ -773,6 +863,7 @@ Welcome to your personal **Joplin-style** editor.
         wysiwygContainer.style.display = 'none';
         markdownContainer.style.display = 'block';
         if (codeMirrorEl) codeMirrorEl.style.display = 'block';
+        if (statusBarEl) statusBarEl.style.display = '';
 
         if (!easyMDE.isPreviewActive()) {
           easyMDE.togglePreview();
@@ -792,6 +883,7 @@ Welcome to your personal **Joplin-style** editor.
         // Keep toolbar visible, hide CodeMirror text area, show WYSIWYG container below toolbar
         markdownContainer.style.display = 'block';
         if (codeMirrorEl) codeMirrorEl.style.display = 'none';
+        if (statusBarEl) statusBarEl.style.display = 'none';
         wysiwygContainer.style.display = 'block';
       }
     }
@@ -841,6 +933,7 @@ Welcome to your personal **Joplin-style** editor.
 
     // Clear Content without prompt
     clearBtn.addEventListener('click', () => {
+      clearTimeout(wysiwygSaveTimer);
       easyMDE.value('');
       wysiwygEditor.innerHTML = '';
       localStorage.removeItem(STORAGE_KEY);
