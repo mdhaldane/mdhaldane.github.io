@@ -387,7 +387,6 @@ author_profile: false
       <span class="dot dot--green"></span>
     </div>
     <div class="calc-card__title">*input-buffer*</div>
-    <div class="calc-card__side-right">LaTeX / Math.js</div>
   </div>
   
   <div class="editor-body">
@@ -732,7 +731,7 @@ author_profile: false
         isPlainText = !isPlainText;
         
         if (isPlainText) {
-          toggleTextBtn.innerHTML = '<i class="fas fa-list"></i> View Blocks';
+          toggleTextBtn.innerHTML = '<i class="fas fa-list"></i> Blocks';
           historyContainer.style.display = 'none';
           plainTextExport.style.display = 'block';
           
@@ -754,7 +753,7 @@ author_profile: false
             plainTextExport.value = 'No evaluations yet.';
           }
         } else {
-          toggleTextBtn.innerHTML = '<i class="fas fa-file-alt"></i> View Plain Text';
+          toggleTextBtn.innerHTML = '<i class="fas fa-file-alt"></i> Text';
           plainTextExport.style.display = 'none';
           historyContainer.style.display = 'block';
         }
