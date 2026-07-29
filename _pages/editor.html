@@ -5,12 +5,12 @@ permalink: /editor/
 author_profile: false
 ---
 
-<!-- Include EasyMDE & Turndown via CDN -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
-<script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/turndown/dist/turndown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/turndown-plugin-gfm/dist/turndown-plugin-gfm.js"></script>
+<!-- Include EasyMDE & Turndown locally -->
+<link rel="stylesheet" href="{{ '/assets/css/easymde.min.css' | relative_url }}">
+<script src="{{ '/assets/js/easymde.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/marked.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/turndown.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/turndown-plugin-gfm.js' | relative_url }}"></script>
 
 <style>
     /* Design Tokens aligned with Minimal Mistakes & Calc page aesthetics */
