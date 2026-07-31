@@ -228,12 +228,32 @@ author_profile: false
       background-color: #2b3b4d !important;
     }
 
+    .EasyMDEContainer .CodeMirror .cm-link,
+    .EasyMDEContainer .CodeMirror .cm-url {
+      color: var(--accent-color);
+      text-decoration: underline;
+    }
+
+    body.ctrl-pressed .EasyMDEContainer .CodeMirror .cm-link,
+    body.ctrl-pressed .EasyMDEContainer .CodeMirror .cm-url,
+    body.ctrl-pressed #wysiwyg-editor a,
+    body.ctrl-pressed .editor-preview a,
+    body.ctrl-pressed .editor-preview-side a {
+      cursor: pointer !important;
+    }
+
     .EasyMDEContainer .editor-preview,
     .EasyMDEContainer .editor-preview-side {
       background-color: var(--code-bg);
       color: var(--text-main);
       padding: 1.5rem;
       border-color: var(--border-color);
+    }
+
+    .EasyMDEContainer .editor-preview ::selection,
+    .EasyMDEContainer .editor-preview-side ::selection {
+      background-color: #2b3b4d !important;
+      color: #ffffff !important;
     }
 
     /* Rich Text WYSIWYG Mode Container */
@@ -247,6 +267,11 @@ author_profile: false
       font-size: 1rem;
       line-height: 1.6;
       overflow-y: auto;
+    }
+
+    #wysiwyg-editor ::selection {
+      background-color: #2b3b4d !important;
+      color: #ffffff !important;
     }
 
     #wysiwyg-editor[contenteditable="true"]:empty:before {
@@ -1127,5 +1152,102 @@ Welcome to your personal **Joplin-style** editor.
         icon.className = prevClass;
       }, 2000);
     }
+
+    // Track Ctrl/Cmd key state for pointer cursors
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Control' || e.key === 'Meta') {
+        document.body.classList.add('ctrl-pressed');
+      }
+    });
+
+    window.addEventListener('keyup', (e) => {
+      if (e.key === 'Control' || e.key === 'Meta') {
+        document.body.classList.remove('ctrl-pressed');
+      }
+    });
+
+    window.addEventListener('blur', () => {
+      document.body.classList.remove('ctrl-pressed');
+    });
+
+    // Extract URL from CodeMirror token or line text at character position
+    function getUrlAtCmPos(cm, pos) {
+      const lineText = cm.getLine(pos.line);
+      if (!lineText) return null;
+
+      const token = cm.getTokenAt(pos);
+
+      // Check token first
+      if (token && token.string) {
+        const cleanTokenStr = token.string.replace(/^[\(\<\[]+|[\)\>\]]+$/g, '').trim();
+        if (cleanTokenStr.startsWith('http://') || cleanTokenStr.startsWith('https://') || cleanTokenStr.startsWith('mailto:')) {
+          return cleanTokenStr;
+        }
+      }
+
+      // Check Markdown link format [text](url) on line
+      const mdLinkRegex = /\[([^\]]*)\]\(([^)]+)\)/g;
+      let match;
+      while ((match = mdLinkRegex.exec(lineText)) !== null) {
+        const start = match.index;
+        const end = start + match[0].length;
+        if (pos.ch >= start && pos.ch <= end) {
+          return match[2].trim();
+        }
+      }
+
+      // Check raw URLs on line
+      const rawUrlRegex = /(https?:\/\/[^\s\)\>\]]+)/g;
+      while ((match = rawUrlRegex.exec(lineText)) !== null) {
+        const start = match.index;
+        const end = start + match[0].length;
+        if (pos.ch >= start && pos.ch <= end) {
+          return match[1].replace(/[\)\>\,\.]+$|^\(/g, '').trim();
+        }
+      }
+
+      return null;
+    }
+
+    // Ctrl+Click / Cmd+Click link handling across Edit, Preview, and Rich Text modes
+    document.addEventListener('click', (e) => {
+      const isModifierPressed = e.ctrlKey || e.metaKey;
+      const link = e.target.closest('a');
+
+      if (link) {
+        const href = link.getAttribute('href');
+        if (isModifierPressed) {
+          if (href && href !== '#' && !href.startsWith('javascript:')) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(href, '_blank', 'noopener,noreferrer');
+          }
+        } else if (link.closest('#wysiwyg-editor') || link.closest('.editor-preview') || link.closest('.editor-preview-side')) {
+          // Prevent accidental navigation in preview/rich-text without Ctrl/Cmd
+          e.preventDefault();
+        }
+        return;
+      }
+
+      if (isModifierPressed && currentMode === 'edit') {
+        const cm = easyMDE.codemirror;
+        const cmWrapper = cm.getWrapperElement();
+        if (!cmWrapper.contains(e.target)) return;
+
+        // Use CodeMirror native coordsChar to find exact position under mouse
+        const pos = cm.coordsChar({ left: e.clientX, top: e.clientY }, 'window');
+        const targetUrl = getUrlAtCmPos(cm, pos);
+
+        if (targetUrl) {
+          e.preventDefault();
+          e.stopPropagation();
+          let finalUrl = targetUrl;
+          if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://') && !finalUrl.startsWith('mailto:')) {
+            finalUrl = 'https://' + finalUrl;
+          }
+          window.open(finalUrl, '_blank', 'noopener,noreferrer');
+        }
+      }
+    }, true);
   })();
 </script>
