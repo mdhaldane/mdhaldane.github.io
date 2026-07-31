@@ -317,6 +317,94 @@ author_profile: false
       border: 1px solid var(--border-color);
     }
 
+    /* Paste Landing View (clipboard2markdown style) */
+    .paste-landing {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .paste-dropzone {
+      width: 100%;
+      max-width: 650px;
+      border: 2px dashed var(--border-color);
+      border-radius: 8px;
+      padding: 2.5rem 1.5rem;
+      background-color: #121218;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .paste-dropzone:hover, .paste-dropzone:focus, .paste-dropzone.dragover {
+      border-color: var(--header-blue);
+      background-color: #1a1a24;
+    }
+
+    .paste-dropzone i {
+      font-size: 2.5rem;
+      color: var(--header-blue);
+      margin-bottom: 1rem;
+    }
+
+    .paste-dropzone p {
+      margin: 0;
+      color: var(--text-main);
+      font-size: 1.05rem;
+    }
+
+    .paste-dropzone p.sub {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.4rem;
+    }
+
+    .landing-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-landing {
+      background-color: #20202c;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-landing:hover {
+      background-color: #2b2b3a;
+      border-color: var(--header-blue);
+      color: #ffffff;
+    }
+
+    .btn-landing--primary {
+      background-color: #2b3a4a;
+      border-color: var(--header-blue);
+      color: #ffffff;
+    }
+
+    .btn-landing--primary:hover {
+      background-color: #384b60;
+    }
+
     /* Mobile Responsive Adjustments */
     @media (max-width: 768px) {
       .page-header-editor {
@@ -342,17 +430,39 @@ author_profile: false
 
 <div class="page-header-editor">
   <div>
-    <p>A Markdown and rich text editor inspired by Joplin. Easily preview and copy rich text to your clipboard.</p>
+    <p>A Markdown and rich text editor inspired by Joplin and clipboard2markdown. Paste formatted HTML or web content to convert instantly to Markdown.</p>
   </div>
 </div>
 
-<div class="editor-card">
+<!-- Paste Landing View -->
+<div id="paste-landing" class="paste-landing">
+  <div id="paste-dropzone" class="paste-dropzone" tabindex="0">
+    <i class="fas fa-paste"></i>
+    <p><strong>Press Ctrl+V to paste rich text</strong></p>
+    <p class="sub">Convert HTML into clean Markdown</p>
+  </div>
+
+  <div class="landing-actions">
+    <button id="open-editor-btn" class="btn-landing btn-landing--primary">
+      <i class="fas fa-edit"></i> Open Editor
+    </button>
+  </div>
+</div>
+
+<!-- Editor Card Container (hidden initially or shown when editor is opened) -->
+<div id="editor-card" class="editor-card" style="display: none;">
   <div class="editor-card__bar">
     <div class="editor-card__side-right" style="width: 100%; justify-content: space-between;">
       <span id="mode-badge" class="mode-badge">MODE: EDIT</span>
       
       <!-- Joplin-style Compact Icon Toolbar -->
       <div class="icon-btn-group">
+        <button id="back-to-paste-btn" class="icon-btn" title="Back to Paste Screen">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+
+        <div class="toolbar-divider"></div>
+
         <button id="view-edit-btn" class="icon-btn active" title="Markdown Editor View">
           <i class="fab fa-markdown"></i>
         </button>
@@ -415,6 +525,12 @@ Welcome to your personal **Joplin-style** editor.
 `;
 
     // DOM Elements
+    const pasteLanding = document.getElementById('paste-landing');
+    const pasteDropzone = document.getElementById('paste-dropzone');
+    const editorCard = document.getElementById('editor-card');
+    const openEditorBtn = document.getElementById('open-editor-btn');
+    const backToPasteBtn = document.getElementById('back-to-paste-btn');
+
     const viewEditBtn = document.getElementById('view-edit-btn');
     const viewPreviewBtn = document.getElementById('view-preview-btn');
     const viewWysiwygBtn = document.getElementById('view-wysiwyg-btn');
@@ -426,6 +542,75 @@ Welcome to your personal **Joplin-style** editor.
     const wysiwygContainer = document.getElementById('wysiwyg-container');
     const wysiwygEditor = document.getElementById('wysiwyg-editor');
     const textarea = document.getElementById('markdown-editor');
+
+    // Show Editor View
+    function showEditorView() {
+      pasteLanding.style.display = 'none';
+      editorCard.style.display = 'flex';
+      easyMDE.codemirror.refresh();
+    }
+
+    // Show Paste Landing View
+    function showPasteLandingView() {
+      editorCard.style.display = 'none';
+      pasteLanding.style.display = 'flex';
+      pasteDropzone.focus();
+    }
+
+    openEditorBtn.addEventListener('click', showEditorView);
+    backToPasteBtn.addEventListener('click', showPasteLandingView);
+
+    // Paste handling inspired by clipboard2markdown
+    function handlePastedData(clipboardData) {
+      let markdown = '';
+      const htmlData = clipboardData.getData('text/html');
+      const textData = clipboardData.getData('text/plain');
+
+      if (htmlData && htmlData.trim()) {
+        markdown = turndownService.turndown(htmlData);
+      } else if (textData && textData.trim()) {
+        markdown = textData;
+      }
+
+      if (markdown) {
+        easyMDE.value(markdown);
+        localStorage.setItem(STORAGE_KEY, markdown);
+        showEditorView();
+        setMode('edit');
+      }
+    }
+
+    // Dropzone paste listener & drag/drop listeners
+    pasteDropzone.addEventListener('paste', (e) => {
+      e.preventDefault();
+      if (e.clipboardData) {
+        handlePastedData(e.clipboardData);
+      }
+    });
+
+    // Window-level paste listener when on paste landing page
+    window.addEventListener('paste', (e) => {
+      if (pasteLanding.style.display !== 'none' && e.clipboardData) {
+        handlePastedData(e.clipboardData);
+      }
+    });
+
+    pasteDropzone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      pasteDropzone.classList.add('dragover');
+    });
+
+    pasteDropzone.addEventListener('dragleave', () => {
+      pasteDropzone.classList.remove('dragover');
+    });
+
+    pasteDropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      pasteDropzone.classList.remove('dragover');
+      const htmlData = e.dataTransfer.getData('text/html');
+      const textData = e.dataTransfer.getData('text/plain');
+      handlePastedData(e.dataTransfer);
+    });
 
     // Initialize EasyMDE CodeMirror Editor
     const easyMDE = new EasyMDE({
@@ -592,8 +777,6 @@ Welcome to your personal **Joplin-style** editor.
     });
 
     // Persist WYSIWYG edits (debounced) so changes survive even without a mode switch.
-    // The CodeMirror change handler above only fires in Edit mode, so Rich Text edits
-    // would otherwise be lost if the tab is closed before switching views.
     let wysiwygSaveTimer = null;
     function scheduleWysiwygSave() {
       clearTimeout(wysiwygSaveTimer);
@@ -687,8 +870,7 @@ Welcome to your personal **Joplin-style** editor.
       const btn = target.closest('.EasyMDEContainer button') || target.closest('.EasyMDEContainer a');
       if (!btn) return;
 
-      // Let the table button fall through to EasyMDE's custom action, which opens the
-      // grid picker and already knows how to insert into the WYSIWYG area.
+      // Let the table button fall through to EasyMDE's custom action
       if (btn.querySelector('.fa-table') || target.classList.contains('fa-table')) {
         return;
       }
@@ -783,13 +965,13 @@ Welcome to your personal **Joplin-style** editor.
       }
     }, true);
 
-    // Resolve the EasyMDE "Insert Table" toolbar button (the icon lives inside <button>)
+    // Resolve the EasyMDE "Insert Table" toolbar button
     function getTableToolbarButton() {
       const icon = document.querySelector('.EasyMDEContainer .fa-table');
       return icon ? (icon.closest('button') || icon) : null;
     }
 
-    // Wrap the current WYSIWYG selection in an inline element (e.g. <code>)
+    // Wrap current WYSIWYG selection in inline tag
     function wrapSelectionInline(tagName) {
       const sel = window.getSelection();
       if (!sel || !sel.rangeCount) { wysiwygEditor.focus(); return; }
@@ -807,7 +989,6 @@ Welcome to your personal **Joplin-style** editor.
           range.surroundContents(el);
         }
       } catch (err) {
-        // Fallback for selections that cross element boundaries
         const fragment = range.extractContents();
         el.appendChild(fragment);
         range.insertNode(el);
@@ -828,7 +1009,6 @@ Welcome to your personal **Joplin-style** editor.
 
     // View Switching logic
     function setMode(newMode) {
-      // Sync content from active mode before switching
       if (currentMode === 'wysiwyg') {
         const md = getMarkdownFromHTML(wysiwygEditor.innerHTML);
         easyMDE.value(md);
@@ -837,7 +1017,6 @@ Welcome to your personal **Joplin-style** editor.
 
       currentMode = newMode;
 
-      // Update button active state icons
       [viewEditBtn, viewPreviewBtn, viewWysiwygBtn].forEach(b => b.classList.remove('active'));
 
       const codeMirrorEl = markdownContainer.querySelector('.CodeMirror');
@@ -880,7 +1059,6 @@ Welcome to your personal **Joplin-style** editor.
         const currentMD = easyMDE.value();
         wysiwygEditor.innerHTML = getHTMLFromMarkdown(currentMD);
 
-        // Keep toolbar visible, hide CodeMirror text area, show WYSIWYG container below toolbar
         markdownContainer.style.display = 'block';
         if (codeMirrorEl) codeMirrorEl.style.display = 'none';
         if (statusBarEl) statusBarEl.style.display = 'none';
@@ -931,7 +1109,7 @@ Welcome to your personal **Joplin-style** editor.
       });
     });
 
-    // Clear Content without prompt
+    // Clear Content
     clearBtn.addEventListener('click', () => {
       clearTimeout(wysiwygSaveTimer);
       easyMDE.value('');
