@@ -6,3 +6,16 @@
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* Custom Overrides */
+.feature__item-teaser {
+  margin-bottom: 0.5rem !important;
+}
+
+.feature__item .archive__item-body {
+  margin-top: 0 !important;
+}
+
+.feature__item .archive__item-title {
+  margin-top: 0 !important;
+}
