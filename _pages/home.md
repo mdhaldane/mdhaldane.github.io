@@ -27,12 +27,12 @@ feature_row:
     btn_class: "btn--primary"
     btn_label: "Read Me"
   - icon: "fas fa-microchip"
-    alt: "Tinkerer"
-    title: "Tinkerer"
-    excerpt: "Side quests"
-    url: "/projects/"
+    alt: "Tools"
+    title: "Tools"
+    excerpt: "Interactive web apps"
+    url: "/tools/"
     btn_class: "btn--primary"
-    btn_label: "Projects"
+    btn_label: "View Tools"
 ---
 
 {% include feature_row %}
