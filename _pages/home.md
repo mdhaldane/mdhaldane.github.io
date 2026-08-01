@@ -12,7 +12,7 @@ excerpt: ""
 #   - excerpt: ''
 author_profile: true
 feature_row:
-  - icon: "fas fa-terminal"
+  - icon: "fas fa-magnifying-glass"
     alt: "About me"
     title: "Read"
     url: "/about/"
@@ -21,10 +21,10 @@ feature_row:
   - icon: "fas fa-newspaper"
     alt: "Clips"
     title: "Write"
-    url: "/work/"
+    url: "/clips/"
     btn_class: "btn--primary"
     btn_label: "Clips"
-  - icon: "fas fa-keyboard"
+  - icon: "fas fa-laptop-code"
     alt: "Tools"
     title: "Own"
     url: "/tools/"

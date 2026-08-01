@@ -1,7 +1,7 @@
 ---
 layout: single
-title: Work
-permalink: /work/
+title: Clips
+permalink: /clips/
 author_profile: false
 group: navigation
 feature_row_web3:
