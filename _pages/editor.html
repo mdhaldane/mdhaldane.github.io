@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Markdown Editor
+title: Markup Editor
 permalink: /editor/
 author_profile: false
 ---
@@ -11,6 +11,7 @@ author_profile: false
 <script src="{{ '/assets/js/marked.min.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/turndown.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/turndown-plugin-gfm.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/org-converter.js' | relative_url }}"></script>
 
 <style>
     /* Design Tokens aligned with Minimal Mistakes & Calc page aesthetics */
@@ -209,6 +210,11 @@ author_profile: false
       border-left: 1px solid var(--border-color);
     }
 
+    /* Hide markdown formatting toolbar while in Org-mode source view */
+    .EasyMDEContainer.org-mode .editor-toolbar {
+      display: none;
+    }
+
     .EasyMDEContainer .CodeMirror {
       background-color: var(--code-bg);
       color: #ffffff;
@@ -233,6 +239,27 @@ author_profile: false
       color: var(--accent-color);
       text-decoration: underline;
     }
+
+    /* Org-mode source view styling */
+    .EasyMDEContainer .CodeMirror.cm-s-org {
+      background-color: var(--code-bg);
+    }
+
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header,
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-1 { color: #8fb4d9; font-weight: 700; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-2 { color: #a3b8a0; font-weight: 700; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-3 { color: #c5b392; font-weight: 600; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-4,
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-5,
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-6 { color: #9a96a8; font-weight: 600; }
+
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-keyword { color: #d97878; font-weight: 700; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-comment { color: #6a6658; font-style: normal; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-quote { color: var(--text-muted); font-style: italic; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-atom { color: #b48ead; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-tag { color: var(--accent-color); }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-string { color: #a3b8a0; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-variable-2 { color: var(--text-main); }
 
     body.ctrl-pressed .EasyMDEContainer .CodeMirror .cm-link,
     body.ctrl-pressed .EasyMDEContainer .CodeMirror .cm-url,
@@ -455,7 +482,7 @@ author_profile: false
 
 <div class="page-header-editor">
   <div>
-    <p>A Markdown and rich text editor inspired by Joplin and clipboard2markdown. Paste formatted HTML or web content to convert instantly to Markdown.</p>
+    <p>A Markdown, Org-mode, and rich text editor inspired by Joplin and clipboard2markdown. Paste formatted HTML or web content to convert instantly to Markdown, and switch freely between Markdown, Org-mode, and rich text views.</p>
   </div>
 </div>
 
@@ -490,6 +517,9 @@ author_profile: false
 
         <button id="view-edit-btn" class="icon-btn active" title="Markdown Editor View">
           <i class="fab fa-markdown"></i>
+        </button>
+        <button id="view-org-btn" class="icon-btn" title="Org-Mode View">
+          <i class="fas fa-list"></i>
         </button>
         <button id="view-preview-btn" class="icon-btn" title="Markdown Preview View">
           <i class="fas fa-eye"></i>
@@ -532,7 +562,7 @@ author_profile: false
 <script>
   (function() {
     const STORAGE_KEY = 'joplin_editor_content';
-    // Modes: 'edit' | 'preview' | 'wysiwyg'
+    // Modes: 'edit' | 'preview' | 'wysiwyg' | 'org'
     let currentMode = 'edit';
 
     // Default initial sample text if storage empty
@@ -559,6 +589,7 @@ Welcome to your personal **Joplin-style** editor.
     const viewEditBtn = document.getElementById('view-edit-btn');
     const viewPreviewBtn = document.getElementById('view-preview-btn');
     const viewWysiwygBtn = document.getElementById('view-wysiwyg-btn');
+    const viewOrgBtn = document.getElementById('view-org-btn');
     const copyRichBtn = document.getElementById('copy-rich-btn');
     const copyMDBtn = document.getElementById('copy-md-btn');
     const clearBtn = document.getElementById('clear-btn');
@@ -598,6 +629,13 @@ Welcome to your personal **Joplin-style** editor.
       }
 
       if (markdown) {
+        // If it looks like org-mode text, open directly in the Org view.
+        if (!htmlData && window.OrgConverter && window.OrgConverter.looksLikeOrg(markdown)) {
+          easyMDE.value(window.OrgConverter.orgToMarkdown(markdown));
+          showEditorView();
+          setMode('org');
+          return;
+        }
         easyMDE.value(markdown);
         localStorage.setItem(STORAGE_KEY, markdown);
         showEditorView();
@@ -637,10 +675,25 @@ Welcome to your personal **Joplin-style** editor.
       handlePastedData(e.dataTransfer);
     });
 
+    // Load saved content. If a prior session left pure Org-mode text behind
+    // (localStorage should always hold Markdown), convert it back so the
+    // Markdown views never show raw Org syntax.
+    function loadStoredContent() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) return defaultContent;
+
+      if (window.OrgConverter && window.OrgConverter.looksLikeOrg(stored)) {
+        const repaired = window.OrgConverter.orgToMarkdown(stored);
+        localStorage.setItem(STORAGE_KEY, repaired);
+        return repaired;
+      }
+      return stored;
+    }
+
     // Initialize EasyMDE CodeMirror Editor
     const easyMDE = new EasyMDE({
       element: textarea,
-      initialValue: localStorage.getItem(STORAGE_KEY) || defaultContent,
+      initialValue: loadStoredContent(),
       spellChecker: false,
       autosave: {
         enabled: false
@@ -698,20 +751,38 @@ Welcome to your personal **Joplin-style** editor.
                     const cols = parseInt(cell.dataset.col, 10);
 
                     let tableMD = "\n";
-                    let header = "|";
-                    let divider = "|";
-                    for (let colIdx = 1; colIdx <= cols; colIdx++) {
-                      header += ` Header ${colIdx} |`;
-                      divider += "----------|";
-                    }
-                    tableMD += header + "\n" + divider + "\n";
-
-                    for (let rowIdx = 1; rowIdx <= rows; rowIdx++) {
-                      let rowStr = "|";
+                    if (currentMode === 'org') {
+                      let header = "|";
+                      let divider = "|";
                       for (let colIdx = 1; colIdx <= cols; colIdx++) {
-                        rowStr += ` Cell ${rowIdx}.${colIdx} |`;
+                        header += ` Header ${colIdx} |`;
+                        divider += "-----------+";
                       }
-                      tableMD += rowStr + "\n";
+                      divider = divider.slice(0, -1) + "|";
+                      tableMD += header + "\n" + divider + "\n";
+                      for (let rowIdx = 1; rowIdx <= rows; rowIdx++) {
+                        let rowStr = "|";
+                        for (let colIdx = 1; colIdx <= cols; colIdx++) {
+                          rowStr += ` Cell ${rowIdx}.${colIdx} |`;
+                        }
+                        tableMD += rowStr + "\n";
+                      }
+                    } else {
+                      let header = "|";
+                      let divider = "|";
+                      for (let colIdx = 1; colIdx <= cols; colIdx++) {
+                        header += ` Header ${colIdx} |`;
+                        divider += "----------|";
+                      }
+                      tableMD += header + "\n" + divider + "\n";
+
+                      for (let rowIdx = 1; rowIdx <= rows; rowIdx++) {
+                        let rowStr = "|";
+                        for (let colIdx = 1; colIdx <= cols; colIdx++) {
+                          rowStr += ` Cell ${rowIdx}.${colIdx} |`;
+                        }
+                        tableMD += rowStr + "\n";
+                      }
                     }
                     tableMD += "\n";
 
@@ -798,6 +869,8 @@ Welcome to your personal **Joplin-style** editor.
     easyMDE.codemirror.on('change', () => {
       if (currentMode === 'edit') {
         localStorage.setItem(STORAGE_KEY, easyMDE.value());
+      } else if (currentMode === 'org') {
+        localStorage.setItem(STORAGE_KEY, window.OrgConverter.orgToMarkdown(easyMDE.value()));
       }
     });
 
@@ -1034,15 +1107,30 @@ Welcome to your personal **Joplin-style** editor.
 
     // View Switching logic
     function setMode(newMode) {
+      const cm = easyMDE.codemirror;
+
+      // Leaving WYSIWYG: convert rich text back to markdown.
       if (currentMode === 'wysiwyg') {
         const md = getMarkdownFromHTML(wysiwygEditor.innerHTML);
         easyMDE.value(md);
-        localStorage.setItem(STORAGE_KEY, md);
+      }
+
+      // Mode conversion between Markdown and Org source views.
+      if (currentMode === 'org' && newMode !== 'org') {
+        easyMDE.value(window.OrgConverter.orgToMarkdown(easyMDE.value()));
+      } else if (currentMode !== 'org' && newMode === 'org') {
+        easyMDE.value(window.OrgConverter.markdownToOrg(easyMDE.value()));
+      }
+
+      if (newMode !== 'org') {
+        localStorage.setItem(STORAGE_KEY, easyMDE.value());
+      } else {
+        localStorage.setItem(STORAGE_KEY, window.OrgConverter.orgToMarkdown(easyMDE.value()));
       }
 
       currentMode = newMode;
 
-      [viewEditBtn, viewPreviewBtn, viewWysiwygBtn].forEach(b => b.classList.remove('active'));
+      [viewEditBtn, viewPreviewBtn, viewWysiwygBtn, viewOrgBtn].forEach(b => b.classList.remove('active'));
 
       const codeMirrorEl = markdownContainer.querySelector('.CodeMirror');
       const statusBarEl = markdownContainer.querySelector('.editor-statusbar');
@@ -1055,15 +1143,22 @@ Welcome to your personal **Joplin-style** editor.
           easyMDE.togglePreview();
         }
 
+        cm.getWrapperElement().classList.remove('cm-s-org');
+        const container = markdownContainer.closest('.EasyMDEContainer');
+        if (container) container.classList.remove('org-mode');
         wysiwygContainer.style.display = 'none';
         markdownContainer.style.display = 'block';
         if (codeMirrorEl) codeMirrorEl.style.display = 'block';
         if (statusBarEl) statusBarEl.style.display = '';
+        cm.refresh();
       } 
       else if (newMode === 'preview') {
         viewPreviewBtn.classList.add('active');
         modeBadge.textContent = 'MODE: PREVIEW';
 
+        cm.getWrapperElement().classList.remove('cm-s-org');
+        const container = markdownContainer.closest('.EasyMDEContainer');
+        if (container) container.classList.remove('org-mode');
         wysiwygContainer.style.display = 'none';
         markdownContainer.style.display = 'block';
         if (codeMirrorEl) codeMirrorEl.style.display = 'block';
@@ -1081,6 +1176,9 @@ Welcome to your personal **Joplin-style** editor.
           easyMDE.togglePreview();
         }
 
+        cm.getWrapperElement().classList.remove('cm-s-org');
+        const container = markdownContainer.closest('.EasyMDEContainer');
+        if (container) container.classList.remove('org-mode');
         const currentMD = easyMDE.value();
         wysiwygEditor.innerHTML = getHTMLFromMarkdown(currentMD);
 
@@ -1089,15 +1187,35 @@ Welcome to your personal **Joplin-style** editor.
         if (statusBarEl) statusBarEl.style.display = 'none';
         wysiwygContainer.style.display = 'block';
       }
+      else if (newMode === 'org') {
+        viewOrgBtn.classList.add('active');
+        modeBadge.textContent = 'MODE: ORG';
+
+        if (easyMDE.isPreviewActive()) {
+          easyMDE.togglePreview();
+        }
+
+        cm.getWrapperElement().classList.add('cm-s-org');
+        const container = markdownContainer.closest('.EasyMDEContainer');
+        if (container) container.classList.add('org-mode');
+        wysiwygContainer.style.display = 'none';
+        markdownContainer.style.display = 'block';
+        if (codeMirrorEl) codeMirrorEl.style.display = 'block';
+        if (statusBarEl) statusBarEl.style.display = '';
+        cm.refresh();
+      }
     }
 
     viewEditBtn.addEventListener('click', () => setMode('edit'));
     viewPreviewBtn.addEventListener('click', () => setMode('preview'));
     viewWysiwygBtn.addEventListener('click', () => setMode('wysiwyg'));
+    viewOrgBtn.addEventListener('click', () => setMode('org'));
 
     // Copy Rich Text
     copyRichBtn.addEventListener('click', () => {
-      let mdText = currentMode === 'wysiwyg' ? getMarkdownFromHTML(wysiwygEditor.innerHTML) : easyMDE.value();
+      let mdText = currentMode === 'wysiwyg' ? getMarkdownFromHTML(wysiwygEditor.innerHTML)
+        : currentMode === 'org' ? window.OrgConverter.orgToMarkdown(easyMDE.value())
+        : easyMDE.value();
       let htmlText = currentMode === 'wysiwyg' ? wysiwygEditor.innerHTML : getHTMLFromMarkdown(mdText);
 
       if (navigator.clipboard && window.ClipboardItem) {
@@ -1126,7 +1244,7 @@ Welcome to your personal **Joplin-style** editor.
       }
     });
 
-    // Copy Raw Markdown
+    // Copy Raw Source (Markdown, or Org when in Org mode)
     copyMDBtn.addEventListener('click', () => {
       let mdText = currentMode === 'wysiwyg' ? getMarkdownFromHTML(wysiwygEditor.innerHTML) : easyMDE.value();
       navigator.clipboard.writeText(mdText).then(() => {
@@ -1140,6 +1258,9 @@ Welcome to your personal **Joplin-style** editor.
       easyMDE.value('');
       wysiwygEditor.innerHTML = '';
       localStorage.removeItem(STORAGE_KEY);
+      if (currentMode === 'org') {
+        setMode('edit');
+      }
     });
 
     function showCopiedIcon(btn) {
@@ -1229,7 +1350,7 @@ Welcome to your personal **Joplin-style** editor.
         return;
       }
 
-      if (isModifierPressed && currentMode === 'edit') {
+      if (isModifierPressed && (currentMode === 'edit' || currentMode === 'org')) {
         const cm = easyMDE.codemirror;
         const cmWrapper = cm.getWrapperElement();
         if (!cmWrapper.contains(e.target)) return;
