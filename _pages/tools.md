@@ -23,6 +23,12 @@ tools_grid:
     url: "/editor/"
     btn_label: "Open Editor"
     btn_class: "btn--primary"
+  - icon: "fas fa-chart-line"
+    title: "Hyperliquid Data"
+    excerpt: "A tool for grabbing historical market data directly from the Hyperliquid API with an interactive chart and exportable data tables."
+    url: "/hype/"
+    btn_label: "Open Data Tool"
+    btn_class: "btn--primary"
 ---
 
 The age of [personalized software](https://sockpuppet.org/blog/2026/05/12/emacsification/){:target="_blank"} is upon us. These are a few web-based tools for very niche use cases built — unsurprisingly, I'm sure — with the help of AI. I am not a developer. Bear that in mind when using them. That said, they are meant to run locally and so have no calls to the web, except for the chat app, which communicates through Delta Chat servers.
