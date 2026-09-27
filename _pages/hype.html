@@ -100,7 +100,7 @@ permalink: /hype/
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
       align-items: flex-end;
     }
@@ -813,9 +813,21 @@ permalink: /hype/
           body: JSON.stringify({ type: 'meta' })
         });
         const data = await res.json();
+        
+        const datalist = document.getElementById('tickers-list');
+        datalist.innerHTML = '';
+        
+        // Add custom HIP-3 / spot tickers from user's list
+        if (typeof CUSTOM_TICKERS !== 'undefined') {
+          CUSTOM_TICKERS.forEach(item => {
+            const opt = document.createElement('option');
+            opt.value = item.value;
+            opt.textContent = item.label;
+            datalist.appendChild(opt);
+          });
+        }
+
         if (data && data.universe) {
-          const datalist = document.getElementById('tickers-list');
-          datalist.innerHTML = '';
           data.universe.forEach(coin => {
             const opt = document.createElement('option');
             opt.value = coin.name;
@@ -849,6 +861,44 @@ permalink: /hype/
       document.getElementById('end-date').value = formatDateForInput(new Date(currentEndTimeMs), tz);
     }
 
+    const CUSTOM_TICKERS = [
+      { value: 'xyz:BRENTOIL', label: 'Brent Crude Oil', searchTokens: ['brent', 'crude', 'oil'] },
+      { value: 'xyz:CL', label: 'Crude Oil (WTI)', searchTokens: ['crude', 'oil', 'wti'] },
+      { value: 'xyz:NATGAS', label: 'Natural Gas', searchTokens: ['natural', 'gas'] },
+      { value: 'xyz:GOLD', label: 'Gold', searchTokens: ['gold'] },
+      { value: 'xyz:SILVER', label: 'Silver', searchTokens: ['silver'] },
+      { value: 'xyz:SP500', label: 'S&P 500', searchTokens: ['s&p', '500', 'sp500'] },
+      { value: 'xyz:XYZ100', label: 'Nasdaq 100', searchTokens: ['nasdaq', 'ndx', '100'] },
+      { value: 'xyz:JP225', label: 'Nikkei 225', searchTokens: ['nikkei', '225', 'jp225'] },
+      { value: 'xyz:NVDA', label: 'Nvidia', searchTokens: ['nvidia', 'nvda'] },
+      { value: 'xyz:INTC', label: 'Intel', searchTokens: ['intel', 'intc'] },
+      { value: 'xyz:MU', label: 'Micron Technology', searchTokens: ['micron', 'mu'] },
+      { value: 'xyz:SNDK', label: 'SanDisk', searchTokens: ['sandisk', 'sndk'] },
+      { value: 'xyz:CRCL', label: 'CRCL', searchTokens: ['crcl'] },
+      { value: 'xyz:EWZ', label: 'iShares MSCI Brazil ETF', searchTokens: ['brazil', 'ewz'] },
+      { value: 'xyz:SKHY', label: 'SK Hynix', searchTokens: ['sk', 'hynix', 'skhy'] },
+      { value: 'xyz:SKHX', label: 'SK Hynix (Alternative)', searchTokens: ['sk', 'hynix', 'skhx'] },
+      { value: 'xyz:EUR', label: 'Euro / USD', searchTokens: ['euro', 'eur'] },
+      { value: 'xyz:GBP', label: 'British Pound / USD', searchTokens: ['british', 'pound', 'gbp'] },
+      { value: 'xyz:JPY', label: 'Japanese Yen / USD', searchTokens: ['japanese', 'yen', 'jpy'] },
+      { value: 'xyz:AAPL', label: 'Apple', searchTokens: ['apple', 'aapl'] },
+      { value: 'xyz:TSLA', label: 'Tesla', searchTokens: ['tesla', 'tsla'] },
+      { value: 'xyz:MSFT', label: 'Microsoft', searchTokens: ['microsoft', 'msft'] },
+      { value: 'xyz:AMZN', label: 'Amazon', searchTokens: ['amazon', 'amzn'] },
+      { value: 'xyz:META', label: 'Meta', searchTokens: ['meta', 'facebook', 'fb'] },
+      { value: 'xyz:GOOGL', label: 'Google (Alphabet)', searchTokens: ['google', 'alphabet', 'googl'] },
+      { value: 'xyz:AMD', label: 'AMD', searchTokens: ['amd'] },
+      { value: 'xyz:ARM', label: 'ARM Holdings', searchTokens: ['arm'] },
+      { value: 'xyz:MSTR', label: 'MicroStrategy', searchTokens: ['microstrategy', 'mstr'] },
+      { value: 'xyz:COIN', label: 'Coinbase', searchTokens: ['coinbase', 'coin'] },
+      { value: 'xyz:GME', label: 'GameStop', searchTokens: ['gamestop', 'gme'] },
+      { value: 'xyz:CXMT', label: 'CXMT', searchTokens: ['cxmt', 'changxin'] },
+      { value: 'xyz:UNITREE', label: 'Unitree', searchTokens: ['unitree'] },
+      { value: 'xyz:SHEIN', label: 'Shein', searchTokens: ['shein'] },
+      { value: 'xyz:SPCX', label: 'SpaceX', searchTokens: ['spacex', 'spcx'] },
+      { value: 'xyz:CBRS', label: 'Cerebras', searchTokens: ['cerebras', 'cbrs'] }
+    ];
+
     async function fetchData() {
       const tickersInput = document.getElementById('tickers-input').value.trim();
       if (!tickersInput) {
@@ -864,6 +914,18 @@ permalink: /hype/
 
       const tickers = tickersInput.split(',').map(t => {
         t = t.trim();
+        
+        // Attempt to match custom tickers by name or symbol if user manually typed it without the xyz: prefix
+        const lowerT = t.toLowerCase();
+        const customMatch = CUSTOM_TICKERS.find(c => 
+          c.value.toLowerCase() === lowerT || 
+          c.value.toLowerCase() === `xyz:${lowerT}` ||
+          c.label.toLowerCase() === lowerT
+        );
+        if (customMatch) {
+          return customMatch.value;
+        }
+
         if (t.includes(':')) {
           const parts = t.split(':');
           return `${parts[0].toLowerCase()}:${parts[1].toUpperCase()}`;
