@@ -249,9 +249,9 @@ author_profile: false
     .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-1 { color: #8fb4d9; font-weight: 700; }
     .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-2 { color: #a3b8a0; font-weight: 700; }
     .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-3 { color: #c5b392; font-weight: 600; }
-    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-4,
-    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-5,
-    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-6 { color: #9a96a8; font-weight: 600; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-4 { color: #c7a0cf; font-weight: 600; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-5 { color: #e0a080; font-weight: 600; }
+    .EasyMDEContainer .CodeMirror.cm-s-org .cm-header-6 { color: #80c4c4; font-weight: 600; }
 
     .EasyMDEContainer .CodeMirror.cm-s-org .cm-keyword { color: #d97878; font-weight: 700; }
     .EasyMDEContainer .CodeMirror.cm-s-org .cm-comment { color: #6a6658; font-style: normal; }
@@ -369,93 +369,62 @@ author_profile: false
       border: 1px solid var(--border-color);
     }
 
-    /* Paste Landing View (clipboard2markdown style) */
-    .paste-landing {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-      margin-bottom: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.25rem;
+    .EasyMDEContainer .CodeMirror { height: 550px; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 1rem; line-height: 1.6; color: var(--text-main); }
+    .EasyMDEContainer .CodeMirror .cm-comment { font-family: var(--font-mono); }
+    .heading-fold-gutter { width: 22px; }
+    .heading-fold-toggle, .heading-fold-placeholder { background: transparent; border: 0; color: var(--header-blue); cursor: pointer; padding: 0 3px; font: inherit; }
+    .heading-fold-toggle:hover, .heading-fold-placeholder:hover { color: var(--text-main); }
+    .heading-fold-toggle:focus-visible, .heading-fold-placeholder:focus-visible { outline: 1px solid var(--header-blue); }
+    .editor-container { min-width: 0; }
+    #editor-stats { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 1rem; padding: .5rem 1rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font: 12px var(--font-mono); }
+    .EasyMDEContainer .CodeMirror-gutters { background: #14141a; border-color: var(--border-color); }
+    .EasyMDEContainer .CodeMirror-linenumber { color: #858599; }
+    .EasyMDEContainer .CodeMirror .cm-header { font-size: inherit; line-height: inherit; }
+    .EasyMDEContainer .cm-header, .EasyMDEContainer .cm-strong { color: #8fb4d9; }
+    .EasyMDEContainer .cm-em { color: #c5b392; }
+    .EasyMDEContainer .cm-comment { color: #a3b8a0; }
+    #rich-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: .25rem; padding: .4rem .8rem; background: #14141a; border-bottom: 1px solid var(--border-color); }
+    #rich-toolbar[hidden] { display: none; }
+    #rich-toolbar .icon-btn:focus-visible { outline: 2px solid var(--header-blue); outline-offset: 1px; }
+    #rich-toolbar .toolbar-divider { flex-shrink: 0; }
+    #markup-preview { min-height: 450px; padding: 1.5rem; overflow: auto; }
+    /* Keep ordered and unordered lists aligned in both rendered views. */
+    #wysiwyg-editor :is(ol, ul), #markup-preview :is(ol, ul) {
+      margin: .75em 0;
+      padding: 0 0 0 2.5em;
+      list-style-position: outside;
     }
-
-    .paste-dropzone {
-      width: 100%;
-      max-width: 650px;
-      border: 2px dashed var(--border-color);
-      border-radius: 8px;
-      padding: 2.5rem 1.5rem;
-      background-color: #121218;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      outline: none;
+    #wysiwyg-editor ol, #markup-preview ol { list-style-type: decimal; }
+    #wysiwyg-editor ul, #markup-preview ul { list-style-type: disc; }
+    #wysiwyg-editor li, #markup-preview li {
+      display: list-item;
+      position: relative;
+      margin: .25em 0;
+      padding: 0;
+      line-height: 1.6;
+      text-align: start;
     }
-
-    .paste-dropzone:hover, .paste-dropzone:focus, .paste-dropzone.dragover {
-      border-color: var(--header-blue);
-      background-color: #1a1a24;
+    #wysiwyg-editor :is(ol, ul) > li, #markup-preview :is(ol, ul) > li { list-style-type: none; }
+    #wysiwyg-editor :is(ol, ul) > li::before, #markup-preview :is(ol, ul) > li::before {
+      position: absolute;
+      inset-inline-start: -2.25em;
+      top: 0;
+      width: 1.75em;
+      text-align: end;
+      color: inherit;
+      font-family: inherit;
+      font-size: 1em;
+      font-weight: normal;
+      line-height: inherit;
     }
-
-    .paste-dropzone i {
-      font-size: 2.5rem;
-      color: var(--header-blue);
-      margin-bottom: 1rem;
-    }
-
-    .paste-dropzone p {
-      margin: 0;
-      color: var(--text-main);
-      font-size: 1.05rem;
-    }
-
-    .paste-dropzone p.sub {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-top: 0.4rem;
-    }
-
-    .landing-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn-landing {
-      background-color: #20202c;
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
-      padding: 0.6rem 1.25rem;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s ease;
-    }
-
-    .btn-landing:hover {
-      background-color: #2b2b3a;
-      border-color: var(--header-blue);
-      color: #ffffff;
-    }
-
-    .btn-landing--primary {
-      background-color: #2b3a4a;
-      border-color: var(--header-blue);
-      color: #ffffff;
-    }
-
-    .btn-landing--primary:hover {
-      background-color: #384b60;
-    }
+    #wysiwyg-editor ol > li::before, #markup-preview ol > li::before { content: counter(list-item) "."; }
+    #wysiwyg-editor ul > li::before, #markup-preview ul > li::before { content: "•"; }
+    #wysiwyg-editor li > :is(p, div), #markup-preview li > :is(p, div) { margin: 0; }
+    #wysiwyg-editor li > :is(p, div) + :is(p, div), #markup-preview li > :is(p, div) + :is(p, div) { margin-top: .5em; }
+    #wysiwyg-editor li > :is(ol, ul), #markup-preview li > :is(ol, ul) { margin: .25em 0; }
+    #editor-message { color: var(--text-muted); font-size: .8rem; min-height: 1.5em; }
+    #wysiwyg-editor pre { white-space: pre-wrap; }
+    #wysiwyg-editor pre code { border: 0; padding: 0; }
 
     /* Mobile Responsive Adjustments */
     @media (max-width: 768px) {
@@ -482,64 +451,42 @@ author_profile: false
 
 <div class="page-header-editor">
   <div>
-    <p>A Markdown, Org-mode, and rich text editor inspired by Joplin and clipboard2markdown. Paste formatted HTML or web content to convert instantly to Markdown, and switch freely between Markdown, Org-mode, and rich text views.</p>
+    <p>Write or paste rich text, or edit Markdown and Org-mode source with syntax highlighting and line numbers. Use the arrows beside headings to fold sections. Enter continues lists; Enter on an empty item ends the list. Your work is saved in this browser. Ctrl/Cmd-click to open links in rich text and preview.</p>
   </div>
 </div>
 
-<!-- Paste Landing View -->
-<div id="paste-landing" class="paste-landing">
-  <div id="paste-dropzone" class="paste-dropzone" tabindex="0">
-    <i class="fas fa-paste"></i>
-    <p><strong>Press Ctrl+V to paste rich text</strong></p>
-    <p class="sub">Convert HTML into clean Markdown</p>
-  </div>
-
-  <div class="landing-actions">
-    <button id="open-editor-btn" class="btn-landing btn-landing--primary">
-      <i class="fas fa-edit"></i> Open Editor
-    </button>
-  </div>
-</div>
-
-<!-- Editor Card Container (hidden initially or shown when editor is opened) -->
-<div id="editor-card" class="editor-card" style="display: none;">
+<div id="editor-card" class="editor-card">
   <div class="editor-card__bar">
     <div class="editor-card__side-right" style="width: 100%; justify-content: space-between;">
       <span id="mode-badge" class="mode-badge">MODE: EDIT</span>
-      
+
       <!-- Joplin-style Compact Icon Toolbar -->
       <div class="icon-btn-group">
-        <button id="back-to-paste-btn" class="icon-btn" title="Back to Paste Screen">
-          <i class="fas fa-arrow-left"></i>
-        </button>
-
-        <div class="toolbar-divider"></div>
-
-        <button id="view-edit-btn" class="icon-btn active" title="Markdown Editor View">
+        <button id="view-edit-btn" class="icon-btn active" aria-label="Markdown Editor View" title="Markdown Editor View">
           <i class="fab fa-markdown"></i>
         </button>
-        <button id="view-org-btn" class="icon-btn" title="Org-Mode View">
+        <button id="view-org-btn" class="icon-btn" aria-label="Org-Mode View" title="Org-Mode View">
           <i class="fas fa-list"></i>
         </button>
-        <button id="view-preview-btn" class="icon-btn" title="Markdown Preview View">
+        <button id="view-preview-btn" class="icon-btn" aria-label="Markdown Preview View" title="Markdown Preview View">
           <i class="fas fa-eye"></i>
         </button>
-        <button id="view-wysiwyg-btn" class="icon-btn" title="Rich Text (WYSIWYG) View">
+        <button id="view-wysiwyg-btn" class="icon-btn" aria-label="Rich Text (WYSIWYG) View" title="Rich Text (WYSIWYG) View">
           <i class="fas fa-pen-nib"></i>
         </button>
 
         <div class="toolbar-divider"></div>
 
-        <button id="copy-rich-btn" class="icon-btn" title="Copy Rich Text (Formatted HTML + Markdown)">
+        <button id="copy-rich-btn" class="icon-btn" aria-label="Copy Rich Text (Formatted HTML + Markdown)" title="Copy Rich Text (Formatted HTML + Markdown)">
           <i class="fas fa-paste"></i>
         </button>
-        <button id="copy-md-btn" class="icon-btn" title="Copy Raw Markdown">
+        <button id="copy-md-btn" class="icon-btn" aria-label="Copy Raw Markdown" title="Copy Raw Markdown">
           <i class="fas fa-copy"></i>
         </button>
 
         <div class="toolbar-divider"></div>
 
-        <button id="clear-btn" class="icon-btn icon-btn--danger" title="Clear Content">
+        <button id="clear-btn" class="icon-btn icon-btn--danger" aria-label="Clear Content" title="Clear Content">
           <i class="fas fa-trash-alt"></i>
         </button>
       </div>
@@ -547,828 +494,47 @@ author_profile: false
   </div>
 
   <div class="editor-container">
+    <div id="rich-toolbar" role="toolbar" aria-label="Rich text formatting" hidden>
+      <button type="button" class="icon-btn" data-command="bold" aria-label="Bold" title="Bold"><i class="fas fa-bold" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="italic" aria-label="Italic" title="Italic"><i class="fas fa-italic" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="underline" aria-label="Underline" title="Underline"><i class="fas fa-underline" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="strikeThrough" aria-label="Strikethrough" title="Strikethrough"><i class="fas fa-strikethrough" aria-hidden="true"></i></button>
+      <span class="toolbar-divider" aria-hidden="true"></span>
+      <button type="button" class="icon-btn" data-command="formatBlock" data-value="h2" aria-label="Heading" title="Heading"><i class="fas fa-heading" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="formatBlock" data-value="p" aria-label="Paragraph" title="Paragraph"><i class="fas fa-paragraph" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="formatBlock" data-value="blockquote" aria-label="Quote" title="Quote"><i class="fas fa-quote-left" aria-hidden="true"></i></button>
+      <span class="toolbar-divider" aria-hidden="true"></span>
+      <button type="button" class="icon-btn" data-command="insertUnorderedList" aria-label="Bulleted list" title="Bulleted list"><i class="fas fa-list-ul" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="insertOrderedList" aria-label="Numbered list" title="Numbered list"><i class="fas fa-list-ol" aria-hidden="true"></i></button>
+      <span class="toolbar-divider" aria-hidden="true"></span>
+      <button type="button" class="icon-btn" data-command="createLink" aria-label="Insert link" title="Insert link"><i class="fas fa-link" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="insertImage" aria-label="Insert image" title="Insert image"><i class="fas fa-image" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="table" aria-label="Insert table" title="Insert table"><i class="fas fa-table" aria-hidden="true"></i></button>
+      <span class="toolbar-divider" aria-hidden="true"></span>
+      <button type="button" class="icon-btn" data-command="formatBlock" data-value="pre" aria-label="Code block" title="Code block"><i class="fas fa-file-code" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="inlineCode" aria-label="Inline code" title="Inline code"><i class="fas fa-code" aria-hidden="true"></i></button>
+      <span class="toolbar-divider" aria-hidden="true"></span>
+      <button type="button" class="icon-btn" data-command="undo" aria-label="Undo" title="Undo"><i class="fas fa-undo" aria-hidden="true"></i></button>
+      <button type="button" class="icon-btn" data-command="redo" aria-label="Redo" title="Redo"><i class="fas fa-redo" aria-hidden="true"></i></button>
+    </div>
+    <div id="markup-preview" hidden></div>
     <!-- Markdown CodeMirror Editor -->
     <div id="markdown-container">
-      <textarea id="markdown-editor" placeholder="Type Markdown here..."></textarea>
+      <textarea aria-label="Markup source" id="markdown-editor" placeholder="Type Markdown here..."></textarea>
     </div>
 
     <!-- Rich Text WYSIWYG ContentEditable Area -->
     <div id="wysiwyg-container" style="display: none;">
-      <div id="wysiwyg-editor" contenteditable="true" placeholder="Type or paste Rich Text here..."></div>
+      <div id="wysiwyg-editor" contenteditable="true" role="textbox" aria-label="Rich text editor" aria-multiline="true" placeholder="Type or paste Rich Text here..."></div>
     </div>
   </div>
+  <div id="editor-stats" aria-label="Document statistics">
+    <span id="editor-lines" title="Logical lines in source views; displayed text lines in rich text and preview">Lines: 1</span>
+    <span id="editor-words">Words: 0</span>
+    <span id="editor-characters" title="Includes spaces and line breaks">Characters: 0</span>
+    <span id="editor-cursor" aria-label="Cursor line and column" hidden></span>
+  </div>
 </div>
+<p id="editor-message" role="status" aria-live="polite"></p>
 
-<script>
-  (function() {
-    const STORAGE_KEY = 'joplin_editor_content';
-    // Modes: 'edit' | 'preview' | 'wysiwyg' | 'org'
-    let currentMode = 'edit';
-
-    // Default initial sample text if storage empty
-    const defaultContent = `# Joplin Markdown Editor
-
-Welcome to your personal **Joplin-style** editor.
-
-### Features:
-- **Compact Icon Toolbar**: Clean Joplin-style icon layout.
-- **3 View Modes**: Markdown Source, Preview, and Rich Text (WYSIWYG).
-- **Copy Rich Text**: One-click copy formatted text directly into Joplin, Word, or emails.
-- **Auto-Save**: Automatically saves work locally in your browser.
-
-> *Use the icon buttons above to switch views or copy rich text!*
-`;
-
-    // DOM Elements
-    const pasteLanding = document.getElementById('paste-landing');
-    const pasteDropzone = document.getElementById('paste-dropzone');
-    const editorCard = document.getElementById('editor-card');
-    const openEditorBtn = document.getElementById('open-editor-btn');
-    const backToPasteBtn = document.getElementById('back-to-paste-btn');
-
-    const viewEditBtn = document.getElementById('view-edit-btn');
-    const viewPreviewBtn = document.getElementById('view-preview-btn');
-    const viewWysiwygBtn = document.getElementById('view-wysiwyg-btn');
-    const viewOrgBtn = document.getElementById('view-org-btn');
-    const copyRichBtn = document.getElementById('copy-rich-btn');
-    const copyMDBtn = document.getElementById('copy-md-btn');
-    const clearBtn = document.getElementById('clear-btn');
-    const modeBadge = document.getElementById('mode-badge');
-    const markdownContainer = document.getElementById('markdown-container');
-    const wysiwygContainer = document.getElementById('wysiwyg-container');
-    const wysiwygEditor = document.getElementById('wysiwyg-editor');
-    const textarea = document.getElementById('markdown-editor');
-
-    // Show Editor View
-    function showEditorView() {
-      pasteLanding.style.display = 'none';
-      editorCard.style.display = 'flex';
-      easyMDE.codemirror.refresh();
-    }
-
-    // Show Paste Landing View
-    function showPasteLandingView() {
-      editorCard.style.display = 'none';
-      pasteLanding.style.display = 'flex';
-      pasteDropzone.focus();
-    }
-
-    openEditorBtn.addEventListener('click', showEditorView);
-    backToPasteBtn.addEventListener('click', showPasteLandingView);
-
-    // Paste handling inspired by clipboard2markdown
-    function handlePastedData(clipboardData) {
-      let markdown = '';
-      const htmlData = clipboardData.getData('text/html');
-      const textData = clipboardData.getData('text/plain');
-
-      if (htmlData && htmlData.trim()) {
-        markdown = turndownService.turndown(htmlData);
-      } else if (textData && textData.trim()) {
-        markdown = textData;
-      }
-
-      if (markdown) {
-        // If it looks like org-mode text, open directly in the Org view.
-        if (!htmlData && window.OrgConverter && window.OrgConverter.looksLikeOrg(markdown)) {
-          easyMDE.value(window.OrgConverter.orgToMarkdown(markdown));
-          showEditorView();
-          setMode('org');
-          return;
-        }
-        easyMDE.value(markdown);
-        localStorage.setItem(STORAGE_KEY, markdown);
-        showEditorView();
-        setMode('edit');
-      }
-    }
-
-    // Dropzone paste listener & drag/drop listeners
-    pasteDropzone.addEventListener('paste', (e) => {
-      e.preventDefault();
-      if (e.clipboardData) {
-        handlePastedData(e.clipboardData);
-      }
-    });
-
-    // Window-level paste listener when on paste landing page
-    window.addEventListener('paste', (e) => {
-      if (pasteLanding.style.display !== 'none' && e.clipboardData) {
-        handlePastedData(e.clipboardData);
-      }
-    });
-
-    pasteDropzone.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      pasteDropzone.classList.add('dragover');
-    });
-
-    pasteDropzone.addEventListener('dragleave', () => {
-      pasteDropzone.classList.remove('dragover');
-    });
-
-    pasteDropzone.addEventListener('drop', (e) => {
-      e.preventDefault();
-      pasteDropzone.classList.remove('dragover');
-      const htmlData = e.dataTransfer.getData('text/html');
-      const textData = e.dataTransfer.getData('text/plain');
-      handlePastedData(e.dataTransfer);
-    });
-
-    // Load saved content. If a prior session left pure Org-mode text behind
-    // (localStorage should always hold Markdown), convert it back so the
-    // Markdown views never show raw Org syntax.
-    function loadStoredContent() {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) return defaultContent;
-
-      if (window.OrgConverter && window.OrgConverter.looksLikeOrg(stored)) {
-        const repaired = window.OrgConverter.orgToMarkdown(stored);
-        localStorage.setItem(STORAGE_KEY, repaired);
-        return repaired;
-      }
-      return stored;
-    }
-
-    // Initialize EasyMDE CodeMirror Editor
-    const easyMDE = new EasyMDE({
-      element: textarea,
-      initialValue: loadStoredContent(),
-      spellChecker: false,
-      autosave: {
-        enabled: false
-      },
-      status: ["lines", "words", "cursor"],
-      toolbar: [
-        "bold", "italic", "heading", "|",
-        "quote", "unordered-list", "ordered-list", "|",
-        "link", "image", 
-        {
-          name: "table",
-          action: function drawTableCustom(editor) {
-            let pickerContainer = document.getElementById('table-picker-dropdown');
-            if (!pickerContainer) {
-              pickerContainer = document.createElement('div');
-              pickerContainer.id = 'table-picker-dropdown';
-              pickerContainer.className = 'table-picker-dropdown';
-
-              const grid = document.createElement('div');
-              grid.className = 'table-picker-grid';
-
-              const label = document.createElement('div');
-              label.className = 'table-picker-label';
-              label.textContent = '1 x 1';
-
-              const MAX_ROWS = 6;
-              const MAX_COLS = 6;
-
-              for (let r = 1; r <= MAX_ROWS; r++) {
-                for (let c = 1; c <= MAX_COLS; c++) {
-                  const cell = document.createElement('div');
-                  cell.className = 'table-picker-cell';
-                  cell.dataset.row = r;
-                  cell.dataset.col = c;
-
-                  cell.addEventListener('mouseenter', () => {
-                    const selRow = parseInt(cell.dataset.row, 10);
-                    const selCol = parseInt(cell.dataset.col, 10);
-                    label.textContent = `${selCol} x ${selRow}`;
-                    grid.querySelectorAll('.table-picker-cell').forEach(cEl => {
-                      const cRow = parseInt(cEl.dataset.row, 10);
-                      const cCol = parseInt(cEl.dataset.col, 10);
-                      if (cRow <= selRow && cCol <= selCol) {
-                        cEl.classList.add('highlighted');
-                      } else {
-                        cEl.classList.remove('highlighted');
-                      }
-                    });
-                  });
-
-                  cell.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    const rows = parseInt(cell.dataset.row, 10);
-                    const cols = parseInt(cell.dataset.col, 10);
-
-                    let tableMD = "\n";
-                    if (currentMode === 'org') {
-                      let header = "|";
-                      let divider = "|";
-                      for (let colIdx = 1; colIdx <= cols; colIdx++) {
-                        header += ` Header ${colIdx} |`;
-                        divider += "-----------+";
-                      }
-                      divider = divider.slice(0, -1) + "|";
-                      tableMD += header + "\n" + divider + "\n";
-                      for (let rowIdx = 1; rowIdx <= rows; rowIdx++) {
-                        let rowStr = "|";
-                        for (let colIdx = 1; colIdx <= cols; colIdx++) {
-                          rowStr += ` Cell ${rowIdx}.${colIdx} |`;
-                        }
-                        tableMD += rowStr + "\n";
-                      }
-                    } else {
-                      let header = "|";
-                      let divider = "|";
-                      for (let colIdx = 1; colIdx <= cols; colIdx++) {
-                        header += ` Header ${colIdx} |`;
-                        divider += "----------|";
-                      }
-                      tableMD += header + "\n" + divider + "\n";
-
-                      for (let rowIdx = 1; rowIdx <= rows; rowIdx++) {
-                        let rowStr = "|";
-                        for (let colIdx = 1; colIdx <= cols; colIdx++) {
-                          rowStr += ` Cell ${rowIdx}.${colIdx} |`;
-                        }
-                        tableMD += rowStr + "\n";
-                      }
-                    }
-                    tableMD += "\n";
-
-                    if (currentMode === 'wysiwyg') {
-                      const md = getMarkdownFromHTML(wysiwygEditor.innerHTML) + tableMD;
-                      wysiwygEditor.innerHTML = getHTMLFromMarkdown(md);
-                      // Move caret to the end of the rebuilt content
-                      const sel = window.getSelection();
-                      const endRange = document.createRange();
-                      endRange.selectNodeContents(wysiwygEditor);
-                      endRange.collapse(false);
-                      sel.removeAllRanges();
-                      sel.addRange(endRange);
-                      wysiwygEditor.focus();
-                    } else {
-                      editor.codemirror.replaceSelection(tableMD);
-                    }
-
-                    pickerContainer.style.display = 'none';
-                  });
-
-                  grid.appendChild(cell);
-                }
-              }
-
-              pickerContainer.appendChild(grid);
-              pickerContainer.appendChild(label);
-              document.body.appendChild(pickerContainer);
-
-              document.addEventListener('click', (evt) => {
-                const btnEl = getTableToolbarButton();
-                if (!pickerContainer.contains(evt.target) && (!btnEl || !btnEl.contains(evt.target))) {
-                  pickerContainer.style.display = 'none';
-                }
-              });
-
-              // Keep the dropdown anchored on scroll/resize, close on Escape
-              const repositionTablePicker = () => {
-                if (pickerContainer.style.display !== 'flex') return;
-                const btn = getTableToolbarButton();
-                if (!btn) { pickerContainer.style.display = 'none'; return; }
-                const rect = btn.getBoundingClientRect();
-                pickerContainer.style.top = `${rect.bottom + window.scrollY + 4}px`;
-                pickerContainer.style.left = `${rect.left + window.scrollX}px`;
-              };
-              window.addEventListener('scroll', repositionTablePicker, true);
-              window.addEventListener('resize', repositionTablePicker);
-              document.addEventListener('keydown', (evt) => {
-                if (evt.key === 'Escape' && pickerContainer.style.display === 'flex') {
-                  pickerContainer.style.display = 'none';
-                }
-              });
-            }
-
-            if (pickerContainer.style.display === 'flex') {
-              pickerContainer.style.display = 'none';
-            } else {
-              const btnEl = getTableToolbarButton();
-              if (btnEl) {
-                const rect = btnEl.getBoundingClientRect();
-                pickerContainer.style.top = `${rect.bottom + window.scrollY + 4}px`;
-                pickerContainer.style.left = `${rect.left + window.scrollX}px`;
-              }
-              pickerContainer.style.display = 'flex';
-            }
-          },
-          className: "fa fa-table table",
-          title: "Insert Table (Select grid dimensions)"
-        },
-        "code"
-      ]
-    });
-
-    // Initialize Turndown (HTML -> Markdown) with GFM plugin
-    const turndownService = new TurndownService({
-      headingStyle: 'atx',
-      codeBlockStyle: 'fenced'
-    });
-    if (window.turndownPluginGfm) {
-      turndownService.use(window.turndownPluginGfm.gfm);
-    }
-
-    // Save to localStorage on change
-    easyMDE.codemirror.on('change', () => {
-      if (currentMode === 'edit') {
-        localStorage.setItem(STORAGE_KEY, easyMDE.value());
-      } else if (currentMode === 'org') {
-        localStorage.setItem(STORAGE_KEY, window.OrgConverter.orgToMarkdown(easyMDE.value()));
-      }
-    });
-
-    // Persist WYSIWYG edits (debounced) so changes survive even without a mode switch.
-    let wysiwygSaveTimer = null;
-    function scheduleWysiwygSave() {
-      clearTimeout(wysiwygSaveTimer);
-      wysiwygSaveTimer = setTimeout(() => {
-        if (currentMode === 'wysiwyg') {
-          localStorage.setItem(STORAGE_KEY, getMarkdownFromHTML(wysiwygEditor.innerHTML));
-        }
-      }, 800);
-    }
-    wysiwygEditor.addEventListener('input', scheduleWysiwygSave);
-    window.addEventListener('beforeunload', () => {
-      if (currentMode === 'wysiwyg') {
-        clearTimeout(wysiwygSaveTimer);
-        localStorage.setItem(STORAGE_KEY, getMarkdownFromHTML(wysiwygEditor.innerHTML));
-      }
-    });
-
-    // Rich Text (WYSIWYG) Formatting Helper & Shortcut Handler
-    function formatWysiwyg(command, value = null) {
-      document.execCommand(command, false, value);
-      wysiwygEditor.focus();
-    }
-
-    wysiwygEditor.addEventListener('keydown', (e) => {
-      if (e.ctrlKey || e.metaKey) {
-        const key = e.key.toLowerCase();
-        if (key === 'b') {
-          e.preventDefault();
-          formatWysiwyg('bold');
-        } else if (key === 'i') {
-          e.preventDefault();
-          formatWysiwyg('italic');
-        }
-      }
-
-      if (e.key === 'Enter') {
-        const selection = window.getSelection();
-        if (!selection.rangeCount) return;
-        const range = selection.getRangeAt(0);
-        let bq = range.startContainer;
-        while (bq && bq !== wysiwygEditor && bq.nodeName !== 'BLOCKQUOTE') {
-          bq = bq.parentNode;
-        }
-
-        if (bq && bq.nodeName === 'BLOCKQUOTE') {
-          let currentBlock = range.startContainer;
-          if (currentBlock.nodeType === Node.TEXT_NODE) {
-            currentBlock = currentBlock.parentNode;
-          }
-
-          const textContent = currentBlock.textContent.replace(/[\u200B\s]/g, '');
-          if (textContent === '' || (currentBlock === bq && bq.textContent.trim() === '')) {
-            e.preventDefault();
-            
-            if (currentBlock !== bq) {
-              currentBlock.remove();
-            }
-
-            const p = document.createElement('p');
-            p.innerHTML = '<br>';
-            if (bq.nextSibling) {
-              bq.parentNode.insertBefore(p, bq.nextSibling);
-            } else {
-              bq.parentNode.appendChild(p);
-            }
-
-            const newRange = document.createRange();
-            newRange.setStart(p, 0);
-            newRange.collapse(true);
-            selection.removeAllRanges();
-            selection.addRange(newRange);
-          }
-        }
-      }
-    });
-
-    // Intercept toolbar buttons in Rich Text mode so all formatting actions apply cleanly
-    document.addEventListener('mousedown', (e) => {
-      if (currentMode !== 'wysiwyg') return;
-      const target = e.target;
-      const btn = target.closest('.EasyMDEContainer button') || target.closest('.EasyMDEContainer a');
-      if (!btn) return;
-
-      // Prevent button click from taking focus away from WYSIWYG selection
-      e.preventDefault();
-    });
-
-    document.addEventListener('click', (e) => {
-      if (currentMode !== 'wysiwyg') return;
-      const target = e.target;
-      const btn = target.closest('.EasyMDEContainer button') || target.closest('.EasyMDEContainer a');
-      if (!btn) return;
-
-      // Let the table button fall through to EasyMDE's custom action
-      if (btn.querySelector('.fa-table') || target.classList.contains('fa-table')) {
-        return;
-      }
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (btn.classList.contains('bold') || btn.querySelector('.fa-bold') || target.classList.contains('fa-bold')) {
-        formatWysiwyg('bold');
-      } else if (btn.classList.contains('italic') || btn.querySelector('.fa-italic') || target.classList.contains('fa-italic')) {
-        formatWysiwyg('italic');
-      } else if (btn.classList.contains('heading') || btn.querySelector('.fa-header') || btn.querySelector('.fa-heading') || target.classList.contains('fa-header') || target.classList.contains('fa-heading')) {
-        formatWysiwyg('formatBlock', '<h3>');
-      } else if (btn.classList.contains('quote') || btn.querySelector('.fa-quote-left') || target.classList.contains('fa-quote-left')) {
-        const selection = window.getSelection();
-        if (!selection.rangeCount) return;
-        const range = selection.getRangeAt(0);
-        let bq = range.startContainer;
-        while (bq && bq !== wysiwygEditor && bq.nodeName !== 'BLOCKQUOTE') {
-          bq = bq.parentNode;
-        }
-
-        if (bq && bq.nodeName === 'BLOCKQUOTE') {
-          // Find target child line inside blockquote
-          let targetLine = range.startContainer;
-          while (targetLine && targetLine.parentNode !== bq && targetLine !== bq) {
-            targetLine = targetLine.parentNode;
-          }
-
-          if (targetLine && targetLine !== bq) {
-            // Split blockquote into pre-nodes, converted paragraph, post-nodes
-            const beforeBq = document.createElement('blockquote');
-            const afterBq = document.createElement('blockquote');
-            const p = document.createElement('p');
-
-            let current = bq.firstChild;
-            let phase = 'before';
-
-            while (current) {
-              const next = current.nextSibling;
-              if (current === targetLine) {
-                phase = 'after';
-                if (current.nodeType === Node.ELEMENT_NODE && (current.nodeName === 'P' || current.nodeName === 'DIV')) {
-                  p.innerHTML = current.innerHTML;
-                } else {
-                  p.appendChild(current);
-                }
-              } else if (phase === 'before') {
-                beforeBq.appendChild(current);
-              } else {
-                afterBq.appendChild(current);
-              }
-              current = next;
-            }
-
-            const parent = bq.parentNode;
-            if (beforeBq.hasChildNodes()) {
-              parent.insertBefore(beforeBq, bq);
-            }
-            parent.insertBefore(p, bq);
-            if (afterBq.hasChildNodes()) {
-              parent.insertBefore(afterBq, bq);
-            }
-            parent.removeChild(bq);
-
-            // Restore caret inside converted paragraph
-            const newRange = document.createRange();
-            newRange.selectNodeContents(p);
-            newRange.collapse(false);
-            selection.removeAllRanges();
-            selection.addRange(newRange);
-            wysiwygEditor.focus();
-          } else {
-            document.execCommand('formatBlock', false, '<p>');
-            wysiwygEditor.focus();
-          }
-        } else {
-          formatWysiwyg('formatBlock', '<blockquote>');
-        }
-      } else if (btn.classList.contains('unordered-list') || btn.querySelector('.fa-list-ul') || target.classList.contains('fa-list-ul')) {
-        formatWysiwyg('insertUnorderedList');
-      } else if (btn.classList.contains('ordered-list') || btn.querySelector('.fa-list-ol') || target.classList.contains('fa-list-ol')) {
-        formatWysiwyg('insertOrderedList');
-      } else if (btn.classList.contains('link') || btn.querySelector('.fa-link') || target.classList.contains('fa-link')) {
-        const url = prompt('Enter link URL:', 'https://');
-        if (url) formatWysiwyg('createLink', url);
-      } else if (btn.querySelector('.fa-picture-o') || btn.querySelector('.fa-image') || target.classList.contains('fa-picture-o') || target.classList.contains('fa-image')) {
-        const url = prompt('Enter image URL:', 'https://');
-        if (url) formatWysiwyg('insertImage', url);
-      } else if (btn.querySelector('.fa-code') || target.classList.contains('fa-code')) {
-        wrapSelectionInline('code');
-      }
-    }, true);
-
-    // Resolve the EasyMDE "Insert Table" toolbar button
-    function getTableToolbarButton() {
-      const icon = document.querySelector('.EasyMDEContainer .fa-table');
-      return icon ? (icon.closest('button') || icon) : null;
-    }
-
-    // Wrap current WYSIWYG selection in inline tag
-    function wrapSelectionInline(tagName) {
-      const sel = window.getSelection();
-      if (!sel || !sel.rangeCount) { wysiwygEditor.focus(); return; }
-      const range = sel.getRangeAt(0);
-      const el = document.createElement(tagName);
-      try {
-        if (range.collapsed) {
-          range.insertNode(el);
-          const caret = document.createRange();
-          caret.selectNodeContents(el);
-          caret.collapse(true);
-          sel.removeAllRanges();
-          sel.addRange(caret);
-        } else {
-          range.surroundContents(el);
-        }
-      } catch (err) {
-        const fragment = range.extractContents();
-        el.appendChild(fragment);
-        range.insertNode(el);
-      }
-      wysiwygEditor.focus();
-    }
-
-    function getHTMLFromMarkdown(mdText) {
-      if (window.marked) {
-        return window.marked.parse(mdText);
-      }
-      return mdText;
-    }
-
-    function getMarkdownFromHTML(htmlText) {
-      return turndownService.turndown(htmlText);
-    }
-
-    // View Switching logic
-    function setMode(newMode) {
-      const cm = easyMDE.codemirror;
-
-      // Leaving WYSIWYG: convert rich text back to markdown.
-      if (currentMode === 'wysiwyg') {
-        const md = getMarkdownFromHTML(wysiwygEditor.innerHTML);
-        easyMDE.value(md);
-      }
-
-      // Mode conversion between Markdown and Org source views.
-      if (currentMode === 'org' && newMode !== 'org') {
-        easyMDE.value(window.OrgConverter.orgToMarkdown(easyMDE.value()));
-      } else if (currentMode !== 'org' && newMode === 'org') {
-        easyMDE.value(window.OrgConverter.markdownToOrg(easyMDE.value()));
-      }
-
-      if (newMode !== 'org') {
-        localStorage.setItem(STORAGE_KEY, easyMDE.value());
-      } else {
-        localStorage.setItem(STORAGE_KEY, window.OrgConverter.orgToMarkdown(easyMDE.value()));
-      }
-
-      currentMode = newMode;
-
-      [viewEditBtn, viewPreviewBtn, viewWysiwygBtn, viewOrgBtn].forEach(b => b.classList.remove('active'));
-
-      const codeMirrorEl = markdownContainer.querySelector('.CodeMirror');
-      const statusBarEl = markdownContainer.querySelector('.editor-statusbar');
-
-      if (newMode === 'edit') {
-        viewEditBtn.classList.add('active');
-        modeBadge.textContent = 'MODE: EDIT';
-
-        if (easyMDE.isPreviewActive()) {
-          easyMDE.togglePreview();
-        }
-
-        cm.getWrapperElement().classList.remove('cm-s-org');
-        const container = markdownContainer.closest('.EasyMDEContainer');
-        if (container) container.classList.remove('org-mode');
-        wysiwygContainer.style.display = 'none';
-        markdownContainer.style.display = 'block';
-        if (codeMirrorEl) codeMirrorEl.style.display = 'block';
-        if (statusBarEl) statusBarEl.style.display = '';
-        cm.refresh();
-      } 
-      else if (newMode === 'preview') {
-        viewPreviewBtn.classList.add('active');
-        modeBadge.textContent = 'MODE: PREVIEW';
-
-        cm.getWrapperElement().classList.remove('cm-s-org');
-        const container = markdownContainer.closest('.EasyMDEContainer');
-        if (container) container.classList.remove('org-mode');
-        wysiwygContainer.style.display = 'none';
-        markdownContainer.style.display = 'block';
-        if (codeMirrorEl) codeMirrorEl.style.display = 'block';
-        if (statusBarEl) statusBarEl.style.display = '';
-
-        if (!easyMDE.isPreviewActive()) {
-          easyMDE.togglePreview();
-        }
-      } 
-      else if (newMode === 'wysiwyg') {
-        viewWysiwygBtn.classList.add('active');
-        modeBadge.textContent = 'MODE: RICH TEXT';
-
-        if (easyMDE.isPreviewActive()) {
-          easyMDE.togglePreview();
-        }
-
-        cm.getWrapperElement().classList.remove('cm-s-org');
-        const container = markdownContainer.closest('.EasyMDEContainer');
-        if (container) container.classList.remove('org-mode');
-        const currentMD = easyMDE.value();
-        wysiwygEditor.innerHTML = getHTMLFromMarkdown(currentMD);
-
-        markdownContainer.style.display = 'block';
-        if (codeMirrorEl) codeMirrorEl.style.display = 'none';
-        if (statusBarEl) statusBarEl.style.display = 'none';
-        wysiwygContainer.style.display = 'block';
-      }
-      else if (newMode === 'org') {
-        viewOrgBtn.classList.add('active');
-        modeBadge.textContent = 'MODE: ORG';
-
-        if (easyMDE.isPreviewActive()) {
-          easyMDE.togglePreview();
-        }
-
-        cm.getWrapperElement().classList.add('cm-s-org');
-        const container = markdownContainer.closest('.EasyMDEContainer');
-        if (container) container.classList.add('org-mode');
-        wysiwygContainer.style.display = 'none';
-        markdownContainer.style.display = 'block';
-        if (codeMirrorEl) codeMirrorEl.style.display = 'block';
-        if (statusBarEl) statusBarEl.style.display = '';
-        cm.refresh();
-      }
-    }
-
-    viewEditBtn.addEventListener('click', () => setMode('edit'));
-    viewPreviewBtn.addEventListener('click', () => setMode('preview'));
-    viewWysiwygBtn.addEventListener('click', () => setMode('wysiwyg'));
-    viewOrgBtn.addEventListener('click', () => setMode('org'));
-
-    // Copy Rich Text
-    copyRichBtn.addEventListener('click', () => {
-      let mdText = currentMode === 'wysiwyg' ? getMarkdownFromHTML(wysiwygEditor.innerHTML)
-        : currentMode === 'org' ? window.OrgConverter.orgToMarkdown(easyMDE.value())
-        : easyMDE.value();
-      let htmlText = currentMode === 'wysiwyg' ? wysiwygEditor.innerHTML : getHTMLFromMarkdown(mdText);
-
-      if (navigator.clipboard && window.ClipboardItem) {
-        const htmlBlob = new Blob([htmlText], { type: 'text/html' });
-        const textBlob = new Blob([mdText], { type: 'text/plain' });
-        const clipboardItem = new ClipboardItem({
-          'text/html': htmlBlob,
-          'text/plain': textBlob
-        });
-
-        navigator.clipboard.write([clipboardItem]).then(() => {
-          showCopiedIcon(copyRichBtn);
-        }).catch(err => {
-          console.error('Clipboard copy failed:', err);
-        });
-      } else {
-        const listener = function(e) {
-          e.clipboardData.setData('text/html', htmlText);
-          e.clipboardData.setData('text/plain', mdText);
-          e.preventDefault();
-        };
-        document.addEventListener('copy', listener);
-        document.execCommand('copy');
-        document.removeEventListener('copy', listener);
-        showCopiedIcon(copyRichBtn);
-      }
-    });
-
-    // Copy Raw Source (Markdown, or Org when in Org mode)
-    copyMDBtn.addEventListener('click', () => {
-      let mdText = currentMode === 'wysiwyg' ? getMarkdownFromHTML(wysiwygEditor.innerHTML) : easyMDE.value();
-      navigator.clipboard.writeText(mdText).then(() => {
-        showCopiedIcon(copyMDBtn);
-      });
-    });
-
-    // Clear Content
-    clearBtn.addEventListener('click', () => {
-      clearTimeout(wysiwygSaveTimer);
-      easyMDE.value('');
-      wysiwygEditor.innerHTML = '';
-      localStorage.removeItem(STORAGE_KEY);
-      if (currentMode === 'org') {
-        setMode('edit');
-      }
-    });
-
-    function showCopiedIcon(btn) {
-      btn.classList.add('copied');
-      const icon = btn.querySelector('i');
-      const prevClass = icon.className;
-      icon.className = 'fas fa-check';
-      setTimeout(() => {
-        btn.classList.remove('copied');
-        icon.className = prevClass;
-      }, 2000);
-    }
-
-    // Track Ctrl/Cmd key state for pointer cursors
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Control' || e.key === 'Meta') {
-        document.body.classList.add('ctrl-pressed');
-      }
-    });
-
-    window.addEventListener('keyup', (e) => {
-      if (e.key === 'Control' || e.key === 'Meta') {
-        document.body.classList.remove('ctrl-pressed');
-      }
-    });
-
-    window.addEventListener('blur', () => {
-      document.body.classList.remove('ctrl-pressed');
-    });
-
-    // Extract URL from CodeMirror token or line text at character position
-    function getUrlAtCmPos(cm, pos) {
-      const lineText = cm.getLine(pos.line);
-      if (!lineText) return null;
-
-      const token = cm.getTokenAt(pos);
-
-      // Check token first
-      if (token && token.string) {
-        const cleanTokenStr = token.string.replace(/^[\(\<\[]+|[\)\>\]]+$/g, '').trim();
-        if (cleanTokenStr.startsWith('http://') || cleanTokenStr.startsWith('https://') || cleanTokenStr.startsWith('mailto:')) {
-          return cleanTokenStr;
-        }
-      }
-
-      // Check Markdown link format [text](url) on line
-      const mdLinkRegex = /\[([^\]]*)\]\(([^)]+)\)/g;
-      let match;
-      while ((match = mdLinkRegex.exec(lineText)) !== null) {
-        const start = match.index;
-        const end = start + match[0].length;
-        if (pos.ch >= start && pos.ch <= end) {
-          return match[2].trim();
-        }
-      }
-
-      // Check raw URLs on line
-      const rawUrlRegex = /(https?:\/\/[^\s\)\>\]]+)/g;
-      while ((match = rawUrlRegex.exec(lineText)) !== null) {
-        const start = match.index;
-        const end = start + match[0].length;
-        if (pos.ch >= start && pos.ch <= end) {
-          return match[1].replace(/[\)\>\,\.]+$|^\(/g, '').trim();
-        }
-      }
-
-      return null;
-    }
-
-    // Ctrl+Click / Cmd+Click link handling across Edit, Preview, and Rich Text modes
-    document.addEventListener('click', (e) => {
-      const isModifierPressed = e.ctrlKey || e.metaKey;
-      const link = e.target.closest('a');
-
-      if (link) {
-        const href = link.getAttribute('href');
-        if (isModifierPressed) {
-          if (href && href !== '#' && !href.startsWith('javascript:')) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.open(href, '_blank', 'noopener,noreferrer');
-          }
-        } else if (link.closest('#wysiwyg-editor') || link.closest('.editor-preview') || link.closest('.editor-preview-side')) {
-          // Prevent accidental navigation in preview/rich-text without Ctrl/Cmd
-          e.preventDefault();
-        }
-        return;
-      }
-
-      if (isModifierPressed && (currentMode === 'edit' || currentMode === 'org')) {
-        const cm = easyMDE.codemirror;
-        const cmWrapper = cm.getWrapperElement();
-        if (!cmWrapper.contains(e.target)) return;
-
-        // Use CodeMirror native coordsChar to find exact position under mouse
-        const pos = cm.coordsChar({ left: e.clientX, top: e.clientY }, 'window');
-        const targetUrl = getUrlAtCmPos(cm, pos);
-
-        if (targetUrl) {
-          e.preventDefault();
-          e.stopPropagation();
-          let finalUrl = targetUrl;
-          if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://') && !finalUrl.startsWith('mailto:')) {
-            finalUrl = 'https://' + finalUrl;
-          }
-          window.open(finalUrl, '_blank', 'noopener,noreferrer');
-        }
-      }
-    }, true);
-  })();
-</script>
+<script src="{{ '/assets/js/markup-editor.js' | relative_url }}"></script>
