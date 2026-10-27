@@ -896,7 +896,8 @@ permalink: /hype/
       { value: 'xyz:UNITREE', label: 'Unitree', searchTokens: ['unitree'] },
       { value: 'xyz:SHEIN', label: 'Shein', searchTokens: ['shein'] },
       { value: 'xyz:SPCX', label: 'SpaceX', searchTokens: ['spacex', 'spcx'] },
-      { value: 'xyz:CBRS', label: 'Cerebras', searchTokens: ['cerebras', 'cbrs'] }
+      { value: 'xyz:CBRS', label: 'Cerebras', searchTokens: ['cerebras', 'cbrs'] },
+      { value: 'io:ANTH', label: 'Anthropic', searchTokens: ['anthropic', 'anth'] }
     ];
 
     async function fetchData() {
@@ -915,11 +916,11 @@ permalink: /hype/
       const tickers = tickersInput.split(',').map(t => {
         t = t.trim();
         
-        // Attempt to match custom tickers by name or symbol if user manually typed it without the xyz: prefix
+        // Match custom tickers by name or symbol when typed without a DEX prefix
         const lowerT = t.toLowerCase();
         const customMatch = CUSTOM_TICKERS.find(c => 
           c.value.toLowerCase() === lowerT || 
-          c.value.toLowerCase() === `xyz:${lowerT}` ||
+          c.value.split(':').pop().toLowerCase() === lowerT ||
           c.label.toLowerCase() === lowerT
         );
         if (customMatch) {
