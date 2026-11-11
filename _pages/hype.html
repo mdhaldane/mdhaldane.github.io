@@ -897,7 +897,10 @@ permalink: /hype/
       { value: 'xyz:SHEIN', label: 'Shein', searchTokens: ['shein'] },
       { value: 'xyz:SPCX', label: 'SpaceX', searchTokens: ['spacex', 'spcx'] },
       { value: 'xyz:CBRS', label: 'Cerebras', searchTokens: ['cerebras', 'cbrs'] },
-      { value: 'io:ANTH', label: 'Anthropic', searchTokens: ['anthropic', 'anth'] }
+      { value: 'xyz:ANT', label: 'Anthropic (Trade.xyz - per-share)', searchTokens: ['anthropic', 'ant', 'trade.xyz'] },
+      { value: 'io:ANTH', label: 'Anthropic (Entropy - valuation)', aliases: ['Anthropic'], searchTokens: ['anthropic', 'anth', 'entropy'] },
+      { value: 'para:ANTH', label: 'Anthropic (Paragon)', searchTokens: ['anthropic', 'anth', 'paragon'] },
+      { value: 'vntl:ANTHROPIC', label: 'Anthropic (Ventuals - delisted)', searchTokens: ['anthropic', 'ventuals'] }
     ];
 
     async function fetchData() {
@@ -921,7 +924,8 @@ permalink: /hype/
         const customMatch = CUSTOM_TICKERS.find(c => 
           c.value.toLowerCase() === lowerT || 
           c.value.split(':').pop().toLowerCase() === lowerT ||
-          c.label.toLowerCase() === lowerT
+          c.label.toLowerCase() === lowerT ||
+          (c.aliases || []).some(alias => alias.toLowerCase() === lowerT)
         );
         if (customMatch) {
           return customMatch.value;
