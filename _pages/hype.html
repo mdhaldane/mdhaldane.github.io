@@ -747,6 +747,8 @@ permalink: /hype/
       document.getElementById('start-date-label').innerText = `Start Date & Time (${tzLabel})`;
       document.getElementById('end-date-label').innerText = `End Date & Time (${tzLabel})`;
 
+      updateChartTimezone();
+
       if (marketData && Object.keys(marketData).length > 0) {
         updateStats();
         renderTable();
@@ -1045,7 +1047,7 @@ permalink: /hype/
         btn.classList.toggle('active', btn.innerText === ticker);
       });
 
-      document.getElementById('chart-title').innerText = `${activeTicker} - ${document.getElementById('interval-select').value}`;
+      updateChartTitle();
 
       updateStats();
       updateChart();
@@ -1161,6 +1163,44 @@ permalink: /hype/
     }
 
     /* TradingView Chart */
+    function updateChartTitle() {
+      const title = activeTicker
+        ? `${activeTicker} - ${document.getElementById('interval-select').value}`
+        : 'Chart';
+      document.getElementById('chart-title').innerText = `${title} (${getTimezoneShortLabel()})`;
+    }
+
+    function updateChartTimezone() {
+      if (!chart) return;
+
+      const tz = getTimezoneValue();
+      const timeZone = tz === 'local' ? undefined : tz;
+      const { TickMarkType } = LightweightCharts;
+      // Cache formatters for this zone; don't shift candle timestamps (especially across DST).
+      const tickFormats = new Map([
+        [TickMarkType.Year, { year: 'numeric' }],
+        [TickMarkType.Month, { month: 'short' }],
+        [TickMarkType.DayOfMonth, { day: '2-digit' }],
+        [TickMarkType.Time, { hour: '2-digit', minute: '2-digit' }],
+        [TickMarkType.TimeWithSeconds, { hour: '2-digit', minute: '2-digit', second: '2-digit' }]
+      ].map(([type, options]) => [type, new Intl.DateTimeFormat('en-GB', {
+        ...options, timeZone, hourCycle: 'h23'
+      })]));
+
+      chart.applyOptions({
+        localization: {
+          timeFormatter: time => `${formatTimestamp(time * 1000, false)} (${getTimezoneShortLabel()})`
+        },
+        timeScale: {
+          tickMarkFormatter: (time, type) => {
+            const formatter = tickFormats.get(type) || tickFormats.get(TickMarkType.Time);
+            return formatter.format(new Date(time * 1000));
+          }
+        }
+      });
+      updateChartTitle();
+    }
+
     function initChart() {
       const chartElem = document.getElementById('chart-element');
       chart = LightweightCharts.createChart(chartElem, {
@@ -1212,6 +1252,8 @@ permalink: /hype/
         lineWidth: 2,
         visible: false,
       });
+
+      updateChartTimezone();
     }
 
     function updateChart() {
